@@ -1,0 +1,78 @@
+<div class="container">
+    <div
+            class="product-recommendations"
+            data-product-id="{{ product.id }}"
+            data-limit="4"
+    >
+        {%- if recommendations.products_count > 0 -%}
+            <h4 class="recommendations__title">Покупці, які переглядали цей товар, також цікавляться</h4>
+            <ul class="row">
+                {%- for product in recommendations.products -%}
+                    <li class="col-lg-4 col-md-4 col-sm-4 product-recommendations">
+                        <a href="{{ product.url }}" class="js-gtm-product-click" data-id="{{ product.id }}">
+                            <img
+                                    class="product__img"
+                                    src="{{ product.featured_image | img_url: '300x300' }}"
+                                    alt="{{ product.featured_image.alt }}"
+                            />
+                            <h4 class="product__title">{{ product.title }}</h4>
+                            <p class="product__price">{{ product.price | money }}</p>
+                        </a>
+                        {% assign product_category = product.collections| first %}
+                        <script type="application/json" class="js-gtm-recommendation-product">{
+                                "name": {{ product.title | json }},
+                                "id": {{ product.selected_or_first_available_variant.sku  | json }},
+                                "innerID": {{ product.id | json}},
+                                "price": {{ product.selected_or_first_available_variant.price  | divided_by: 100.00 | json }},
+                                "brand": {{ product.vendor | json }},
+                                "category": {{ product_category.title | json }},
+                                "variant": {{ product.selected_or_first_available_variant.title  | json }}
+                            }</script>
+                    </li>
+                {%- endfor -%}
+            </ul>
+        {%- endif -%}
+    </div>
+</div>
+
+{{ 'recommendations.scss.css' | asset_url | stylesheet_tag }}
+
+   {% javascript %}
+       var loadProductRecommendationsIntoSection = function() {
+       // Look for an element with class 'product-recommendations'
+       var productRecommendationsSection = document.querySelector(".product-recommendations");
+       if (productRecommendationsSection === null) { return; }
+       // Read product id from data attribute
+       var productId = productRecommendationsSection.dataset.productId;
+       // Read limit from data attribute
+       var limit = productRecommendationsSection.dataset.limit;
+       // Build request URL
+       var requestUrl = "/recommendations/products?section_id=product-recommendations&limit="+limit+"&product_id="+productId;
+       // Create request and submit it using Ajax
+       var request = new XMLHttpRequest();
+       request.open("GET", requestUrl);
+       request.onload = function() {
+       if (request.status >= 200 && request.status < 300) {
+       var container = document.createElement("div");
+       container.innerHTML = request.response;
+       productRecommendationsSection.parentElement.innerHTML = container.querySelector(".product-recommendations").innerHTML;
+       window.GTMcollection.runCollection('cross-selling');
+       }
+       };
+       request.send();
+       };
+
+
+       // If your section has theme settings, the theme editor
+       // reloads the section as you edit those settings. When that happens, the
+       // recommendations need to be fetched again.
+       // See https://help.shopify.com/en/themes/development/sections/integration-with-theme-editor
+       document.addEventListener("shopify:section:load", function(event) {
+       if (event.detail.sectionId === "product-recommendations") {
+       loadProductRecommendationsIntoSection();
+       }
+       });
+       // Fetching the recommendations on page load
+       loadProductRecommendationsIntoSection();
+
+   {% endjavascript %}

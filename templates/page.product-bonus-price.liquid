@@ -1,0 +1,10 @@
+{% comment %}
+
+    Редактировать осторожно, не допускать лишних пробелов на выход
+    (хоть для json может и не страшно)
+
+{% endcomment %}{%
+    layout none
+%}{% capture productPriceJs %}{% render '_product_bonus_price_js' %}{% endcapture %}{%
+    assign productPriceJs = productPriceJs | strip
+%}{{ productPriceJs }}

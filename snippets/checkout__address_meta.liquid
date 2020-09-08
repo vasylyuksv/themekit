@@ -1,0 +1,292 @@
+<script src="{{ 'jquery.inputmask.bundle.min.js' | asset_url }}" defer></script>
+<script src="{{ 'checkout__address_meta__storage.js' | asset_url }}" defer></script>
+<script src="{{ 'checkout__address_meta__form.js' | asset_url }}" defer></script>
+<script src="{{ 'checkout__address_meta__thankyou.js' | asset_url }}" defer></script>
+<script src="{{ 'checkout__ipost.js' | asset_url }}" defer></script>
+<script src="{{ 'checkout__bonus_price.js' | asset_url }}" defer></script>
+<script src="{{ 'checkout__skip_step.js' | asset_url }}" defer></script>
+<script src="{{ 'jquery-ui.js' | asset_url }}" defer></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIToibsre0LnCpLoNFDOkW2ixnT4R-Jlk&libraries=places,geometry&language=uk&region=UA&cr=ua"></script>
+<link rel="stylesheet" href="{{ 'jquery-ui.css' | asset_url }}" />
+<link rel="stylesheet" href="{{ 'checkout__styles.css' | asset_url }}" />
+
+<script type="text/xhtml-template" id="npAddressFormTmpl">
+    <div class="field field--required">
+        <div>
+            <div class="radio-wrapper">
+                <div class="radio__input">
+                    <input class="input-radio"
+                           type="radio"
+                           value="address"
+                           name="np_delivery_type"
+                           id="np_delivery_type_address"
+                           checked="checked">
+                </div>
+                <label class="radio__label" aria-hidden="true" for="np_delivery_type_address">
+                <span class="radio__label__primary">
+                  Кур'єром Нової Пошти за адресою
+                </span>
+                </label>
+            </div>
+
+            <div class="radio-wrapper">
+                <div class="radio__input">
+                    <input class="input-radio"
+                           type="radio"
+                           value="department"
+                           name="np_delivery_type"
+                           id="np_delivery_type_department">
+                </div>
+                <label class="radio__label" aria-hidden="true" for="np_delivery_type_department">
+                <span class="radio__label__primary">
+                  До відділення Нової Пошти
+                </span>
+                </label>
+            </div>
+
+            <div class="radio-wrapper">
+                <div class="radio__input">
+                    <input class="input-radio"
+                           type="radio"
+                           value="ipost"
+                           name="np_delivery_type"
+                           id="np_delivery_type_ipost">
+                </div>
+                <label class="radio__label" aria-hidden="true" for="np_delivery_type_ipost">
+                <span class="radio__label__primary">
+                  Експрес доставка iPost
+                </span>
+                </label>
+            </div>
+
+            <p class="field__message field__message--error" id="np_delivery_type_error"></p>
+        </div>
+    </div>
+
+    <div class="field order-summary__section--total-lines" id="npPaySummaryInfo">
+        <table class="total-line-table">
+            <tbody class="total-line-table__tbody">
+            <tr class="total-line total-line--subtotal">
+                <td style="text-align:left;">
+                    Доставка замовлень на суму до 499 гривень – за тарифами Нової Пошти.<br />
+                    Доставка замовлень на суму від 499 гривень – безкоштовна.<br />
+                    <a href="https://myglo.com.ua/pages/ugoda-z-korystuvachem#delivery" target="_blank">Детальніше</a> про умови доставки.
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="field field--required ">
+        <div class="field__input-wrapper">
+            <label class="field__label field__label--visible" for="np_city">Населенный пункт</label>
+            <input placeholder="Населенный пункт" autocorrect="off" autocomplete="off" aria-required="true" class="field__input" type="text" name="np_city" id="np_city" />
+        </div>
+        <p class="field__message field__message--error" id="np_city_error"></p>
+    </div>
+
+    <div id="addressBlock" style="width:100%;">
+
+        <div class="field field--required field--show-floating-label">
+            <div class="field__input-wrapper">
+                <label class="field__label field__label--visible" for="np_street">Вулиця</label>
+                <input placeholder="Вулиця" autocorrect="off" autocomplete="off" aria-required="true" class="field__input" type="text" name="np_street" id="np_street" />
+            </div>
+            <p class="field__message field__message--error" id="np_street_error"></p>
+        </div>
+
+        <div class="field field--required field--show-floating-label">
+            <div class="field__input-wrapper">
+                <label class="field__label field__label--visible" for="np_building">Будинок</label>
+                <input placeholder="Будинок" autocorrect="off" autocomplete="off" aria-required="true" class="field__input" type="text" name="np_building" id="np_building" />
+            </div>
+            <p class="field__message field__message--error" id="np_building_error"></p>
+        </div>
+
+        <div class="field field--required field--show-floating-label">
+            <div class="field__input-wrapper">
+                <label class="field__label field__label--visible" for="np_flat">Квартира</label>
+                <input placeholder="Квартира" autocorrect="off" autocomplete="off" aria-required="true" class="field__input" type="text" name="np_flat" id="np_flat" />
+            </div>
+            <p class="field__message field__message--error" id="np_flat_error"></p>
+        </div>
+
+    </div>
+
+    <div id="departmentBlock" style="width:100%;">
+
+        <div class="field field--required field--show-floating-label">
+            <div class="field__input-wrapper">
+                <label class="field__label field__label--visible" for="np_department">Номер відділення (число)</label>
+                <input placeholder="Номер відділення (число)" autocorrect="off" autocomplete="off" aria-required="true" class="field__input" type="text" name="np_department" id="np_department" />
+            </div>
+            <p class="field__message field__message--error" id="np_department_error"></p>
+        </div>
+    </div>
+
+    <div id="ipostBlock" style="width:100%;" class="ipost-block">
+        <div data-id="inputs" class="dn">
+            <div class="field field--required field--show-floating-label">
+                <div class="field__input-wrapper">
+                    <label class="field__label field__label--visible" for="ipost_city">Місто</label>
+                    <select id="ipost_city" name="ipost_city" class="field__input">
+                        <option></option>
+                    </select>
+                </div>
+                <p class="field__message field__message--error" id="ipost_city_error"></p>
+            </div>
+
+            <div class="field field--required field--show-floating-label">
+                <div class="field__input-wrapper">
+                    <label class="field__label field__label--visible" for="ipost_street">Вулиця</label>
+                    <input placeholder="Вулиця" autocorrect="off" autocomplete="off" aria-required="true" class="field__input" type="text" name="ipost_street" id="ipost_street" />
+                    <div class="small-hint">Приклад: вулиця Володимирська, 36, Київ</div>
+                </div>
+                <p class="field__message field__message--error" id="ipost_street_error"></p>
+            </div>
+
+            <div class="field field--required field--show-floating-label">
+                <div class="field__input-wrapper">
+                    <label class="field__label field__label--visible" for="ipost_flat">Кв/офіс</label>
+                    <input placeholder="Кв/офіс" autocorrect="off" autocomplete="off" aria-required="true" class="field__input" type="text" name="ipost_flat" id="ipost_flat" />
+                    <div class="small-hint">Приклад: "4a" або просто цифра "4"</div>
+                </div>
+                <p class="field__message field__message--error" id="ipost_flat_error"></p>
+            </div>
+
+            <div class="field field--required field--show-floating-label">
+                <div class="is_rules_wrapper checkbox-wrapper" style="margin-top: 14px; display: block;">
+                    <div class="checkbox__input">
+                        <input class="input-checkbox" type="checkbox" value="1" id="ipost_chose_delivery_time">
+                    </div>
+                    <label class="checkbox__label" for="ipost_chose_delivery_time">Обрати час доставки</label>
+                </div>
+            </div>
+
+            <div class="field field--required field--third field--show-floating-label">
+                <div class="field__input-wrapper">
+                    <label class="field__label field__label--visible" for="ipost_delivery_date">Дата доставки</label>
+                    <select id="ipost_delivery_date" name="ipost_delivery_date" class="field__input">
+                        <option></option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="field field--required field--third field--show-floating-label">
+                <div class="field__input-wrapper">
+                    <label class="field__label field__label--visible" for="ipost_delivery_time_from">Час з</label>
+                    <select id="ipost_delivery_time_from" name="ipost_delivery_time_from" class="field__input">
+                        <option></option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="field field--required field--third field--show-floating-label">
+                <div class="field__input-wrapper">
+                    <label class="field__label field__label--visible" for="ipost_delivery_time_to">Час по</label>
+                    <select id="ipost_delivery_time_to" name="ipost_delivery_time_to" class="field__input">
+                        <option></option>
+                    </select>
+                </div>
+            </div>
+            <p class="field__message field__message--error date-error" id="ipost_delivery_date_error"></p>
+
+            <div class="field field--required field--show-floating-label">
+                <div class="field__input-wrapper">
+                    <label class="field__label field__label--visible" for="ipost_comment">Додатковий коментар</label>
+                    <textarea id="ipost_comment" name="ipost_comment" autocomplete="off" aria-required="true" class="field__input"></textarea>
+                </div>
+            </div>
+
+            <input type="hidden" name="ipost-delivery-address" id="ipost-delivery-address" value="" />
+        </div>
+        <div data-id="preload" class="ipost-preload-wrap">
+            <img src="{{ 'loading2.gif' | asset_url }}" data-preload />
+        </div>
+        <div data-id="error" class="ipost-setting-error dn">
+            <div class="small-hint">Помилка, не вдалося завантажити налаштування</div>
+            <a href="#" data-id="reload_btn">Завантажити ще раз</a>
+        </div>
+
+    </div>
+
+    <div id="changeHtml"></div>
+
+</script>
+
+<script type="text/xhtml-template" id="noCallbackTmpl">
+    <div class="field field--required">
+        <div class="checkbox-wrapper">
+            <div class="checkbox__input">
+                <input class="input-checkbox" type="checkbox" value="1" name="np_no_callback" id="np_no_callback" checked="checked">
+            </div>
+            <label class="checkbox__label" for="np_no_callback">
+                Не передзвонювати для підтвердження замовлення
+            </label>
+        </div>
+    </div>
+</script>
+
+
+<div class="step-preloader" id="stepPreload">
+    <svg class="preloader__image" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+        <path fill="currentColor"
+              d="M304 48c0 26.51-21.49 48-48 48s-48-21.49-48-48 21.49-48 48-48 48 21.49 48 48zm-48 368c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm208-208c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zM96 256c0-26.51-21.49-48-48-48S0 229.49 0 256s21.49 48 48 48 48-21.49 48-48zm12.922 99.078c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.491-48-48-48zm294.156 0c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.49-48-48-48zM108.922 60.922c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.491-48-48-48z">
+        </path>
+    </svg>
+</div>
+
+
+<script type="text/xhtml-template" id="bonusInfoThanksPageTmpl">
+    <div style="text-align: center;margin:0 20px;font-weight:bold;">
+        Як тільки отримаєш своє замовлення, тобі будуть нараховані бонуси.<br />
+        Кожна витрачена гривня = 4 бонуси.<br />
+        <a href="/account" style="font-weight: bold;text-decoration: underline">Детальніше у особистому кабінеті glo Bonus Club</a>
+    </div>
+</script>
+
+
+
+<script>
+    var customerTags = [];
+    {% for tag in customer.tags %}
+    customerTags.push('{{ tag }}');
+    {% endfor %}
+
+    var CheckoutConf = {
+        tagAgeVerified: ['age_verified', 'age verified'],
+        customerTags: customerTags,
+        shopName: 'mygloshop-dev.myshopify.com',
+        customerId: '{{ customer.id}}',
+        customerEmail: {{ customer.email | json }},
+        url: {
+            getNpCity: 'https://np.myglo.com.ua/auto_ttn/npaddress/city',
+            getNpStreet: 'https://np.myglo.com.ua/auto_ttn/npaddress/street',
+            getNpDepartment: 'https://np.myglo.com.ua/auto_ttn/npaddress/department',
+            setCheckout: 'https://np.dev.myglo.com.ua/auto_ttn/checkout/checkout',
+			processCpa: 'https://api.myglo.com.ua/cpa/cpa'
+        },
+        msg: {
+            required: 'Необхідно заповнити поле',
+            mustBeInteger: 'Повинно бути числом',
+            mustBeGreaterZero: 'Повинно бути більше нуля',
+            incorrectPhone: 'Невірно введено номер телефону',
+            bonuses: 'бонуси (-ів)',
+            streetWithHouse: 'Необхідно вказати номер будинку разом з вулицею'
+        },
+        ipost: {
+            TAG_ALLOW_IPOST: 'allow_ipost',
+            url: {
+                conf: 'https://api.myglo.com.ua/api/ipost/get-conf',
+                checkout: 'https://ipost-dev.myglo.com.ua/ipost/checkout/set'
+            },
+            order_amount: {
+                min: 499,
+                max: 2000
+            }
+        },
+        payment: {
+            liqpayId: '18940788824'
+        }
+    }
+</script>

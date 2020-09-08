@@ -1,0 +1,51 @@
+{% if variant.metafields.additional.additional-title == blank %}
+    {% assign variant_title = variant.title %}
+{% else %}
+    {% assign variant_title = variant.metafields.additional.additional-title %}
+{% endif %}
+
+{% capture bounusesEnough %}{% render '_is_bonuses_enough', variant: variant, product: product %}{% endcapture %}
+
+{% if bounusesEnough == 'false' %}
+    {% assign allowBuy = false %}
+{% else %}
+    {% assign allowBuy = true %}
+{% endif %}
+
+{% if variant.available %}
+    <div class="lk-bonus-item" data-allowbuy="{% if allowBuy == true %}1{% else %}0{% endif %}">
+
+            <a href="{{ variant.url | within: collection }}" class="lk-bonus-item__img">
+                {% render 'product-special-img', product: product %}
+
+                {% capture img_id %}ProductCardImage-{{ section.id }}-{{ variant.id }}{% endcapture %}
+                {% capture wrapper_id %}ProductCardImageWrapper-{{ section.id }}-{{ variant.id }}{% endcapture %}
+                {%- assign img_url = variant.featured_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
+                <img id="{{ img_id }}"
+                     class="grid-view-item__image lazyload"
+                     alt="{{ variant.featured_image.alt }}"
+                     data-src="{{ img_url }}"
+                     data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                     data-aspectratio="{{ variant.featured_image.aspect_ratio }}"
+                     data-sizes="auto"
+                     data-image>
+            </a>
+
+            <div class="lk-bonus-item__height2">
+                <div class="lk-bonus-item__title">
+                    <a href="{{ variant.url | within: collection }}">{{ variant_title }}</a>
+                </div>
+            </div>
+
+            <div>
+                {{product.variants.metafields.additional.additional-description}}
+                {{variant.metafields.additional.additional-description}}
+            </div>
+
+            {% render 'product-price-bonuses_slider', variant: variant, product: product, show_vendor: show_vendor %}
+            
+
+
+    </div>
+{%endif%}

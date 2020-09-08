@@ -1,0 +1,109 @@
+<section class="about-quality">
+  <div class="container">
+    <h2>{{ 'about-quality_title' | t }}</h2>
+    <p class="about-quality__text">{{ 'about-quality_text' | t }} <span>neo</span></p>
+
+    <div class="about-quality__wrapper">
+      <div class="about-quality__img">      
+        <div class="about-quality__lines">
+          <div class="about-quality__line--1">
+            {{ 'about-quality_img-text-1' | t }}
+            <span class="about-quality__line"></span>
+          </div>
+          <div  class="about-quality__line--2">
+            {{ 'about-quality_img-text-2' | t }}
+            <span class="about-quality__line"></span>
+          </div>
+          <div  class="about-quality__line--3">
+            {{ 'about-quality_img-text-3' | t }}
+            <span class="about-quality__line"></span>          
+          </div>
+        </div>
+        <img data-src="{{ "about-quality_img.png" | asset_url }}" class="lazyload" alt="{{ 'about-quality_title' | t }}">
+      </div>
+
+      <div class="about-quality__list">
+        <div class="about-quality__item">
+          <img src="{{ "about-quality_icon1.svg" | asset_url }}" alt="{{ 'about-quality_item-title-1' | t }}">
+          <div class="about-quality__descr">
+            <strong>{{ 'about-quality_item-title-1' | t }}</strong>
+            <p>{{ 'about-quality_item-text-1' | t }}</p>
+          </div>
+        </div>
+        <div class="about-quality__item">
+          <img src="{{ "about-quality_icon2.svg" | asset_url }}" alt="{{ 'about-quality_item-title-2' | t }}">
+          <div class="about-quality__descr">
+            <strong>{{ 'about-quality_item-title-2' | t }}</strong>
+            <p>{{ 'about-quality_item-text-2' | t }}</p>
+          </div>
+        </div>
+        <div class="about-quality__item">
+          <img src="{{ "about-quality_icon3.svg" | asset_url }}" alt="{{ 'about-quality_item-title-3' | t }}">
+          <div class="about-quality__descr">
+            <strong>{{ 'about-quality_item-title-3' | t }}</strong>
+            <p>{{ 'about-quality_item-text-3' | t }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="about-quality__disclaimer">
+      <p>* Тютюн, який ми використовуємо для стіків neo™, відрізняється від тютюну у звичайних сигаретах, адже він має бути призначений для нагрівання, а не горіння. Ми ретельно відбираємо тютюн преміум-якості, який гармонійно поєднується та забезпечує неповторний смак. Ці якості не обов’язково означають, що даний продукт є менш шкідливим, ніж інші тютюнові продукти.</p>
+    </div>   
+    
+  </div>
+</section>
+
+
+{% schema %}
+  {
+	"locales": {
+      "uk": {
+        "about-quality_title": "Високоякісний тютюн і нічого зайвого",
+		"about-quality_text": "в стіках",
+        "about-quality_img-text-1": "Сучасний Tube-фільтр",
+        "about-quality_img-text-2": "Повітряна камера",
+        "about-quality_img-text-3": "Високоякісний тютюн",
+        "about-quality_item-title-1": "Справжній смак тютюну",
+        "about-quality_item-text-1": "Для пристроїв glo створені спеціальні стіки neo, в яких використовується справжній, високоякісний тютюн, який розкриває свої чудові смакові властивості під час нагрівання.",
+        "about-quality_item-title-2": "Два формати стіків, два рівні насиченості",
+        "about-quality_item-text-2": "Стіки представлені в двох форматах з різним рівнем вмісту тютюну, тому ти можеш обрати стіки в залежності від бажаного рівня насиченості.",
+        "about-quality_item-title-3": "Широка лінійка смаків",
+        "about-quality_item-text-3": "Стіки neo мають широку лінійку смаків – від класичного тютюнового до фруктово-карамельного. Також наявні пропозиції з капсулою, для додаткового вибуху смаку.",
+        "about-quality_disclaimer": "* Тютюн, який ми використовуємо для стіків neo™, відрізняється від тютюну у звичайних сигаретах, адже він має бути призначений для нагрівання, а не горіння. Ми ретельно відбираємо тютюн преміум-якості, який гармонійно поєднується та забезпечує неповторний смак. Ці якості не обов’язково означають, що даний продукт є менш шкідливим, ніж інші тютюнові продукти."
+      		},
+      "ru": {
+		"about-quality_title": "ВЫСОКОКАЧЕСТВЕННЫЙ ТАБАК И НИЧЕГО ЛИШНЕГО",
+		"about-quality_text": "в стиках",
+        "about-quality_img-text-1": "Современный tube-фильтр",
+        "about-quality_img-text-2": "Воздушная камера",
+        "about-quality_img-text-3": "Высококачественный табак",
+        "about-quality_item-title-1": "Настоящий вкус табака",
+        "about-quality_item-text-1": "Для устройств glo созданы специальные стики neo, в которых используется настоящий, высококачественный табак, который раскрывает свои отличные вкусовые свойства при нагревании.",
+        "about-quality_item-title-2": "Два формата стиков, два уровня насыщенности",
+        "about-quality_item-text-2": "Стики представлены в двух форматах с различным уровнем содержания табака, поэтому ты можешь выбрать стики в зависимости от желаемого уровня насыщенности.",
+        "about-quality_item-title-3": "Широкая линейка вкусов",
+        "about-quality_item-text-3": "Стики neo имеют широкую линейку вкусов - от классического табачного до фруктово-карамельного. Также в наличии есть предложения с капсулой, для дополнительного взрывного вкуса.",
+        "about-quality_disclaimer": "* Табак, который мы используем для стиков neo™, отличается от табака в обычных сигаретах, т.к. он предназначен для нагревания, а не горения. Мы тщательно отбираем табак премиум-качества, который обеспечивает неповторный вкус. Эти качества не обязательно означают, что данный продукт менее вреден, чем остальные табачные продукты."
+      		},
+      "en": {
+		"about-quality_title": "Високоякісний тютюн і нічого зайвого",
+		"about-quality_text": "в стіках",
+        "about-quality_img-text-1": "Сучасний Tube-фільтр",
+        "about-quality_img-text-2": "Повітряна камера",
+        "about-quality_img-text-3": "Високоякісний тютюн",
+        "about-quality_item-title-1": "Справжній смак тютюну",
+        "about-quality_item-text-1": "Для пристроїв glo створені спеціальні стіки neo, в яких використовується справжній, високоякісний тютюн, який розкриває свої чудові смакові властивості під час нагрівання.",
+        "about-quality_item-title-2": "Два формати стіків, два рівні насиченості",
+        "about-quality_item-text-2": "Стіки представлені в двох форматах з різним рівнем вмісту тютюну, тому ти можеш обрати стіки в залежності від бажаного рівня насиченості.",
+        "about-quality_item-title-3": "Широка лінійка смаків",
+        "about-quality_item-text-3": "Стіки neo мають широку лінійку смаків – від класичного тютюнового до фруктово-карамельного. Також наявні пропозиції з капсулою, для додаткового вибуху смаку.",
+        "about-quality_disclaimer": "* Тютюн, який ми використовуємо для стіків neo™, відрізняється від тютюну у звичайних сигаретах, адже він має бути призначений для нагрівання, а не горіння. Ми ретельно відбираємо тютюн преміум-якості, який гармонійно поєднується та забезпечує неповторний смак. Ці якості не обов’язково означають, що даний продукт є менш шкідливим, ніж інші тютюнові продукти."
+      		}
+  	},
+
+    "name": "Section name",
+    "settings": []
+  }
+{% endschema %}

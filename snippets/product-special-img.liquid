@@ -1,0 +1,18 @@
+{% if product.tags contains 'sticks_new' %}
+    {% assign isSticks_new = true %}
+{% else %}
+    {% assign isSticks_new = false %}
+{% endif %}
+
+{% if product.tags contains 'glo_new' %}
+    {% assign isGlo_new = true %}
+{% else %}
+    {% assign isGlo_new = false %}
+{% endif %}
+
+{% if isGlo_new == true %}
+<div class="img-special">NEW</div>
+{%endif%}
+{% if isSticks_new == true %}
+<div class="img-special">тільки для <div>glo HYPER</div></div>
+{%endif%}

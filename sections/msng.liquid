@@ -1,0 +1,77 @@
+  <div class="msng">
+    
+    <!-- add messenger for dev -->
+     <a target="_blank" href="https://m.me/206474210017755?ref=messenger_commerce_1163199097047119_https://myglo.com.ua/" id="messanger_button" class="messengermessageus--fixed facebook-message-us-button">
+      <!--<img class="messageus_unhovered" alt="Message Us" src="https://cdn.shopifycloud.com/messenger_commerce/assets/custom-button/blue_large-c6c93a43546ae4ed86e109708b2f4cfaf3b99654374226e01598db58bae76497.png" srcset="https://cdn.shopifycloud.com/messenger_commerce/assets/custom-button/blue_large@2x-5882a406e61414519c16221b4d14c410570855450a001ec414243f7f89cc89e5.png 2x">-->
+      <img src="{{"i-masanger.svg" | asset_url}}" alt="Facebbok glo"/>  
+    </a>
+    
+    <style>
+      .messengermessageus--fixed{
+        z-index: 99;
+        position: fixed !important;
+      }
+      .fb_dialog {
+        visibility: hidden;
+      }
+    </style>
+    
+    <!-- close button -->
+    <a href="#" id="close_button" class="message-icon close-fixed">
+        <img src="{{"i-close.svg" | asset_url}}" alt="Закрити" />
+    </a>
+
+    <a href="https://t.me/myglo_ua_bot" id="telegram_button" class="message-icon telegram--fixed telegram-message-us-button" target="_blank">
+<!--         <img src="{{"chat_telega.svg" | asset_url}}" /> -->
+      <img src="{{"i-telegram.svg" | asset_url}}" alt="Telegram glo"/>
+      
+    </a>
+
+    <!-- add viber -->
+    <a href="viber://chat?number=%2B380958054270" id="viber_button" class="message-icon viber--fixed viber-message-us-button">
+       <img src="{{"i-viber.svg" | asset_url}}" alt="Viber glo" />
+    </a>
+    
+  
+    <div class="fb-customerchat" page_id="206474210017755"></div>
+
+    <!-- open icons button on mobile -->
+    <a target="_blank" href="#" id="mode_edit" class="message-icon mode_edit--fixed mode_edit-button">
+      <img src="{{"i-chat.svg" | asset_url}}" alt="Messanger glo" />
+    </a>
+
+    <script>
+      $('#mode_edit').click(function(e){
+        e.preventDefault();
+        $(this).addClass('clicked');
+        $('#viber_button').addClass('clicked');
+        $('#telegram_button').addClass('clicked');
+        $('#messanger_button').addClass('clicked');
+        $('#close_button').addClass('clicked');
+      });
+
+      $('#close_button').click(function() {
+        $('#viber_button, #telegram_button, #messanger_button, #close_button, #mode_edit').removeClass('clicked');
+      });
+
+      if ($('.c-warning').length) {
+        $('.message-icon, .messengermessageus--fixed').attr('style', 'bottom: 15% !important');
+
+      }
+      
+  jQuery(function() {
+  jQuery('.swatch :radio').change(function() {
+    var optionIndex = jQuery(this).closest('.swatch').attr('data-option-index');
+    var optionValue = jQuery(this).val();
+    jQuery(this)
+      .closest('form')
+      .find('.single-option-selector')
+      .eq(optionIndex)
+      .val(optionValue)
+      .trigger('change');
+  });
+});
+    </script>
+    
+    
+  </div>

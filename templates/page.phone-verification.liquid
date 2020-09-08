@@ -1,0 +1,43 @@
+<div class="container">
+   <div class="row">
+      <div class="col-lg-offset-5 col-lg-6 col-md-offset-3 col-md-10 col-xs-16">
+         <form class="form-vertical" id="phone-verification-form">
+            <h1 class="text-center">Підтвердження номеру</h1>
+            <label>Номер із смс</label>
+            <input autocomplete="off" autocorrect="off" autocapitalize="off" autofocus="" placeholder="" value=""
+               type="text"
+               name="phone_verification"
+               id="phone_verification"
+               class="form__input"
+               >
+            <div class="form__hint"></div>
+            <div id="codeError" class="form-error"></div>
+            <!-- Hidden input -->
+            <div class="form__item" style="display:none">
+               <input
+                  type="text"
+                  name="customer_id"
+                  id="customer_id"
+                  class="form__input"
+                  hidden
+                  >
+               <div class="form__hint"></div>
+            </div>
+            <!-- Hidden input (end) -->
+            <div class="text-center login-bordered">
+               <button type="submit" class="btn">Підтвердити</button>
+            </div>
+         </form>
+      </div>
+   </div>
+</div>
+<script src="{{ 'verification.js' | asset_url }}" defer></script>
+<script>
+   var PhoneVerConf = {
+       url: 'https://{{ settings.bride_domain }}/api/customer/verification',
+       msg: {
+           required: 'Необхідно заповнити поле',
+           errTryAgain: 'Помилка, спробуйте ще раз'
+       }
+   }
+</script>

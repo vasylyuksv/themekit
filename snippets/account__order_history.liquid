@@ -1,0 +1,75 @@
+<h3 class="lk-title">{{ 'customer.orders.title' | t }}</h3>
+
+
+
+    
+<div class="myaccount__order-history block-mb">
+
+  {% paginate customer.orders by 10 %}
+  {% if customer.orders.size != 0 %}
+
+  {% assign can_reorder = false %}
+  {% assign min_reorder_date = 'March 1, 2020' | date: '%s' %}
+
+  {% for order in customer.orders %}
+  {% assign order_date = order.created_at | date: '%s' %}
+  {% if order_date > min_reorder_date %}
+  {% assign can_reorder = true %}
+  {% endif %}
+  {% endfor %}
+
+  <div class="lk-table--wrapper">
+    <table class="lk-table">
+      <thead>
+        <tr>
+          <th scope="col">{{ 'customer.orders.order_number' | t }}</th>
+          <th scope="col">{{ 'customer.orders.date' | t }}</th>
+          <th scope="col">{{ 'customer.orders.payment_status' | t }}</th>
+          <th scope="col">{{ 'customer.orders.fulfillment_status' | t }}</th>
+          <th scope="col">{{ 'customer.orders.total' | t }}</th>
+          {% if can_reorder == true %}
+          <th></th>
+          {% endif %}
+        </tr>
+      </thead>
+      <tbody>
+        {% assign from_date = 'March 1, 2020' | date: '%s' %}
+
+        {% for order in customer.orders %}
+        {% assign order_date = order.created_at | date: '%s' %}
+        <tr>
+          <td data-label="{{ 'customer.orders.order_number' | t }}" scope="row">
+            <a href="{{ order.customer_url }}" class="btn btn--secondary btn--small" aria-label="{{ 'customer.orders.order_number_link' | t: number: order.name }}">{{ order.name }}</a>
+          </td>
+          <td data-label="{{ 'customer.orders.date' | t }}">{{ order.created_at | time_tag: format: 'date' }}</td>
+          <td data-label="{{ 'customer.orders.payment_status' | t }}">{{ order.financial_status_label }}</td>
+          <td data-label="{{ 'customer.orders.fulfillment_status' | t }}">{{ order.fulfillment_status_label }}</td>
+          <td data-label="{{ 'customer.orders.total' | t }}">{{ order.total_price | money }}</td>
+
+          {% if can_reorder == true %}
+          <td data-label="Повторити замовлення">
+
+            {% if order_date > min_reorder_date %}
+            <a class="" href="/cart/{% for line_item in order.line_items %}{{ line_item.variant_id }}:{{ line_item.quantity }}{% unless forloop.last %},{% endunless %}{% endfor %}">Повторити замовлення</a>
+            {% endif %}
+
+          </td>
+          {% endif %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+
+  {% else %}
+
+  <p>{{ 'customer.orders.none' | t }}</p>
+
+  {% endif %}
+  
+  {%- if paginate.pages > 1 -%}
+  {% render 'pagination-lk', paginate: paginate %}
+  {%- endif -%}
+  {% endpaginate %}
+</div>

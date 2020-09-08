@@ -1,0 +1,18 @@
+{{ 'gtm_product.js'| asset_url | script_tag }}
+{{ 'gtm_collection.js'| asset_url | script_tag }}
+
+<script>
+    {% assign product_category = product.collections| first %}
+    window.GTMproduct.data = {
+        name: {{ product.title | json }},         // Name or ID is required.
+        id: {{ product.selected_or_first_available_variant.sku  | json }},
+        price: {{ product.selected_or_first_available_variant.price  | divided_by: 100.00 | json }},
+        brand: {{ product.vendor | json }},
+        category: {{ product_category.title | json }},
+        variant: {{ product.selected_or_first_available_variant.title  | json }}
+    };
+    window.GTMproduct.id = {{ product.selected_or_first_available_variant.id  | json }}
+        window.GTMproduct.list = {{ collection.title|json }};
+    window.GTMproduct.detail();
+
+</script>

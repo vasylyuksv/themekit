@@ -1,0 +1,52 @@
+{% if customer.metafields.incust.incust_id != null %}
+{% assign isIncustCustomer = false %}
+{% else %}
+{% assign isIncustCustomer = false %}
+{% endif %}
+
+
+{% if isIncustCustomer == true %}
+<div class="lk-header hidden-sm hidden-md hidden-lg">
+  У тебе на рахунку <span data-lyt-points class="lyt-points">-</span><span> бал(ів)</span>
+</div>
+{% endif %}
+
+
+
+
+<!--<div class="lk-header">
+  <div class="lk-header__left"></div>
+  
+  <div class="lk-header__center">
+    <div class="lk-header__marks">
+      <div class="lk-header__marks--level">Твій рівень<span>START</span></div>
+      <div class="lk-header__marks--num">У тебе балів <span data-lyt-points class="lyt-points">-</span></div>
+      {% if customer.metafields.incust.mgm_code != null %}
+        <div class="lk-header__marks--code lk-hmc">Твій персональний код<span>{{customer.metafields.incust.mgm_code}}</span></div>
+      {% else %}
+        <div class="lk-header__marks--code">Твій персональний код не знайдено</div>
+      {% endif %}
+    </div>
+    
+    <div class="lk-header__status">
+      <div class="lk-header__status-circle">
+        <div class="status-text--mobile">Рівень на черзі:</div>
+        <div class="status-circle">
+          {% render 'lk-header-circle' %}
+          <div class="status-text status-text--start active"><span>start</span></div>
+          <div class="status-text status-text--pro"><span>pro</span></div>
+          <div class="status-text status-text--mid"><span>mid</span></div>
+        </div>
+        
+        
+      </div>
+      <p>Переходь<br/> на наступний рівень, залишилося ще трохи</p>
+      <a href="#">
+        <span class="text-desktop">Хочу!</span>
+        <span class="text-mobile">Хочу більше БАЛІВ!</span>        
+      </a>
+    </div>
+  </div>
+  
+  <div class="lk-header__right"></div>
+</div>-->

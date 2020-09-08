@@ -1,0 +1,120 @@
+{{ 'about.scss.css' | asset_url | stylesheet_tag }}
+
+{% section 'about-top' %}
+
+{% section 'about-features' %}
+
+{% section 'about-quality' %}
+
+{% section 'about-reviews' %}
+
+{% section 'product-how-to-use' %}
+
+{% section 'about-choose' %}
+
+{% section 'home_product-slider_ua' %}
+
+
+
+{%comment%}
+<div class="container-fliud page-about__bg block-mb">
+  <div class="container">
+    <div class="row">
+    	<div class="col-lg-16">
+          <h1 class="page__title fff">Простий спосіб<br>насолоджуватися тютюном</h1>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fliud block-mb">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8"><h2>Нагрівання без горіння</h2></div>
+    </div>
+    <div class="row info-block about-block">
+    	<div class="col-lg-7 col-md-8 info-block__img">
+          
+        </div>
+      	<div class="col-lg-8 col-md-8 info-block__about">
+          <h3>На 90-95%<br>менше токсинів*</h3>
+          <p class="">
+            glo нагріває тютюн до 240+5С, не спалюючи його. Нагрітий тютюн, на відміну від спаленого у сигареті, зберігає максимум смаку, мінімізуючи кількість токсинів та запаху**.
+          </p>
+        </div>
+	</div>
+   </div>
+</div>
+
+<div class="container-fliud block-mb">
+  <div class="benefits-block container">
+    <div class="row">
+      <div class="col-lg-8"><h2>Особливості пристрою glo</h2></div>
+    </div>
+    <div class="row">
+    	<div class="col-lg-8 col-md-8">
+			 <ul class="info-list benefits-block__list">
+                <li class="info-list__item">
+                    <span class="i-check"></span>
+                    <p class="info-list__text">Управління однією кнопкою</p>
+                </li>
+                <li class="info-list__item">
+                    <span class="i-check"></span>
+                    <p class="info-list__text">Без попелу та диму**</p>
+                </li>
+                <li class="info-list__item">
+                    <span class="i-check"></span>
+                    <p class="info-list__text">Дизайн розроблено у Лондоні</p>
+                </li>
+          	</ul>
+		</div>
+      	<div class="col-lg-8 col-md-8">       
+          <img src={{ "glo-pro-black.jpg" | asset_url }} style="max-width: 100%;" alt="glo pro">
+        </div>
+	</div>
+   </div>
+</div>
+
+
+
+<div class="movie modal-movie">
+    <span class="movie__close"></span>
+    <div class="movie__video">
+      <iframe src="https://player.vimeo.com/video/380188785" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+  </div>
+</div>
+
+<div class="container">
+    <div class="row">
+      <div class="col-lg-8"><h2>Придбай свій glo</h2></div>
+    </div>
+</div>
+
+{% section 'product-slider' %}
+
+<div class="container-fliud block-mb">
+  <div class="container">
+      <div class="row">
+        <div class="col-lg-16">
+        <div class="warning-text">
+           <p>* Порівняння диму від спаленого тютюну у стандартних сигаретах 3R4F (приблизно 9 мг смол) та аерозолю від нагрітого тютюну у пристрої glo™. Порівнюється 9 шкідливих компонентів, рекомендованих ВООЗ до зменшення. Це не обов’язково означає, що даний продукт є менш шкідливим, ніж інші тютюнові продукти.</p>
+           <p>** В порівнянні зі звичайною сигаретою під час куріння. Це не обов'язково означає, що цей продукт є менш шкідливим, ніж інші тютюнові продукти</p>
+          
+        </div>
+        </div>
+      </div>
+	</div>
+</div>
+  
+ 
+  
+<script src="{{ 'home.js' | asset_url }}"></script>
+
+{%endcomment%}
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>
+
+<script src="{{ 'about.js' | asset_url }}"></script>
+

@@ -1,0 +1,92 @@
+{{ 'landing-native.scss.css' | asset_url | stylesheet_tag }}
+
+{% section 'landing-native_main' %}
+
+{%if shop.locale == 'uk' %}
+<section class="nativ-all">
+  <div class="nativ-all__wrapper">
+    <div class="nativ-all__descr">
+      <div class="nativ-all__descr-title">Весь світ,<br/> як на долоні</div>
+      <div class="nativ-all__descr-text">На створення лінійки glo Hyper Nativ нас надихнули легендарні мегаполіси світу. Відкривай яскравий характер Лондона, Токіо, Нью-Йорка, Барселони та Ріо-де-Жанейро. glo hyper Nativ, мов вулична стіна, стає полотном для втілення культурних ідей та урбаністичних мотивів. Пристрої glo™ hyper Nativ присвячені мегаполісам, що задають ритм і тон в усьому світі. Який мегаполіс обереш ти?</div>
+    </div>
+  </div>
+</section>
+{% else %}
+<section class="nativ-all">
+  <div class="nativ-all__wrapper">
+    <div class="nativ-all__descr">
+      <div class="nativ-all__descr-title">Весь світ,<br/> як на долоні</div>
+      <div class="nativ-all__descr-text">На створення лінійки glo Hyper Nativ нас надихнули легендарні мегаполіси світу. Відкривай яскравий характер Лондона, Токіо, Нью-Йорка, Барселони та Ріо-де-Жанейро. glo hyper Nativ, мов вулична стіна, стає полотном для втілення культурних ідей та урбаністичних мотивів. Пристрої glo™ hyper Nativ присвячені мегаполісам, що задають ритм і тон в усьому світі. Який мегаполіс обереш ти?</div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% section 'landing-native_city' %}
+
+<section class="nativ-descr">
+  <div class="nativ-descr__wrapper">
+    <div class="nativ-descr__left">
+      {%if shop.locale == 'uk' %}
+      glo hyper Nativ має такі ж інноваційні характеристики, як і <a href="/pages/glo-hyper">glo hyper</a>. 
+      {% else %}
+      glo hyper Nativ має такі ж інноваційні характеристики, як і <a href="/pages/glo-hyper">glo hyper</a>. 
+      {% endif %} 
+    </div>
+    
+    <div class="nativ-descr__right">
+      <ul>
+        <li><img src={{ "demi_format.svg" | asset_url }}/><div>{%if shop.locale == 'uk' %}ДЕМІ формат{% else %}ДЕМІ формат{% endif %}</div></li>
+        <li><img src={{ "demi_tobacco_icon.svg" | asset_url }}/><div>{%if shop.locale == 'uk' %}Більше насиченого смаку**{% else %}Більше насиченого смаку**{% endif %}</div></li>
+        <li><img src={{ "icon_ind_tech.svg" | asset_url }}/><div>{%if shop.locale == 'uk' %}Індукційне нагрівання{% else %}Індукційне нагрівання{% endif %}</div></li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="nativ-descr__text">
+    <div>
+      {%if shop.locale == 'uk' %}
+      **В РЕЖИМАХ СТАНДАРТ ТА BOOST У ПОРІВНЯННІ ІЗ ПОПЕРЕДНІМИ МОДЕЛЯМИ GLO™ SERIES 1, GLO™ 2.0, GLO™ 2.0 MINI, GLO™ NANO
+      {% else %}
+      **В РЕЖИМАХ СТАНДАРТ ТА BOOST У ПОРІВНЯННІ ІЗ ПОПЕРЕДНІМИ МОДЕЛЯМИ GLO™ SERIES 1, GLO™ 2.0, GLO™ 2.0 MINI, GLO™ NANO
+      {% endif %}      
+    </div>
+  </div>
+</section>
+
+
+{%if shop.locale == 'uk' %}
+<section class="nativ-disclaimer">
+  <div class="container">
+    <p>glo™ призначений для повнолітніх споживачів тютюну або нікотину.</p>
+    <p>Пропозиція доступна тільки в магазинах glo studio та на <a href="/">myglo.com.ua</a></p>
+  </div>
+</section>
+{% else %}
+<section class="nativ-disclaimer">
+  <div class="container">
+    <p>glo™ призначений для повнолітніх споживачів тютюну або нікотину.</p>
+    <p>Пропозиція доступна тільки в магазинах glo studio та на <a href="/">myglo.com.ua</a></p>
+  </div>
+</section>
+{% endif %}
+
+<script>
+  
+  $(document).ready(function(){
+    $('.nativ-city__slider').not('.slick-initialized').slick({
+      dots: false,
+      arrow: true,
+      infinite: false,
+      speed: 500,
+      fade: true,
+      cssEase: 'ease-in-out',
+      adaptiveHeight: true,
+      autoplay: true,
+      autoplaySpeed: 5000
+    });
+  });
+  
+</script>
+
+

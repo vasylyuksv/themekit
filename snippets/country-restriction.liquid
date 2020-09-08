@@ -1,0 +1,132 @@
+<div id="country-prompt-background">
+  <div id="country-check-prompt" class="country-modal-prompt">
+    
+     <img src="{{ 'glo_logo.svg' | asset_url }}">
+
+    <p class="refuse-message">Доступ на сайт дозволений тільки з України</p>
+  </div>
+</div>
+
+
+{% if settings.is_prod == '1' %}
+<script>
+  function readCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+      var c = ca[i];
+      while (c.charAt(0)==' ') c = c.substring(1,c.length);
+      if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+  };
+
+  function showPopup(countryCode, ip) {
+      if (countryCode != 'UA' && ['57.74.29.20','165.225.206.98','57.66.182.14','165.225.206.96','165.225.84.51','165.225.72.81', '165.225.72.75', '88.98.79.0', '165.225.72.56', '165.225.84.60', '165.225.72.84', '185.46.212.50', '165.225.84.65'].indexOf(ip) === -1) {
+          $('#country-prompt-background').css({
+              display: 'flex'
+          });
+      };
+
+      // console.log('counry=' + countryCode + '; ip=' + ip);
+  }
+  
+  function processIpData(response) {
+    var date = new Date(), expires;
+    date.setTime(date.getTime()+(3*24*60*60*1000));
+    expires = "expires="+date.toGMTString();
+
+    document.cookie = 'clientCountry2='+response.countryCode+';'+expires+"; path=/";
+    document.cookie = 'clientIp2='+response.query+';'+expires+"; path=/";
+
+
+    showPopup(response.countryCode, response.query);
+  }
+  
+  var clientCountry = readCookie('clientCountry2');
+  var clientIp = readCookie('clientIp2');
+  if (!clientCountry || !clientIp) {
+
+	$.get("https://extreme-ip-lookup.com/json/", function(response) {
+      if (response.countryCode) {
+        
+        processIpData(response);
+        
+      } else {
+        
+        $.getJSON("https://api.myglo.com.ua/ip/country", function(response) {
+          if (response.countryCode) {
+			processIpData(response);
+          }
+        });
+        
+      }
+    }, "jsonp");
+
+  } else {
+      showPopup(clientCountry, clientIp);
+  }
+  
+</script>
+{% endif %}
+
+<style>
+.country-modal-prompt {
+  background: #fff;
+  width: 768px;
+  height: auto;
+  margin: 0;
+  padding: 20px 35px 30px 35px;
+  position: relative;
+  z-index: 10;
+  text-align: center;
+}
+.country-modal-prompt img {
+	width: 100px;
+}
+.country-modal-prompt .btn-age {
+  color: white;
+  border: 1px solid white;
+  padding: 10px 5px;
+  min-width: 150px;
+}
+.country-modal-prompt p, .country-modal-prompt h1 {
+  color: #000;
+}
+.country-modal-prompt .refuse-message {
+  min-height: 40px;
+  color: #000;
+  padding-top: 80px;
+}
+  
+  @media (max-width: 768px) {
+    .country-modal-prompt {
+      width: 100%;
+      top: 0;
+    }
+    .age-add-text {
+    	display: none;
+    }
+  }
+  
+  @media (max-width: 375px) {
+    .country-modal-prompt .btn-age {
+      margin-bottom: 20px;
+    }
+  }
+  
+#country-prompt-background {
+  background: #7b7b7be8;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9999999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+  
+.country-modal-prompt select { float: left; margin-right: 10px; }
+</style>

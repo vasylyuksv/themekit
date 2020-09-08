@@ -1,0 +1,140 @@
+<div id="where-to-buy" class="c-section c-section--alt distinct_page_map-padding store-finder" data-id="store_finder">
+    <div class="container">
+      
+        
+        
+        <div class="c-section__block">
+            <div class="wrap__item">
+                <h2 class=" distinct_page_map-heading">Де знайти?</h2>
+              <div class="row">
+              	<div class="col-lg-5">
+                    <div class="input-block mB10">
+                        <label>Тип точки</label>
+                        <select class="c-field__input distinct_page_map-input" disabled="disabled" data-id="outlet_type_filter" multiple="multiple">
+
+                        </select>
+                    </div>
+                  
+                    <div class="input-block">
+                        <label>Продукція</label>
+                        <select class="c-field__input distinct_page_map-input" disabled="disabled" data-id="product_filter" multiple="multiple">
+
+                        </select>
+                    </div>
+                 
+					<div class="right-btns pT20 text-center">
+                      <button class="form-control btn-primary btn-map c-btn--primary" data-id="all_outlets_btn">Усі точки продажу</button><br />
+                      <button class="form-control btn-primary btn-map c-btn--primary" data-id="contacts" data-href="/pages/contact-us">Наші контакти</button>
+                  	</div>
+
+              	</div>
+              
+              	<div class="col-lg-11">
+                  <div class="o-grid input-blocks">
+
+                      <div class="input-block address-block">
+                          <label>Знайти найближчу точку</label>
+                          <input type="text" class="c-field__input distinct_page_map-input" placeholder="Введіть адресу"
+                                 data-id="address" autocomplete="off" />
+                          <div class="icon-search"><img src={{ "point.svg" | asset_url }}></div>
+                      </div>                  
+
+                    <div class="sf-switch-block">
+                        <a href="#" data-id="switch_map" class="current"><img src="{{ "map-icon-blue.png" | asset_url }}"/>Карта</a>
+                        <a href="#" data-id="switch_list"><img src="{{ "i-list.png" | asset_url }}"/> Список</a>
+                    </div>
+
+                  </div>
+
+                  <div class="o-grid">
+                      
+                          <div data-id="map" class="sf-map" data-lat="48.3794" data-lng="31.1656"></div>
+                          <div data-id="list">
+                              <div class="o-grid" data-id="row_cont"></div>
+                              <div class="btn-more-points">
+                                  <button class="form-control btn-primary btn-map c-btn--primary" data-id="more_outlet_list">Більше точок</button>
+                              </div>
+                          </div>
+                   
+                  </div>
+                  
+              	</div>
+            </div>
+        </div>
+        
+        
+      </div>
+    </div>
+</div>
+
+<script>
+    var StoreFinderConf = {
+        url: {
+            outletData: 'https://{{ settings.bride_domain }}/store-finder/outlet.json',
+            currentMarker: "{{ 'point.png' | asset_url }}"
+        },
+        mapKey: 'AIzaSyBIToibsre0LnCpLoNFDOkW2ixnT4R-Jlk',
+        clusterIcons: {
+            m1 : '{{ "m1.png" | asset_url }}',
+            m2 : '{{ "m2.png" | asset_url }}',
+            m3 : '{{ "m3.png" | asset_url }}',
+            m4 : '{{ "m4.png" | asset_url }}',
+            m5 : '{{ "m5.png" | asset_url }}'
+        }
+    }
+</script>
+
+<script type="xhtml/template" id="markerPopupTmpl">
+    <div class="popup-template">
+        <h5 class="address">
+            @address
+        </h5>
+        <p class="name">@name</p>
+        <p class="point-type">
+            <b>@type</b>
+        </p>
+        <p class="route">
+            <a href="https://www.google.com/maps/dir/?api=1&destination=@lat,@lng&travelmode=driving" target="_blank" title="Прокласти сюди марштур на Google Картах">
+                <img src="{{ "route.png" | asset_url }}" /> <br>
+                <b>Маршрут</b>
+            </a>
+        </p>
+    </div>
+</script>
+
+<script type="xhtml/template" id="listRowTmpl">
+    <div class="custom_row_container">
+
+        <div class="custom_row">
+            <div class="icon">
+                <img src="@icon" alt="">
+            </div>
+            <div class="place_block">
+                <h5 class="place_name">@address</h5>
+                <span class="place_description">@title</span>
+                <div class="place_tags">
+                    @products
+                </div>
+            </div>
+            <div class="schedule_block">
+                @description
+            </div>
+            <div class="show_on_map">
+                <button class="show_on_map_button" data-id="marker_lnk">Показати на карті</button>
+            </div>
+        </div>
+
+    </div>
+</script>
+
+<script type="xhtml/template" id="prodTmpl">
+    <div class="place_tag">@product</div>
+</script>
+
+<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+<script src="{{ 'store_finder.js' | asset_url }}"></script>
+<link rel="stylesheet" href="{{ 'store_finder.css' | asset_url }}" />
+
+
+<link rel="stylesheet" href="{{ 'multiple-select.min.css' | asset_url }}" />
+<script src="{{ 'multiple-select.min.js' | asset_url }}"></script>

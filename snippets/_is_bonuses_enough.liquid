@@ -1,0 +1,20 @@
+{% comment %}
+    **********
+    Редактировать осторожно, не допускать лишних пробельных символов
+    **********
+{% endcomment
+%}{%
+    assign bonus_price = product.metafields.bonuses.price | plus: 0
+%}{%
+    assign bonusesBlance = customer.metafields.incust.balance | plus: 0
+%}{%
+    if bonusesBlance >= bonus_price
+%}{%
+    assign bounusesEnough = true
+%}{%
+    else
+%}{%
+    assign bounusesEnough = false
+%}{%
+    endif
+%}{{ bounusesEnough | json }}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="23px" height="63px" viewBox="0 0 23 63" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <desc>Created with Lunacy</desc>
+  <defs>
+    <filter id="filter_1">
+      <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0" />
+    </filter>
+  </defs>
+  <g id="arr1" transform="matrix(-1 0 0 1 23 0)" filter="url(#filter_1)">
+    <g id="Group-6" transform="matrix(-1 0 0 1 23 0)">
+      <path d="M22.5 0.5L0.5 31.5M22.5 62.5L0.5 31.5" id="Combined-Shape" fill="none" stroke="#979797" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,92 @@
+{% if variant.metafields.additional.additional-title == blank %}
+    {% assign variant_title = variant.title %}
+{% else %}
+    {% assign variant_title = variant.metafields.additional.additional-title %}
+{% endif %}
+
+{% capture bounusesEnough %}{% render '_is_bonuses_enough', variant: variant, product: product %}{% endcapture %}
+
+{% if bounusesEnough == 'false' %}
+    {% assign allowBuy = false %}
+{% else %}
+    {% assign allowBuy = true %}
+{% endif %}
+
+{% if variant.available %}
+    <div class="lk-bonus-item" data-allowbuy="{% if allowBuy == true %}1{% else %}0{% endif %}">
+
+            <!-- Duplicated title for Mobile -->
+            <div class="lk-bonus-item__title">
+                <a href="{{ variant.url | within: collection }}">{{ variant_title }}</a>
+            </div>
+            <!-- end Duplicated title for Mobile -->
+
+            <a href="{{ variant.url | within: collection }}" class="lk-bonus-item__img">
+                {% render 'product-special-img', product: product %}
+
+                {% capture img_id %}ProductCardImage-{{ section.id }}-{{ variant.id }}{% endcapture %}
+                {% capture wrapper_id %}ProductCardImageWrapper-{{ section.id }}-{{ variant.id }}{% endcapture %}
+                {%- assign img_url = variant.featured_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
+                <img id="{{ img_id }}"
+                     class="grid-view-item__image lazyload"
+                     alt="{{ variant.featured_image.alt }}"
+                     data-src="{{ img_url }}"
+                     data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                     data-aspectratio="{{ variant.featured_image.aspect_ratio }}"
+                     data-sizes="auto"
+                     data-image>
+            </a>
+
+            <div class="lk-bonus-item__height">
+                <div class="lk-bonus-item__title">
+                    <a href="{{ variant.url | within: collection }}">{{ variant_title }}</a>
+                </div>
+            </div>
+
+            <div>
+                {{product.variants.metafields.additional.additional-description}}
+                {{variant.metafields.additional.additional-description}}
+            </div>
+
+            <div class="lk-bonus-item__hr"></div>
+
+            {% render 'product-price-bonuses', variant: variant, product: product, show_vendor: show_vendor %}
+
+            <div class="lk-bonus-item__btn">
+                {%  if isIncustCustomer == true %}
+                    <div
+                            data-section-id="product-template-{{ product.id }}"
+                            data-section-type="product"
+                            data-enable-history-state="true"
+                            data-ajax-enabled="true">
+
+                        <form method="post" action="/cart/add" data-product-form>
+                            <input type="hidden" name="id" value="{{ variant.id }}" />
+                            <input type="submit" value="КУПИТИ" class="btn full-width" data-add-to-cart {% unless allowBuy %}disabled="disabled"{% endunless %} />
+                            <input type="hidden" name="return_to" value="back" />
+                        </form>
+                        <script type="application/json" id="ProductJson-product-template-{{ product.id }}">{{ product | json }}</script>
+                    </div>
+                {% else %}
+                    Тільки для учасників бонусної програми
+                {% endif %}
+
+                <script>
+                    {% assign product_category = product.collections| first %}
+                    window.GTMcollection.products.push({
+                        name: {{ product.title | json }},         // Name or ID is required.
+                        id: {{ variant.sku  | json }},
+                        innerID: {{ variant.id | json}},
+                        price: {{ variant.price  | divided_by: 100.00 | json }},
+                        brand: {{ product.vendor | json }},
+                        category: {{ product_category.title | json }},
+                        variant: {{ variant.title  | json }}
+                    });
+                </script>
+
+            </div>
+
+
+    </div>
+{%endif%}

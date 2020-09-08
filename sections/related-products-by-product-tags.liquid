@@ -1,0 +1,127 @@
+<style>
+  .product-card {
+    box-sizing: border-box;
+    float: left;
+    min-height: 1em;
+    padding-left: 2em;
+    vertical-align: top;
+    width: 25%;
+  }
+
+  .visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    white-space: nowrap;
+  }
+</style>
+
+{%- assign counter = 0 -%}
+{%- assign break_at = section.settings.number_of_products | plus: 0 -%}
+{%- assign current_product = product -%}
+
+
+{%- capture related_items -%}
+
+  {% for tag in current_product.tags %}
+
+  {%- for product in collections.all.products -%}
+    {%- unless product.handle == current_product.handle -%}
+
+	  
+        {%- if product.tags contains tag -%}
+          <a href="{{ product.url | within: collection }}" class="product-card">
+            <img src="{{ product.featured_image.src | img_url: '1024x' }}" alt="">
+            {{ product.title }}
+            <p>
+              <span aria-hidden="true">—</span>
+              {%- if product.price_varies -%}
+                <span class="visuallyhidden">Starting at</span>
+                {{ product.price_min | money_without_trailing_zeros }}
+                <span aria-hidden="true">+</span>
+              {%- else -%}
+                {{ product.price | money_without_trailing_zeros }}
+              {%- endif -%}
+            </p>
+            <p>
+              <span class="visuallyhidden">by</span>
+              {{ product.vendor }}
+            </p>
+          </a>
+
+		  {%- assign counter = counter | plus: 1 -%}
+          
+
+        {%- endif -%}
+
+
+        {%- if counter == break_at -%}
+        	{%- break -%}
+        {%- endif -%}
+
+
+    {%- endunless -%}
+
+
+  {%- endfor -%}
+    {%- if counter == break_at -%}
+    {%- break -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endcapture -%}
+
+{%- assign related_items = related_items | trim -%}
+{%- unless related_items == blank -%}
+  <aside>
+    {%- if section.settings.heading -%}
+      <h2>{{ section.settings.heading }}</h2>
+    {%- endif -%}
+
+    {{ related_items }}
+  </aside>
+{%- endunless -%}
+
+{% schema %}
+{
+  "name": "Recommended by product",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Recommended products by product tags"
+    },
+    {
+      "type": "text",
+      "id": "related_tag",
+      "label": "Tag",
+      "info" : "The tag determines which products show as related products."
+    },
+    {
+      "type": "select",
+      "id": "number_of_products",
+      "label": "Number of products to show",
+      "default": "4",
+      "options": [
+        {
+          "value": "4",
+          "label": "4"
+        },
+        {
+          "value": "8",
+          "label": "8"
+        },
+        {
+          "value": "12",
+          "label": "12"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

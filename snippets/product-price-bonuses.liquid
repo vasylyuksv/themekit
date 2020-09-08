@@ -1,0 +1,38 @@
+{% assign money_price = variant.price | money %}
+{% assign bonus_price = product.metafields.bonuses.price | plus: 0 %}
+
+{% capture bounusesEnough %}{% render '_is_bonuses_enough', variant: variant, product: product %}{% endcapture %}
+
+
+<div class="lk-bonus-item__cost">
+    <div class="ic--price">
+        <div {% if bounusesEnough == 'false' %}class="disabled"{% endif %}><span>{{ bonus_price }}</span> бонусів</div>
+        <span><span>{{ money_price }}</span></span>
+    </div>
+
+    <div class="ic--info">
+        <div class="ic--info__wrapper">
+            <div class="ic--info__icon">
+                {% render 'lk-icon-ratings', variant: variant, product: product %}
+            </div>
+            <div class="ic--info__about">
+
+                  <span>
+                    {% if bounusesEnough == 'true' %}
+                        <div class="ic--info__about--desktop">Щоб купити цей товар - бонусів вистачає</div> <!-- TEXT for DESKTOP -->
+                        <div class="ic--info__about--mobile">Бонусів вистачає. Купи цей товар</div>  <!-- TEXT for MOBILE -->
+                    {% else %}
+                        <div class="ic--info__about--desktop">Щоб купити цей товар - недостатньо бонусів</div> <!-- TEXT for DESKTOP -->
+                        <div class="ic--info__about--mobile">Не вистачає бонусів</div>  <!-- TEXT for MOBILE -->
+                    {% endif %}
+                  </span>
+				{%comment%}
+                <a href="#">
+                    <div class="ic--info__about--desktop">Але хочу більше бонусів!</div> <!-- TEXT for DESKTOP -->
+                    <div class="ic--info__about--mobile">Хочу більше</div>  <!-- TEXT for MOBILE -->
+                </a>
+				{%endcomment%}
+            </div>
+        </div>
+    </div>
+</div>

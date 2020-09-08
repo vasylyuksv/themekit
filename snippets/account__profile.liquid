@@ -1,0 +1,9 @@
+<h3 class="lk-title">Профіль</h3>
+<div class="row">
+      <div class="col-lg-16">
+          <div class="myaccount__account-details">
+			{{ customer.default_address | format_address }}
+			<p><a href="{{ routes.account_addresses_url }}" class="btn btn--small">{{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})</a></p>
+          </div>
+      </div>
+</div>

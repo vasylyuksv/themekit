@@ -1,0 +1,39 @@
+<section class="about-choose">
+  <div class="container">
+    <h2>{%if shop.locale != 'ru' %}ПІДБЕРИ<br/> ДЛЯ СЕБЕ glo™{% else %}ПОДБЕРИ<br/> ДЛЯ СЕБЯ glo™{% endif %}</h2>
+
+    <div class="about-choose__wrapper">
+      <div class="about-choose__hyper"><img src="{{ "about-choose_hyper.png" | asset_url }}" alt="glo hyper"></div>
+      <div class="about-choose__pro"><img src="{{ "about-choose_pro.png" | asset_url }}" alt="glo pro"></div>
+      <div class="about-choose__descr">
+        <div class="about-choose__title">{{ 'about-choose_text' | t }}</div>
+        <a href="" class="btn">{{ 'about-choose_btn' | t }}</a>
+      </div>
+    </div>
+    
+  </div>
+
+</section>
+
+
+{% schema %}
+  {
+	"locales": {
+      "uk": {
+        "about-choose_text": "Обери пристрій та формат стіків",
+		"about-choose_btn": "дізнатися більше"
+      		},
+      "ru": {
+		"about-choose_text": "Выбери устройство и формат стиков",
+		"about-choose_btn": "узнать больше"
+      		},
+      "en": {
+		"about-choose_text": "Обери пристрій та формат стіків",
+		"about-choose_btn": "дізнатися більше"
+      		}
+  	},
+
+    "name": "Section name",
+    "settings": []
+  }
+{% endschema %}

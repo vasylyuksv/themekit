@@ -1,0 +1,69 @@
+{{ 'lk-customers.scss.css' | asset_url | stylesheet_tag }}
+{% include 'gtm-product' %}
+
+
+{% include "lk-header" %}
+
+{% if customer.metafields.incust.incust_id != null %}
+{% assign isIncustCustomer = true %}
+{% else %}
+{% assign isIncustCustomer = false %}
+{% endif %}
+
+<div class="container lk-myaccount--container">
+  <div class="row myaccount lk-myaccount">
+	{% include "lk-left_menu" %}
+    <div>
+      {% assign sn__register = "account" %}
+      {% include "sn__register" %}
+    </div>
+    <div class="col-lg-11 col-md-11 col-sm-16 col-lg-offset-1 lk-myaccount__right" data-tab-page>
+      
+      <div class="preloader">
+        {% comment %}{% render 'lk-icon-preloader' %}{% endcomment %}
+      </div>
+
+
+      {% if isIncustCustomer == true %}
+      <div data-tab="main">
+        {% include "account__main" %}
+      </div>
+      <div data-tab="transaction-history" class="dn">
+        {% include "account__transaction_history" %}
+      </div>
+      <div data-tab="bonus-items" class="dn">
+        {% include "account__bonus_items" %}
+      </div>
+      <div data-tab="invite-friend" class="dn">
+        {% include "account__invite_friend" %}
+      </div>
+      {% endif %}
+     
+      <div data-tab="profile" class="dn">
+        {% include "account__profile" %}
+      </div>
+      <div data-tab="order-history" class="dn">
+        {% include "account__order_history" %}
+      </div>
+
+      {% if isIncustCustomer == true %}
+      <div data-tab="faq" class="dn">
+        {% include "account__faq" %}
+      </div>
+ 	  <div data-tab="about" class="dn">
+        {% include "account__about" %}
+      </div>
+      {% endif %}
+    </div>
+
+  </div>
+</div>
+
+{% include "account__loyalty" %}
+{%comment%}{% include 'gtm-product' %}{%endcomment%}
+
+
+<script src="{{ 'lk-customers.js' | asset_url }}"></script>
+<script src="{{ 'account__tab.js' | asset_url }}"></script>
+
+

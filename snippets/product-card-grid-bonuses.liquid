@@ -1,0 +1,23 @@
+{% if customer.metafields.incust.incust_id != null %}
+    {% assign isIncustCustomer = true %}
+{% else %}
+    {% assign isIncustCustomer = false %}
+{% endif %}
+
+
+{% if product.has_only_default_variant or product.tags contains 'collapse_in_showcase' %}
+
+    {% render 'product-card-grid-single-product-bonuses', product: product, isIncustCustomer: isIncustCustomer %}
+
+{% elsif product.tags contains 'collapse_color_in_showcase' %}
+
+    {% render 'product-card-grid-color-product-bonuses', product: product, isIncustCustomer: isIncustCustomer %}
+
+{%else%}
+
+    {% for variant in product.variants %}
+        {% render 'product-card-grid-variant-bonuses', product: product, variant: variant, max_height: max_height,
+            wrapper_id: wrapper_id, isIncustCustomer: isIncustCustomer %}
+    {%endfor%}
+
+{%endif%}

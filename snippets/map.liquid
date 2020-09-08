@@ -1,0 +1,99 @@
+<div id="where-to-buy" class="distinct_page_map-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7">
+                <h2 class=" distinct_page_map-heading">Де знайти?</h2>
+                <div class="distinct_page_map-second-grid pB20">
+                    <div class="o-grid__item map-label checked">
+                        <label for="device" class="input--pink custom-checkbox distinct_page_map-checkbox">Набір glo™
+                            <input type="checkbox" name="device" class="distinct_page_map-inchx ngp-checkbox-item check__input point-orange" value="device" checked style="height: auto; width: auto; visibility: visible"/>
+                            <span class="checkmark distinct_page_map-checkmark"></span>
+                        </label>
+                    </div>
+                    <div class="o-grid__item map-label checked second-checkbox-map">
+                        <label for="stick" class="input--green custom-checkbox distinct_page_map-checkbox">Стіки для glo™
+                            <input type="checkbox" name="stick" class="distinct_page_map-inchx ngp-checkbox-item check__input point-blue" value="stick" checked style="height: auto; width: auto; visibility: visible"/>
+                            <span class="checkmark distinct_page_map-checkmark"></span>
+                        </label>
+                    </div>
+                </div>
+              <div class="clear"></div>
+                <div class="input-block">
+                    <label>Знайти найближчу точку</label>
+                    <input type="text" class="c-field__input distinct_page_map-input" id="address" name="address" placeholder="Введіть адресу" value="" autocomplete="off" />
+                    <div class="icon-search"><img src={{ "point.svg" | asset_url }}></div>
+                </div>
+                <div class="wrap-btn-map pT20">
+                    <button class="form-control btn" id="show-all">УСІ ТОЧКИ ПРОДАЖУ</button>
+                    <div><a href="/pages/contact-us" class="btn mT20" style="width: 280px;">НАШІ КОНТАКТИ</a></div>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div id="map" class="map" data-lat="48.3794" data-lng="31.1656"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<template id="sidebar-template" style="display:none;">
+    <div class="point" data-lat="@lat" data-lng="@lng" data-index="@index">
+        <h5 class="name">@name</h5>
+        <p class="address">
+            @address
+        </p>
+        <p class="point-type">
+            <b>@type</b>
+        </p>
+    </div>
+</template>
+<template id="popup-template" style="display:none;">
+    <div class="popup-template">
+        <h5 class="name">@name</h5>
+        <p class="address">
+            @address
+        </p>
+        <p class="point-type">
+            <b>@type</b>
+        </p>
+        <p>
+            <a href="https://www.google.com/maps/dir/?api=1&origin=@userPositionLatLng&destination=@lat,@lng&travelmode=driving" target="_blank" title="Прокласти сюди марштур на Google Картах">
+                <img src="{{ "route.png" | asset_url }}" style="width: 15px;"/> <br>
+                <b>Маршрут</b>
+            </a>
+        </p>
+    </div>
+</template>
+<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js" defer="defer"></script>
+<script src="{{ 'mapInit.js' | asset_url }}"></script>
+<script>
+    var MapConfigs = {
+        listPoints: '',
+        domain: 'https://{{ settings.bride_domain }}/store/stores.json',
+        NGP_DEVICE: 'device',
+        NGP_STICK: 'stick',
+        icon: {
+            stick: "{{ "map-icon-blue.png" | asset_url }}",
+            device: "{{ "map-icon-orange.png" | asset_url }}",
+            default: "{{ "default_marker.png" | asset_url }}",
+        route: "{{ "route.png" | asset_url }}"
+    },
+    type: {
+        stick : 'Тут можна придбати стіки для glo™',
+            device : 'Тут можна придбати Набір для нагрівання тютюну glo™ та KENT neostiks™'
+    },
+    currentPoint: "{{ "point.png" | asset_url }}",
+        clusterIcons: {
+        m1 : '{{ "m1.png" | asset_url }}',
+            m2 : '{{ "m2.png" | asset_url }}',
+            m3 : '{{ "m3.png" | asset_url }}',
+            m4 : '{{ "m4.png" | asset_url }}',
+            m5 : '{{ "m5.png" | asset_url }}'
+    }
+    };
+
+    //map checkbox
+    $('.custom-checkbox').on('click',function(){
+        $(this).find('input').click();
+    });
+</script>
+<style>
+</style>

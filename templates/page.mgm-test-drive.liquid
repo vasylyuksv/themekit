@@ -1,0 +1,399 @@
+<div class="container-fliud page-about__bg block-mb">
+  <div class="container">
+    <div class="row">
+    	<div class="col-lg-16">
+          <div class="page__title fff">glo BONUS CLUB</div>
+        </div>
+    </div>
+  </div>
+</div>
+
+{%comment%}
+<div class="container-fliud block-mb">
+  <div class="benefits-block container">
+    <div class="row">
+      <div class="col-lg-8"><h2>Програма glo Agent</h2></div>
+    </div>
+    <div class="row">
+    	<div class="col-lg-16">
+              <p>Ти користувач glo™?</p>
+              <p>У тебе є друзі, які курять?</p>
+              <p>Порадь їм glo™ та отримай промокод на спеціальну ціну на один з обраних товарів:</p>
+			 <ul class="info-list benefits-block__list pT20">
+                <li class="info-list__item">
+                    <span class="i-check"></span>
+                    <p class="info-list__text">5 пачок стіків за ціною 6,30 грн</p>
+                </li>
+                <li class="info-list__item">
+                    <span class="i-check"></span>
+                    <p class="info-list__text">Контейнер glo™ для стіків за 1 грн</p>
+                </li>
+                <li class="info-list__item">
+                    <span class="i-check"></span>
+                    <p class="info-list__text">Комплект паличок для чищення glo™ за 1 грн</p>
+                </li>
+          	</ul>
+		</div>
+      	
+	</div>
+   </div>
+</div>
+{%endcomment%}
+
+<div class="container-fliud block-mb">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-16"><h2>Всього три простих кроки</h2></div>
+    </div>
+    <div class="row">
+      <div class="col-lg-8">
+       		<ul class="info-list benefits-block__list">
+                <li class="info-list__item pB20">
+                    <span class="i-check"></span>
+                  <p class="info-list__text"><b>Заповни</b> дані свого друга, якому може бути цікаво придбати або спробувати glo™</p>
+                </li>
+                <li class="info-list__item pB20">
+                    <span class="i-check"></span>
+                  <p class="info-list__text">Ми <b>зателефонуємо</b> твоєму другу та допоможемо йому замовити glo™</p>
+                </li>
+                <li class="info-list__item pB20">
+                    <span class="i-check"></span>
+                  <p class="info-list__text">Як тільки твій друг придбає пристрій glo™, ти зможеш <b>обрати</b> собі <b>винагороду</b></p>
+                </li>
+          	</ul>
+      </div>
+      <div class="col-lg-8" class="">
+        <form method="post" action="https://{{ settings.bride_domain }}/test-drive" class="form-vertical" id="test_drive_form">
+        <p>Дані твого друга</p>
+            
+
+              <!-- Name -->
+              
+                 <label class="c-field__label" for="DriveFormName">Ім'я</label>
+                 <input type="text" name="name" id="DriveFormName" class="full-width" value="">
+                 <div class="form-error" id="fioError" style="display:none;">Заповніть, будь ласка, ім'я та прізвище</div>
+             
+              
+              <!-- Surname -->
+                  <input type="hidden" name="surname" id="DriveFormSurname" class="c-field__input" placeholder="Прізвище" value="Прізвище">
+              
+              <!-- Phone -->
+              
+                  <label class="c-field__label" for="DriveFormPhone">Телефон</label>
+                  <input type="tel" name="phone" id="DriveFormPhone" class="c-field__input phone-mask" value="">
+
+              
+              <!-- City -->
+            <input type="hidden" name="city" value="City">
+            
+            <!-- Gender -->
+                  <select id="DriveFormGender" name="sex" style="display:none;">
+                    <option value="M"></option>
+                  </select>
+              
+              <!-- Email -->
+                  <input type="hidden" name="email" id="DriveFormEmail" value="">
+              
+              <!-- Code -->
+              
+                  <label class="c-field__label" for="DriveFormCode">Персональний код</label>
+                  <input type="text" name="mgm_code" id="DriveFormName" class="c-field__input" value="">
+                  <div class="form-error" id="mgmCodeErr"></div>
+                  
+              
+              
+              <!--Check -->
+              
+              <input type="checkbox" name="check" id="DriveFormCheck" class="c-field__check" value="1">
+              <label for="DriveFormCheck" class="c-fieldset__check-label"></label>
+              <span>Я приймаю <a target="_blank" href="//cdn.shopify.com/s/files/1/0072/8111/5254/t/5/assets/mgmagree.pdf?v=1282219237474977258" aria-describedby="a11y-new-window-external-message" rel="noopener">Умови програми "glo™ Agent"</a></span>
+                
+              
+              <input type="hidden" name="sales_doubler" id="salesDoublerInp">
+              <input type="hidden" name="is_mgm" value="1">
+              <input type="hidden" name="formtype" value="1" id="formTypeInp">
+              <input type="hidden" name="dob" value="01/01/1900">
+          		<input type="hidden" name="google_client_id" value="0" id="googeIdInp" />
+
+              <!-- Submit -->
+              <div class="c-fieldset__item u-1/1">
+                 <button type="submit" class="btn btn--primary auto-width" id="submitTestDrive">
+                    <span>Зареєструвати</span>
+                  </button>
+              
+            </div>
+        
+      </form>
+      <div class="form-success-message success-message-block block-mgm" style="display: none;">
+          <p><span class="success-user-name">Username</span>, дякуємо Вам за участь у программі!</p>
+          <p style="margin-bottom: 0;">Ми зв’яжемося з вашим другом найближчим часом, та одразу як він придбає <b>glo™</b>, ми повідомиво Вас про це!</p>
+          <a href="/pages/about" class="c-btn c-btn--reversed">
+              <span>Дізнатись більше про <span style="text-transform: none;">glo™</span></span>
+          </a>
+      </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fliud block-mb">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-16"><h2>Переваги програми</h2></div>
+    </div>
+    <div class="row">
+      <div class="col-lg-8">
+       		<ul class="info-list benefits-block__list benefits-block__list-mgm">
+                <li class="info-list__item pB20">
+                    <span class="i-check"></span>
+                  <p class="info-list__text">Тобі не треба турбуватися щодо отримання винагороди. Ми самостійно зателефонуємо чи відправимо промокод на email.</p>
+                </li>
+                <li class="info-list__item pB20">
+                    <span class="i-check"></span>
+                  <p class="info-list__text">Чим більше рекомендацій – тим більше промокодів можна отримати.</p>
+                </li>
+                <li class="info-list__item pB20">
+                    <span class="i-check"></span>
+                  <p class="info-list__text">Не потрібно приводити друга до нашого магазину. Заповни його дані на сайті і чекай, доки він зробить покупку.</p>
+                </li>
+          	</ul>
+      </div>
+      <div class="col-lg-8 col-md-8">       
+          <img src="https://cdn.shopify.com/s/files/1/0072/8111/5254/t/5/assets/glo-black_min.jpg?v=13484875338186182527" style="max-width: 100%;">
+        </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+	<div class="row">
+      <div class="col-lg-16">
+      <ul class="faq">
+              <li>
+                <input type="checkbox" checked>
+                <i></i>
+                  <div class="faq__title">Як дізнатися свій персональний код?</div>
+                 	<p>Протягом 2 днів після покупки та реєстрації пристрою, ми надсилаємо тобі код у смс-повідомленні та посилання на наш сайт, де можна одразу зареєструвати друзів. Цей код багаторазовий, обмежень за кількістю реєстрацій не має.</p>
+                    <p>Також персональний код знає твій glo™-експерт (персональний менеджер, що надавав тобі тест-драйв пристрою glo™).</p>  
+                    <p>Якщо з якоїсь причини тобі не надійшло смс-повідомлення – звернись на нашу гарячу лінію 8008 – ми повторно відправимо тобі дані. </p>
+              </li>
+              <li>
+                <input type="checkbox" checked>
+                <i></i>
+                  <div class="faq__title">Як я дізнаюся, що мій друг придбав glo™?</div>
+                  <p>
+                  	Як тільки твій друг придбає та зареєструє пристрій glo™, ми зв'яжемось з тобою або відправимо промокод на твій email чи у смс-повідомленні.
+                	</p>
+              </li>
+              <li>
+                <input type="checkbox" checked>
+                <i></i>
+                  <div class="faq__title">Якщо я не користувач glo™ чи можу я взяти участь у програмі?</div>
+                   <p>
+                    Телефонуй на гарячу лінію 8008 та залиш запит на участь у програмі glo™ Agent.
+                  </p>
+              </li>
+              <li>
+                <input type="checkbox" checked>
+                <i></i>
+                  	<div class="faq__title">Як я можу отримати винагороду?</div>
+                  	<p>Замовлення можна оформити або під час розмови з оператором, або самостійно на нашому сайті, використавши промокод, який ми відправляємо на email чи у смс-повідомленні.</p>
+					<p>Замовлення буде доставлено протягом 3 днів. Вартість доставки за тарифами Нової пошти.</p>
+              </li>
+              
+              
+               
+            </ul>
+      
+      </div>
+  	</div>
+</div>
+
+
+<script src="{{ 'form-validation.js' | asset_url }}"></script>
+<!-- <script src="{{ 'phone-validator.js' | asset_url }}"></script> -->
+<script>
+    $('.phone-mask').inputmask('+38(999)-999-99-99', { 'placeholder': '+38(___)-___-__-__' });
+
+    $.urlParam = function (name) {
+        var results = new RegExp('[\?&]' + name + '=([^&#]*)')
+            .exec(window.location.href);
+
+        return (!!results) ? results[1] : 0;
+    }
+
+    if(mgm = $.urlParam('mgm')) {
+        $('[name="mgm_code"]').val(mgm).attr('readonly', true);
+    }
+
+    var isCorrecLead = function(response) {
+        var resData, hotLineStr;
+
+        resData = {
+            isCorrect: true,
+            msg: ''
+        };
+        hotLineStr = 'Якщо у вас виникатимуть додаткові питання з цього приводу, будь ласка, звертайтесь за номером гарячої лінії 8008. Дякуємо.';
+
+        if(response.sf_status) {
+            switch (response.sf_status) {
+                case 2:
+                    resData.msg = "Приносимо свої вибачення, але клієнт з такими даними вже був зареєстрований раніше. <br> " + hotLineStr;
+                    resData.isCorrect = false;
+                    break;
+                case 3:
+                    resData.msg = "Заповніть, будь ласка, усі обов’язкові поля. Дякуємо.";
+                    resData.isCorrect = false;
+                    break;
+                case 4:
+                case 6:
+                case 12:
+                    resData.msg = "Персональний MGM код, який ви використовуєте невірний. Будь ласка, перевірте код. <br> " + hotLineStr;
+                    resData.isCorrect = false;
+                    break;
+
+                default:
+                    break;
+            }
+        }
+
+        return resData;
+    }
+
+
+    $(document).on('submit', '#test_drive_form', function(e) {
+        e.preventDefault();
+
+        var $form = $(e.currentTarget), submitBtn, hasError = false,
+            $formErrMsg = $('#mgmCodeErr'),
+            $formSuccess = $('.form-success-message'),
+            errClass = 'input--error';
+
+        $form.find('input, select').removeClass(errClass);
+        $form.find('input[name="check"]').prev().removeClass(errClass);
+
+        var ns = $('#DriveFormPhone').val();
+        ns = ns.replace(/([-~!@#$%^&*()_+=`{}\[\]\|\\:;'<>])+/g, '');
+
+        $('#DriveFormEmail').val(ns + '@batmyglo.com.ua');
+
+        fioError = $('#fioError').hide();
+        fio = $form.find('input[name="name"]').val().trim();
+
+        if(!/^[^\s]+\s+[^\s]+$/.test(fio)) {
+            fioError.show();
+            $form.find('input[name="name"]').addClass(errClass);
+            hasError = true;
+        }
+
+        if(hasError) {
+            return false;
+        }
+
+        submitBtn = $form.find('[type="submit"]').attr('disabled', true);
+
+        $.post($form.attr('action'), $form.serialize(), function(response) {
+            var resResult = isCorrecLead(response);
+
+            if(resResult.isCorrect) {
+                $formErrMsg.empty();
+                $form.slideUp();
+                $formSuccess.find('.success-user-name').text($form.find('input[name="name"]').val());
+                $formSuccess.slideDown();
+
+                if(typeof  SalesDoubler !== 'undefined') {
+                    SalesDoubler.onTestDriveSuccess();
+                }
+
+                if(typeof EventTrack1 !== 'undefined') {
+                    EventTrack1.onClickSubmitTestDrive();
+                }
+            } else {
+                $formErrMsg.html(resResult.msg);
+                submitBtn.attr('disabled', false);
+            }
+        }, 'json')
+            .fail(function(response) {
+                if(response.responseJSON) {
+                    $.each(response.responseJSON.errors, function(i, v) {
+                        if (i == 'check') {
+                            $('input[name="check"]').addClass(errClass);
+                        } else {
+                            $('[name="'+i+'"]').addClass(errClass);
+                        }
+                    });
+                }
+
+                submitBtn.attr('disabled', false);
+            });
+    });
+
+    var PhoneValidationConfig = {
+        phoneId: '#DriveFormPhone',
+        containerId: '.c-field__input-wrapper'
+    };
+
+    $(document).ready(function() {
+        var inp = $('#formTypeInp');
+
+        if($(location).attr('href').indexOf('/pages/mgm-test-drive-cl') > 0) {
+            inp.val(7);
+        }
+
+        var timerId = setTimeout(function(){
+            var clientId = false;
+
+            try {
+                if(typeof ga !== 'undefined') {
+                    ga(function(tracker) {
+                        clientId = tracker.get('clientId');
+                        $('#googeIdInp').val(clientId);
+
+                        clearTimeout(timerId);
+                    });
+                }
+            } catch (e) {}
+
+            try {
+                if(!clientId) {
+                    clientId = ga.getAll()[0].get('clientId');
+                    $('#googeIdInp').val(clientId);
+
+                    clearTimeout(timerId);
+                }
+
+            } catch (e) {}
+
+        }, 3000);
+    });
+
+</script>
+
+
+<style>
+.transition, p, ul li i:before, ul li i:after {
+  transition: all 0.25s ease-in-out;
+}
+
+.flipIn, h1, ul li {
+  animation: flipdown 0.5s ease both;
+}
+</style>
+
+
+<style>
+    .form-success-message.success-message-block.block-mgm {
+        width: 550px;
+    }
+    @media (max-width: 900px) {
+        .form-success-message.success-message-block.block-mgm {
+            width: 100%;
+            margin: 30px 0;
+            padding: 15px;
+        }
+    }
+    .about__info .benefits {
+        padding-top: 20px;
+    }
+
+</style>

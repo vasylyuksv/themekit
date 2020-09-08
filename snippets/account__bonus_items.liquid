@@ -1,0 +1,34 @@
+<h3 class="lk-title">Купуй за бонуси</h3>
+
+<div class="lk-bonus-products__descr lk-bonus-products__margin">
+  <div class="lk-bonus-products__descr-nav">
+    <button class="active" data-id="all_bonus_product">Усі</button>
+    <button data-id="allow_bonus_product">Доступні</button>
+  </div>
+  
+</div>
+
+<div class="lk-bonus-products lk-bonus-products__margin">
+
+
+{% assign all_products = collections.all.products | sort: 'metafields.bonuses.price' %}
+
+{% for product in all_products %}
+
+  {% if product.tags contains 'bonuses_only' %}
+    {% render 'product-card-grid-bonuses', max_height: 195, product: product %}
+  {% endif %}
+
+{% endfor %}
+
+</div>
+
+{% comment %}
+<div class="lk-bonus-products--more-btn lk-bonus-products__margin">
+  <button>Показати ще</button>
+</div>
+{% endcomment %}
+
+<script src="{{ 'account__bonus_items.js' | asset_url }}"></script>
+
+

@@ -1,0 +1,76 @@
+<section class="about-reviews">
+  <div class="container">
+    <h2>{{ 'about-reviews_title' | t }}</h2>
+    
+    <div class="about-reviews__slider">
+      <div class="about-reviews__item">
+        <div class="about-reviews__name">
+          <strong>{{ 'about-reviews_name-1' | t }}</strong>
+          <div>{{ 'about-reviews_who-1' | t }}</div>
+        </div>        
+        <div class="about-reviews__img"><img src="{{ "galich.jpg" | asset_url }}" alt="{{ 'about-reviews_name-1' | t }}"></div>
+        <div class="about-reviews__text"><span>Для тех, кто курит – это крутая альтернатива: руки, вещи не воняют дымом и в такой холод не нужно выходить на улицу или балкон</span></div>        
+        <div class="about-reviews__quo"><img src="{{ "about-reviews_quo.svg" | asset_url }}" alt="{{ 'about-reviews_who-1' | t }}"></div>
+      </div>
+      
+      <div class="about-reviews__item">
+        <div class="about-reviews__name">
+          <strong>{{ 'about-reviews_name-2' | t }}</strong>
+          <div>{{ 'about-reviews_who-2' | t }}</div>
+        </div>        
+        <div class="about-reviews__img"><img src="{{ "pazenko.jpg" | asset_url }}" alt="{{ 'about-reviews_name-2' | t }}"></div>
+        <div class="about-reviews__text"><span>Особо радует, что glo™ pro позволяет  осуществлять до 20 последовательных сеансов за один полный заряд. Простыми словами не надо посто раз подзаряжаться</span></div>        
+        <div class="about-reviews__quo"><img src="{{ "about-reviews_quo.svg" | asset_url }}" alt="{{ 'about-reviews_who-2' | t }}"></div>
+      </div>
+      
+      <div class="about-reviews__item">
+        <div class="about-reviews__name">
+          <strong>{{ 'about-reviews_name-3' | t }}</strong>
+          <div>{{ 'about-reviews_who-3' | t }}</div>
+        </div>        
+        <div class="about-reviews__img"><img src="{{ "kryshtal.jpg" | asset_url }}" alt="{{ 'about-reviews_name-3' | t }}"></div>
+        <div class="about-reviews__text"><span>Девайс glo™ pro с новой индукционной технологией нагревания табака, который помогает экономить то самое драгоценное время. Ведь именно благодаря режиму «boost» ожидание начала сеанса сократилось до 10 секунд. А еще новые трендовые цвета, которые не могут не нравится визуально.</span></div>        
+        <div class="about-reviews__quo"><img src="{{ "about-reviews_quo.svg" | asset_url }}" alt="{{ 'about-reviews_who-3' | t }}"></div>
+      </div>     
+      
+    </div>
+    
+  </div>
+</section>
+
+{% schema %}
+  {
+	"locales": {
+      "uk": {
+        "about-reviews_title": "ВІДГУКИ ПРО glo™",
+		"about-reviews_name-1": "Женя Галич",
+        "about-reviews_who-1": "лідер гурту O.Torvald",
+        "about-reviews_name-2": "Олександр Пазенко",
+        "about-reviews_who-2": "власник мережі барбершопів",
+        "about-reviews_name-3": "Ваня Кришталь",
+        "about-reviews_who-3": "блогер"
+      		},
+      "ru": {
+		"about-reviews_title": "ОТЗЫВЫ ПРО glo™",
+		"about-reviews_name-1": "Женя Галич",
+        "about-reviews_who-1": "лидер группы O.Torvald",
+        "about-reviews_name-2": "Александр Пазенко",
+        "about-reviews_who-2": "владелец сети барбершопов",
+        "about-reviews_name-3": "Ваня Крышталь ",
+        "about-reviews_who-3": "блогер"
+      		},
+      "en": {
+		"about-reviews_title": "ВІДГУКИ ПРО glo™",
+		"about-reviews_name-1": "Женя Галич",
+        "about-reviews_who-1": "лідер гурту O.Torvald",
+        "about-reviews_name-2": "Олександр Пазенко",
+        "about-reviews_who-2": "власник мережі барбершопів",
+        "about-reviews_name-3": "Ваня Кришталь",
+        "about-reviews_who-3": "блогер"
+      		}
+  	},
+
+    "name": "Section name",
+    "settings": []
+  }
+{% endschema %}

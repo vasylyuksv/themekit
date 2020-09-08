@@ -1,0 +1,27 @@
+{% if request.path == '/collections' or request.path == '/collections/all'  %}
+<link rel="amphtml" href="https://myglo.com.ua/pages/amp-collections">
+{% endif %}
+
+{% if request.path == '/collections/all/products/glo-pro-kit' or request.path == '/products/glo-pro-kit'  %}
+<link rel="amphtml" href="https://myglo.com.ua/pages/amp-glo-pro-kit">
+{% endif %}
+
+{% if request.path == '/pages/glo-nano' %}
+<link rel="amphtml" href="https://myglo.com.ua/pages/amp-glo-nano">
+{% endif %}
+
+{% if request.path == '/pages/glo-pro' %}
+<link rel="amphtml" href="https://myglo.com.ua/pages/amp-glo-pro">
+{% endif %}
+
+{% if request.path == '/collections/glo-devices/products/glo-nano' or request.path == '/products/glo-nano' %}
+<link rel="amphtml" href="https://myglo.com.ua/pages/amp-product-nano">
+{% endif %}
+
+{% if request.path == '/collections/glo-devices/products/glo-pro' or request.path == '/products/glo-pro' %}
+<link rel="amphtml" href="https://myglo.com.ua/pages/amp-product-pro">
+{% endif %}
+
+{% if request.path == '/' %}
+<link rel="amphtml" href="https://myglo.com.ua/pages/amp">
+{% endif %}

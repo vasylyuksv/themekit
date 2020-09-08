@@ -1,0 +1,37 @@
+{{ 'gtm_checkout.js'| asset_url | script_tag }}
+
+<script>
+   {%- for item in checkout.line_items -%}
+
+  {% assign product_category = item.product.collections| first %}
+  window.GTMcheckout.products.push({
+        name: {{ item.product.title | json }},         // Name or ID is required.
+        id: {{ item.sku  | json }},
+        price: {{ item.final_price  | divided_by: 100.00 | json }},
+        brand: {{ item.product.vendor | json }},
+        category: {{ product_category.title | json }},
+        variant: {{ item.variant.title | json }},
+    quantity:{{ item.quantity |json }}
+});
+  {%- endfor -%}
+  
+  window.GTMcheckout.setStep(Shopify.Checkout.step);
+
+  if (Shopify.Checkout.step == 'thank_you' ) {
+    window.GTMcheckout.action = {
+                        'id': {{ checkout.order_name | json}},                       
+      					'affiliation': {{ shop.name | json}},
+                        'revenue': {{ checkout.total_price | divided_by: 100.00 | json }},     
+      					'tax': {{ checkout.tax_price | divided_by: 100.00| json }},
+                        'shipping': {{ checkout.shipping_price | divided_by: 100.00| json }},
+                    };
+    {% assign  discount_application = checkout.discount_applications|first%}
+{% if discount_application %}
+    window.GTMcheckout.action.coupon ={{ discount_application.title | json }};
+{% endif %}    
+    window.GTMcheckout.purchase();
+  }
+
+</script>
+
+

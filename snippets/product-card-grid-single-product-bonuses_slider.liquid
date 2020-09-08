@@ -1,0 +1,45 @@
+{% if product.available%}
+
+    {% capture bounusesEnough %}{% render '_is_bonuses_enough', variant: product.selected_or_first_available_variant, product: product %}{% endcapture %}
+
+    {% if bounusesEnough == 'false' %}
+        {% assign allowBuy = false %}
+    {% else %}
+        {% assign allowBuy = true %}
+    {% endif %}
+
+    <div class="lk-bonus-item" data-allowbuy="{% if allowBuy == true %}1{% else %}0{% endif %}">
+
+            <a href="{{ product.url | within: collection }}" class="lk-bonus-item__img">
+                {% render 'product-special-img', product: product %}
+
+                {% capture img_id %}ProductCardImage-{{ section.id }}-{{ product.id }}{% endcapture %}
+                {%- assign img_url = product.featured_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
+                <img id="{{ img_id }}"
+                     class="grid-view-item__image lazyload"
+                     alt="{{ product.featured_image.alt }}"
+                     data-src="{{ img_url }}"
+                     data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                     data-aspectratio="{{ product.featured_image.aspect_ratio }}"
+                     data-sizes="auto"
+                     data-image>
+            </a>
+
+            <div class="lk-bonus-item__height2">
+                <div class="lk-bonus-item__title">
+                    <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
+                </div>
+            </div>
+
+            <div>
+                {{product.variants[0].metafields.additional.additional-description}}
+                {{variant.metafields.additional.additional-description}}
+            </div>
+
+            {% render 'product-price-bonuses_slider', variant: product.selected_or_first_available_variant, product: product %}
+            
+
+
+    </div>
+{%endif%}

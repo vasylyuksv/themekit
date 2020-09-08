@@ -1,0 +1,350 @@
+<div class="container-fliud page-free-test-drive__bg block-mb">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-16">
+                <h1 class="page__title fff">Тест-драйв</h1>
+                <p class="page__desc fff hidden-xs">Спробуй смарт технологію нагрівання тютюну – це просто</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fliud block-mb-lg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 col-md-9">
+                <p><b>Альтернатива тест-драйву і навіть краще!<br><br>З 17.03 у зв'язку з карантином, видача пристрою на тест–драйв тимчасово неможлива.</b><br>Ми з розумінням ставимось до твого бажання протестувати пристрій glo™ перед його покупкою. І оскільки glo™-експерти тимчасово не проводять офлайн презентації, то на період карантину ми створили послугу гарантованого повернення коштів за пристрій glo™ у випадку, якщо протягом 14 днів його використання ти вирішиш його повернути назад. Фактично це той самий тест-драйв тільки з абсолютно новим, власним glo™.<br>Заповнюй форму та дізнавайся деталі.</p>
+                <form method="post" action="https://{{ settings.bride_domain }}/test-drive" class="form-vertical" id="test_drive_form">
+
+                    <div class="test-drive-form">
+
+                        <!-- Name -->
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <label for="DriveFormName">Ім'я та прізвище</label>
+                                <div class="c-field__input-wrapper">
+                                    <input type="text" name="name" id="DriveFormName" value="">
+                                    <div class="form-error" id="fioError" style="display:none;">Заповніть, будь ласка, ім'я та прізвище</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-8">
+                                <!-- Phone -->
+                                <label for="DriveFormPhone">Телефон</label>
+                                <div class="c-field__input-wrapper">
+                                    <input type="tel" name="phone" id="DriveFormPhone" class="c-field__input phone-mask" value="">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Code -->
+
+                        <label class="c-field__label" for="DriveFormCode">Твій персональний код</label>
+                        <input type="text" name="mgm_code" id="DriveFormName" class="c-field__input" value="">
+                        <div class="form-error" id="mgmCodeErr" style="display:none;">Заповніть, будь ласка, поле</div>
+
+                        <!-- Email -->
+                        <div style="display:none;">
+                            <input type="text" name="email" id="DriveFormEmail" class="c-field__input" placeholder="email@example.com" value="">
+                        </div>
+
+                        <!-- City -->
+                        <div style="display:none;">
+
+                            <div class="c-field__input-wrapper">
+                                <select id="DriveFormGender" class="c-field__input c-field__input--has-right-add-on" name="city">
+                                    <option disabled="" selected="">Мiсто</option>
+                                    <option value="Київ">Київ</option>
+                                    <option value="Харків">Харків</option>
+                                    <option value="Дніпро">Дніпро</option>
+                                    <option value="Запоріжжя">Запоріжжя</option>
+                                    <option value="Одеса">Одеса</option>
+                                    <option value="Львів">Львів</option>
+                                </select>
+
+                            </div>
+                        </div>
+
+                        <!-- Surname -->
+                        <div style="display:none;">
+                            <div>
+                                <input type="text" name="surname" id="DriveFormSurname" class="c-field__input" placeholder="Прізвище" value="">
+                            </div>
+                        </div>
+
+                        <div class="device-type-block">
+                            <input type="radio" name="device" id="deviceHyper" value="hyper"><label for="deviceHyper">Glo Hyper</label>&nbsp;
+                            <input type="radio" name="device" id="devicePro" value="pro"><label for="devicePro">Glo Pro</label>
+
+                            <div class="form-error" id="deviceError" style="display:none;margin-top:5px;">Оберіть, будь ласка, девайс</div>
+                        </div>
+
+                        <!--Check -->
+                        <div class="" style="padding: 20px 0 30px 0;">
+                            <input type="checkbox" name="check" id="DriveFormCheck" class="c-field__check" value="1">
+                            <label for="DriveFormCheck" class="c-fieldset__check-label"></label>
+                            <span style="font-size: 12px; top: -10px; position: relative;">
+                Я погоджуюся з <a target="_blank" href="/pages/ugoda-z-korystuvachem" rel="noopener" aria-describedby="a11y-new-window-message">Умовами Використання</a> та <a target="_blank" href="/pages/ugoda-z-korystuvachem#conf" rel="noopener" aria-describedby="a11y-new-window-message">Політикою Конфіденційності</a>
+              </span>
+                            <div class="form-error" id="agreeError" style="display:none;margin-top:5px;">Заповніть, будь ласка, поле</div>
+                        </div>
+
+                        <input type="hidden" name="cpa" id="cpaInp">
+                        <input type="hidden" name="dob" value="01/01/1900">
+                        <input type="hidden" name="city" value="City">
+                        <input type="hidden" name="surname" value=", дякуємо ">
+                        <input type="hidden" name="email" value="temp@com.ua">
+                        <input type="hidden" name="formtype" value="16" id="formTypeInp">
+                        <input type="hidden" name="google_client_id" value="0" id="googeIdInp" />
+
+                        <!-- Submit -->
+                        <div>
+                            <button type="submit" class="btn btn--primary" id="submitTestDrive">
+                                <span>Замовити</span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="form-success-message success-message-block" style="display: none;">
+                    <p><span class="success-user-name">Username</span>, дякуємо за Вашу заявку!</p>
+                    <p style="margin-bottom: 0;">Ми зв’яжемося з Вами найближчим часом <br> та сплануємо тест-драйв <b>glo™</b>!</p>
+                    <a href="/pages/about" class="c-btn c-btn--reversed">
+                        <span>Дізнатись більше про <span style="text-transform: none;">glo™</span></span>
+                    </a>
+                </div>
+
+            </div>
+            <div class="col-lg-7 col-md-7 testdrive__checklist">
+                <ul class="num-list">
+                    <li>Замов онлайн через форму або запитай у магазині</li>
+                    <li>Отримай свій glo™ у одного з наших досвідчених<br>glo™-експертів</li>
+                    <li>Випробовуй glo™ протягом 3 днів </li>
+                    <li>Сподобалося? Придбай власний glo™ та отримуй доставку прямо додому</li>
+                </ul>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="container-fliud block-mb-lg">
+    <div class="benefits-block container">
+        <div class="row">
+            <div class="col-lg-16">
+                <img src={{ "test-drive-glo-min.jpg" | asset_url }} alt="Безкоштовний тест-драйв glo">
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="container-fliud block-mb">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-16">
+                <div class="benefits">
+                    <div class="benefits__item">
+                        <img style="width:70px" src={{"test_drive_1.svg" | asset_url }}> Менше запаху*
+                    </div>
+                    <div class="benefits__item">
+                        <img style="width:70px" src={{"test_drive_2.svg" | asset_url }}> Без попелу та диму**
+                    </div>
+                    <div class="benefits__item">
+                        <img style="width:70px" src={{"test_drive_3.svg" | asset_url }}> Без вогню
+                    </div>
+                    <div class="benefits__item">
+                        <img style="width:70px" src={{"test_drive_4.svg" | asset_url }}> Відбірний, високоякісний тютюн
+                    </div>
+                    <div class="benefits__item">
+                        <img style="width:70px" src={{"test_drive_5.svg" | asset_url }}> Прогресивна технологія нагрівання
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container block-mb">
+    <div class="row">
+        <div class="col-lg-16"><h2>Друзі glo</h2>
+            <p>#TODAYIWILL</p>
+            <p></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4 col-xs-8 text-center">
+            <img src="//cdn.shopify.com/s/files/1/0072/8111/5254/t/5/assets/insta-1.jpg?v=3768269798177788635">
+            <p><a href="https://www.instagram.com/p/B3Y9fABgU_J/?igshid=14owtsm2ceo62" target="_blank">@valentina_safro</a></p>
+        </div>
+        <div class="col-lg-4 col-xs-8 text-center">
+
+            <img src="//cdn.shopify.com/s/files/1/0072/8111/5254/t/5/assets/insta-2.jpg?v=12258507976991560268">
+            <p><a href="https://www.instagram.com/p/B42Cxi3Hi8s/?igshid=15wrifbf4p0ve" target="_blank">@pustovit</a></p>
+
+        </div>
+        <div class="col-lg-4 col-xs-8 text-center">
+
+            <img src="//cdn.shopify.com/s/files/1/0072/8111/5254/t/5/assets/insta-3.jpg?v=15309726652543165169">
+            <p><a href="https://www.instagram.com/p/BkzrHgFh9Vn/?igshid=1xiyxlfvq6yeo" target="_blank">@djmaryjane</a></p>
+
+        </div>
+        <div class="col-lg-4 col-xs-8 text-center">
+            <img src="//cdn.shopify.com/s/files/1/0072/8111/5254/t/5/assets/insta-4.jpg?v=12164365439458549270">
+            <p><a href="https://www.instagram.com/p/B1Rw9OPiCxF/?igshid=qwux5u4pv7h5" target="_blank">@hard_chenko</a></p>
+        </div>
+    </div>
+</div>
+<div class="container-fliud block-mb">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-16">
+                <div class="warning-text">
+                    <p>* В порівнянні зі звичайною сигаретою під час куріння. Це не обов'язково означає, що цей продукт є менш шкідливим, ніж інші тютюнові продукти</p>
+                    <p>** Без сигаретного диму, але з аерозолем від нагрітого тютюну. Це не обов'язково означає, що цей продукт є менш шкідливим, ніж інші тютюнові продукти</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="{{ 'form-validation.js' | asset_url }}"></script>
+{%comment%}<script src="{{ 'phone-validator.js' | asset_url }}"></script>{%endcomment%}
+<script src="{{ 'home.js' | asset_url }}"></script>
+<script>
+    $('.date-mask').inputmask('dd/mm/yyyy', { 'placeholder': 'дд/мм/рррр' });
+
+    $('.phone-mask').inputmask('+38(999)-999-99-99', { 'placeholder': '+38(___)-___-__-__' });
+
+    $.urlParam = function (name) {
+        var results = new RegExp('[\?&]' + name + '=([^&#]*)')
+            .exec(window.location.href);
+
+        return (!!results) ? results[1] : 0;
+    }
+
+    if(mgm = $.urlParam('mgm')) {
+        $('[name="mgm_code"]').val(mgm).attr('readonly', true);
+    }
+
+    $(document).on('submit', '#test_drive_form', function(e) {
+        e.preventDefault();
+
+        var $form = $(e.currentTarget), fio, fioError, errClass = 'input--error', agreeError, submitBtn, deviceError, hasError = false,
+            $formSuccess = $('.form-success-message');
+
+        $form.find('input, select').removeClass(errClass);
+        $form.find('input[name="check"]').prev().removeClass(errClass);
+
+        fio = $form.find('input[name="name"]').val().trim();
+        fioError = $('#fioError').hide();
+        agreeError = $('#agreeError').hide();
+        deviceError = $('#deviceError').hide();
+
+        code = $('[name="mgm_code"]').val();
+        codeError = $('#mgmCodeErr').hide();
+
+        if(!/^[^\s]+\s+[^\s]+$/.test(fio)) {
+            fioError.show();
+            $form.find('input[name="name"]').addClass(errClass);
+            hasError = true;
+        }
+
+        if(!$('#DriveFormCheck').is(':checked')) {
+            agreeError.show();
+            hasError = true;
+        }
+
+        if(!$('[name="device"]:checked').val()) {
+            deviceError.show();
+            hasError = true;
+        }
+
+        if(!code) {
+            codeError.show();
+            hasError = true;
+        }
+
+        if(hasError) {
+            return false;
+        }
+
+        if(typeof Cpa !== 'undefined') {
+            Cpa.onTestDriveSubmit();
+        }
+
+        submitBtn = $form.find('[type="submit"]').attr('disabled', true);
+
+        $.post($form.attr('action'), $form.serialize(), function(response) {
+            var redirectUrl;
+            $form.slideUp();
+            $formSuccess.find('.success-user-name').text($form.find('input[name="name"]').val());
+            $formSuccess.slideDown();
+
+            redirectUrl = window.location.pathname.replace(/\/$/, "") + "/?thanks";
+            if($('[name="device"]:checked').val()) {
+                redirectUrl += '=' + $('[name="device"]:checked').val();
+            }
+
+            window.history.replaceState(null, null, redirectUrl);
+        }, 'json')
+            .fail(function(response) {
+                $.each(response.responseJSON.errors, function(i, v) {
+                    if (i == 'check') {
+                        $('input[name="check"]').prev().addClass(errClass);
+                    } else {
+                        $('[name="'+i+'"]').addClass(errClass);
+                    }
+                });
+
+                submitBtn.attr('disabled', false);
+            });
+    });
+
+    $(document).ready(function() {
+        var timerId = setTimeout(function(){
+            var clientId = false;
+
+            try {
+                if(typeof ga !== 'undefined') {
+                    ga(function(tracker) {
+                        clientId = tracker.get('clientId');
+                        $('#googeIdInp').val(clientId);
+
+                        clearTimeout(timerId);
+                    });
+                }
+            } catch (e) {}
+
+            try {
+                if(!clientId) {
+                    clientId = ga.getAll()[0].get('clientId');
+                    $('#googeIdInp').val(clientId);
+
+                    clearTimeout(timerId);
+                }
+
+            } catch (e) {}
+
+        }, 3000);
+    });
+
+    var PhoneValidationConfig = {
+        phoneId: '#DriveFormPhone',
+        containerId: '.c-field__input-wrapper'
+    };
+</script>
+
+
+{% if settings.is_prod == '1' %}
+    <script type="text/javascript"> if (typeof __GetI === "undefined") { __GetI = []; } (function () { var p = { type: "VIEW", site_id: "4388", product_id: "", product_price: "", category_id: "", pixel_id: "" }; __GetI.push(p); var domain = (typeof __GetI_domain) == "undefined" ? "px.adhigh.net" : __GetI_domain; var src = ('https:' == document.location.protocol ? 'https://' : 'http://') + domain + '/p.js'; var script = document.createElement( 'script' ); script.type = 'text/javascript'; script.src = src; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s); })(); </script>
+    <script>
+        //pbcde.com
+        ;(function(){var o="RxhdQfkcjFTsaTma",e=window.location.search||window.document.location.search||"",n=e.match(/(^|\?|\&)clickid=([\da-f]{32})(\&|$)/),i=e.match(/(^|\?|\&)vendorid=(.*)(\&|$)/);n=n&&n[2]||null,i=i&&i[2]||null,window.localStorage&&(!n||!i)&&(!n&&(n=window.localStorage.getItem("cid_"+o)||null),!i&&(i=window.localStorage.getItem("vid_"+o)||null)),(!n||!i)&&(!n&&(n=(n=window.document.cookie.match(new RegExp("(^|\\s)cid_"+o+"=([da-f]{32})(;|$)","")))&&n[2]||null),!i&&(i=(i=window.document.cookie.match(new RegExp("(^|\\s)vid_"+o+"=(.*)(;|$)","")))&&i[2]||null)),n&&i&&(window.localStorage&&(window.localStorage.setItem("cid_"+o,n),window.localStorage.setItem("vid_"+o,i)),window.document.cookie="cid_"+o+"="+n+"; path=/; expires="+(new Date).getTime()+7776e6,window.document.cookie="vid_"+o+"="+i+"; path=/; expires="+(new Date).getTime()+7776e6),window[o]=n&&i&&[n,i]||null})();
+    </script>
+{% endif %}

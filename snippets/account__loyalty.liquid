@@ -1,0 +1,24 @@
+<script src="{{ 'account__loyalty.js' | asset_url }}"></script>
+<script src="{{ 'account__loyalty__mgm_refs.js' | asset_url }}"></script>
+
+<script>
+    var LoyaltyConf = {
+        urlTransactions: 'https://loyalty-dev.myglo.com.ua/incust/customer/transactions',
+        urlMgmRefs: 'https://loyalty-dev.myglo.com.ua/incust/customer/mgmrefs',
+        urlLoader: '{{ 'loading2.gif' | asset_url }}',
+        customer: {
+            id: {{  customer.id | json }},
+            email: {{ customer.email | json }}
+
+            // id: '3479628972168',
+            // email: 'loyalty_1@mailinator.com'
+        },
+        mgm: {
+            code: {{ customer.metafields.incust.mgm_code | json }},
+            action: {
+                device: 'Вітаємо, твій друг також з glo. Лови бонуси',
+                lead: 'Отримали контакт, намагаємося зв\'язатися'
+            }
+        }
+    }
+</script>

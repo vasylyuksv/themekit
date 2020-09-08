@@ -1,0 +1,59 @@
+.dn {
+    display: none;
+}
+.ipost-block .ipost-preload-wrap {
+    text-align: center;
+}
+.ipost-block .ipost-preload-wrap img {
+    width: 35px;
+    margin: 50px 0;
+}
+.ipost-block .ipost-setting-error {
+    text-align: center;
+}
+.ipost-block .date-error {
+    margin-left: 8px;
+}
+.ipost-block select option[disabled="disabled"] {
+    color: gray;
+}
+
+/*PRELOADER*/
+.step-preloader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    /* фоновый цвет */
+    background: #e0e0e0;
+    z-index: 1001;
+    display: none;
+}
+
+.preloader__image {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    width: 70px;
+    height: 70px;
+    margin-top: -35px;
+    margin-left: -35px;
+    text-align: center;
+    animation: preloader-rotate 2s infinite linear;
+}
+
+@keyframes preloader-rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+/* end PRELOADER*/
+
+.total-bonus-price,
+.product-bonus-price {
+    color: orange;
+    font-size: 14px;
+    font-weight: normal;
+}

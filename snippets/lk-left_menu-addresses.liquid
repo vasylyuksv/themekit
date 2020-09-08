@@ -1,0 +1,104 @@
+<div class="col-lg-4 col-md-5 col-sm-16 lk-myaccount__left">    
+      <div class="lk-menu--mobile">        
+        <div class="lk-menu--btn">
+        	<img src={{ "lk-icon-menu.svg" | asset_url }} alt="customers_menu"/>
+              Мій кабінет
+        </div>
+      </div>
+
+      <div class="lk-menu__wrapper">
+
+        <ul class="myaccount__menu lk-menu">
+          <li class="lk-menu__main" >
+            <div class="lk-menu--text">
+              <img src={{ "lk-icon-menu.svg" | asset_url }} alt="customers_bonus"/>
+              Мій кабінет
+            </div>
+            
+            <div class="lk-menu__descr">
+              <div class="lk-menu__descr-name">Вітаємо, <span>{{  customer.first_name }}</div>
+                {%comment%}
+                <div class="lk-menu__descr-item">
+                  <div>Ти з нами вже </div>
+                  <div>
+                  	<span>1</span><span> рік/років</span>
+                  </div>
+                  
+                </div>
+                {%endcomment%}
+
+                {% if customer.metafields.incust.mgm_code != null %}
+                <div class="lk-menu__descr-item">
+                  <div>Твій код для друзів </div>
+                  <div>
+                  	<span>{{ customer.metafields.incust.mgm_code }}</span>
+                  </div>
+                </div>
+                {% endif %}
+                
+                <div class="lk-menu__descr-item">
+                  <div>У тебе на рахунку </div>
+                  <div>
+                    <span data-lyt-points class="lyt-points">-</span><span>бал(ів)</span>
+                  </div>
+
+                </div>
+            </div>
+              
+          </li>
+            
+          <li data-tab="main">
+            <a class="lk-menu--text lk-menu--text_mark" href="/account#main">glo BONUS CLUB</a>
+          </li>
+		  <li data-tab="invite-friend">
+            <a class="lk-menu--text" href="/account#invite-friend">
+              Рекомендувати друга
+            </a>
+            <!--<span class="lk-menu--bonus">+ 2 500 <div>балів</div></span>-->
+          </li>
+          
+          <li data-tab="bonus-items">
+            <a class="lk-menu--text" href="/account#bonus">
+              Витратити бонуси
+            </a>
+          </li>
+          <li data-tab="transaction-history">
+            <a class="lk-menu--text" href="/account#transaction-history">
+              Історія бонусів</a>
+          </li>
+          
+          
+          <li  class="active-tab" data-tab="profile">
+            <a class="lk-menu--text" href="/account#profile">
+              Профіль
+            </a>
+          </li>
+          <li data-tab="order-history">
+            <a class="lk-menu--text" href="/account#buy-history">
+              Історія покупок
+            </a>
+          </li>
+          <li data-tab="faq">
+            <a class="lk-menu--text" href="/account#faq">
+              Маєш питання?
+            </a>
+          </li>
+          <li data-tab="about">
+            <a class="lk-menu--text" href="/account#about">
+              Правила glo Bonus Club
+            </a>
+          </li>
+        </ul>
+
+        <div class="c-fieldset c-fieldset--offset sn-account lk-sn-account" id="snAccountBtnCont">
+          <div><a href="#" id="fbAccount" class="btn-fb"><span class="sn-state" data-id="sn_state"></span></a></div>
+          <div><a href="#" id="googleAccount" class="btn-google"><span class="sn-state" data-id="sn_state"></span></a></div>
+        </div>
+        <div id="snAccountError" class="form-error"></div>
+
+        <div class="text-left"><div class="lk-logout">{{ 'layout.customer.log_out' | t | customer_logout_link }}</div></div>
+      </div>
+      
+      
+      
+    </div>

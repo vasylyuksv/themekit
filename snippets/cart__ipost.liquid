@@ -1,0 +1,157 @@
+<div id="cartIpostPopup" class="prompt-background cart-ipost" style="display:none;">
+    <div class="modal-prompt age-modal ipost-form">
+        <form data-form>
+
+            <h3 class="age-title">Експрес доставка</h3>
+
+            <div style="display:none;" data-success-msg>
+                <div class="alert alert-dismissible alert-success">
+                    Замовлення успішно оформлено
+                </div>
+                <input type="button" class="btn-age" value="До каталогу" data-2catalog />
+            </div>
+
+            <div data-form-inputs>
+                <div class="form-row" data-form-row>
+                    <div class="form-group col-md-16">
+                        <input class="form-control" placeholder="Прізвище та ім'я" autocomplete="off" type="text" data-fio maxlength="50">
+                        <p class="text-danger" data-error></p>
+                    </div>
+                    <div style="clear:both;"></div>
+                </div>
+
+                <div class="form-row" data-form-row>
+                    <div class="form-group col-md-16">
+                        <input class="form-control" placeholder="Телефон" autocomplete="off" type="text" data-phone>
+                        <p class="text-danger" data-error></p>
+                    </div>
+                    <div style="clear:both;"></div>
+                </div>
+
+                <div class="form-row" data-form-row>
+                    <div class="form-group col-md-16">
+                        <input class="form-control" placeholder="Email" autocomplete="off" type="text" data-email maxlength="100">
+                        <p class="text-danger" data-error></p>
+                    </div>
+                    <div style="clear:both;"></div>
+                </div>
+
+                <div class="form-row" data-form-row>
+                    <div class="form-group col-md-16">
+                        <select class="form-control" data-city>
+                            <option value="">- Мiсто -</option>
+                        </select>
+                        <p class="text-danger" data-error></p>
+                    </div>
+                    <div style="clear:both;"></div>
+                </div>
+
+                <div class="form-row" data-form-row>
+                    <div class="form-group col-md-10 mb-0" data-form-row>
+                        <input class="form-control" placeholder="Вулиця" autocomplete="off" type="text" data-street>
+                        <div class="street-wrap" data-street-wrap></div>
+                        <p class="text-danger" data-error></p>
+                        <div class="small-hint">Приклад: вулиця Володимирська, 36, Київ</div>
+                    </div>
+                    <div class="form-group col-md-6 mb-0" data-form-row>
+                        <input class="form-control" placeholder="Кв/офіс" autocomplete="off" type="text" data-flat>
+                        <p class="text-danger" data-error></p>
+                        <div class="small-hint">Приклад: "4a" або просто цифра "4"</div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <input data-delivery-address name="delivery_address" type="hidden" />
+                </div>
+
+                <div class="form-row" data-form-row>
+                    <div class="form-group col-md-10 text-left">
+                        <h6 class="text-muted">Доставка найближчим часом</h6>
+                        <input value="1" type="checkbox" id="chbxDeliveryTime" data-custom-time />
+                        <label class="c-fieldset__check-label" for="chbxDeliveryTime"></label> <span id="chbxDeliveryTimeLbl" class="choose-delivery-time-lbl">Обрати час доставки</span>
+                    </div>
+                    <div style="clear:both;"></div>
+                  	<p class="text-danger" data-error></p>
+                </div>
+
+                <div class="form-row" data-form-row>
+                    <div class="form-group col-md-8">
+                        <select class="form-control" data-date></select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <select class="form-control" data-time-from></select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <select class="form-control" data-time-to></select>
+                    </div>
+
+                    <div style="clear:both;"></div>
+                    <p class="text-danger" data-error></p>
+                </div>
+
+                <div class="form-row" data-form-row>
+                    <div class="form-group col-md-16 text-left">
+                        <textarea rows="4" class="form-control" cols="50" placeholder="Додатковий коментар" data-comment></textarea>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <p class="text-danger" data-error></p>
+                </div>
+
+                <input type="submit" data-next class="btn btn-age" value="Оформити" />
+                <img src="{{ 'loading2.gif' | asset_url }}" class="ipost-preload" data-preload />
+                <span data-cancel class="btn-cancel">x</span>
+
+                <div style="clear:both;"></div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIToibsre0LnCpLoNFDOkW2ixnT4R-Jlk&libraries=places,geometry&language=uk&region=UA&cr=ua"></script>
+<script src="{{ 'cart__ipost.js' | asset_url }}"></script>
+
+<script>
+    (function() {
+        var customer = null;
+
+        {% if customer.id != null %}
+        customer = {
+            id: {{ customer.id }},
+            name: {{ customer.name | json }},
+            email: {{ customer.email | json }},
+            phone: {{ customer.phone | json }}
+        }
+        {% endif %}
+
+        var conf = {
+            url: {
+                conf: 'https://api.myglo.com.ua/api/ipost/get-conf',
+                login: {{ routes.account_login_url | json }},
+                createOrder: 'https://api.myglo.com.ua//api/ipost/create-order',
+                catalog: {{ routes.all_products_collection_url  | json }}
+            },
+            msg: {
+                errorLoadSettings: 'Помилка, не вдалося завантажити налаштування',
+                errorRequied: 'Необхідно заповнити поле',
+                errorIncorrectEmail: 'Некоректний email',
+                errorIncorrectPhone: 'Некоректний телефон',
+                errorTryAgain: 'Помилка, спробуйте ще раз'
+            },
+            order_amount: {
+                min: 499,
+                max: 2000
+            },
+            customer: customer,
+          	TAG_ALLOW_IPOST: 'allow_ipost'
+        };
+
+        window.IPostConf = conf;
+    })();
+</script>
+
+<script type="xhtml/template" id="ipostBtnTmpl">
+    <div class="ipost-btn-cont">
+        <div class="ipost-btn-msg">
+            Тепер замовлення можна отримати ще швидше! Замовляй експрес-доставку. Експрес-доставка діє у Києві, Дніпрі, Одесі, Львові та Харкові 
+        </div>
+        <input type="button" name="ipost" class="cart__submit btn btn--small-wide" value="Експрес доставка">
+    </div>
+</script>

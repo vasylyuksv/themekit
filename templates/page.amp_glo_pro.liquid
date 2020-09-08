@@ -1,0 +1,1184 @@
+{% layout none %}
+
+<!doctype html>
+<html amp lang="{{ shop.locale }}">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ page_title }}</title>
+    <link rel="icon" type="image/png" sizes="16x16" href={{ "favicon-16x16.png" | asset_url }}>
+    <link rel="icon" type="image/png" sizes="32x32" href={{ "favicon-32x32.png" | asset_url }}>
+    <link rel="icon" type="image/png" sizes="48x48" href={{ "favicon-48x48.png" | asset_url }}>
+    <link rel="apple-touch-icon" sizes="180x180" href={{ "apple-touch-icon.png" | asset_url }}>
+    <link rel="icon" type="image/png" sizes="192x192" href={{ "android-chrome-192x192.png" | asset_url }}>
+    <link rel="icon" type="image/png" sizes="512x512" href={{ "android-chrome-512x512.png" | asset_url }}>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700,900&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    {%- if page_description -%}
+    	<meta name="description" content="{{ page_description | escape }}">
+  	{%- endif -%}
+    <link rel="canonical" href="https://myglo.com.ua/pages/glo-pro">
+    <style amp-custom>
+         /* MAIN DIRECTIVES AND HEADER */
+      .announcement-bar {
+        background-color: #2f2f2f;
+        text-align: center;
+        position: relative;
+        z-index: 10;
+      }
+      .announcement-bar__message {
+          color: #fff;
+          font-size: 13px;
+          font-weight: 600;
+          padding: 10px 0;
+    	  margin: 0;
+      }
+      
+      .announcement-bar__message a {
+          color: #fff;
+        	text-decoration: none;
+      }
+    .burger-menu amp-sidebar {
+      z-index: 4;
+    }
+    .burger-menu button.nav-button {
+      z-index: 5;
+      position: relative;
+    }
+    body {
+      font-family: 'Montserrat', sans-serif;
+    }
+    .h1-text {
+      padding-bottom: 30px;
+      margin-bottom: 30px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 1.2;
+      color: #2f2f2f;
+      font-size: 1.8em;
+      position: relative;
+    }
+    .h1-text:before {
+      content: '';
+      width: 25%;
+      height: 4px;
+      background-color: #2f2f2f;
+      position: absolute;
+      bottom: 0;
+    }
+    .h2-text {
+      font-size: 1.25em;
+      margin-bottom: 20px;
+      
+    }
+    .h2-text__white {
+      color: white;
+    }
+    .h2-text__black {
+      color: black;
+    }
+    .h3-text {
+      font-size: 21px;
+      margin: 0;
+      padding: 0 0 25px 0;
+      position: relative;
+      text-align: center;
+    }
+    .h3-text:before {
+      content: '';
+      width: 25%;
+      height: 4px;
+      background-color: #2f2f2f;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .h3-text span {
+      margin: 0 20px;
+    }
+    h2.h3-text span {
+      margin: 0;
+    }
+    .slider-detail a,
+    .glo-button a {
+     		user-select: none;
+            appearance: none;
+            display: inline-block;
+            width: auto;
+            text-decoration: none;
+            text-align: center;
+            vertical-align: middle;
+            cursor: pointer;
+            border-radius: 0;
+            padding: 8px 32px;
+            background-color: transparent;
+            font-family: Montserrat,sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: normal;
+            white-space: normal;
+            background-color: transparent;
+      margin-bottom: 25px;
+    }
+    .glo-intro {
+      margin: 45px 15px;
+    }
+    .glo-button__black a {
+      color: #2f2f2f;
+      border: 1px solid #2f2f2f;
+    }
+    .glo-button__white a {
+      color: white;
+      border: 1px solid white;
+    }
+    .toggle-sidebar,
+    .block-image {
+      position: relative;
+    }
+    .block-image {
+      z-index: 1;
+    }
+    .toggle-sidebar {
+      z-index: 3;
+      display: flex;
+    }
+    .toggle-sidebar .login-block,
+    .toggle-sidebar .shop-block {
+      width: 27px;
+      height: 22px;
+      margin-right: 20px;
+    }
+    .toggle-sidebar .login-block svg,
+    .toggle-sidebar .shop-block svg {
+      width: 100%;
+      height: 100%;
+    }
+    #sidebar-left ul > li.toggle-sidebar__child:not(:last-child) {
+      border-bottom: 1px solid #ebebeb;
+    }
+    body [class$="-sidebar-mask"] {
+      z-index: 2;
+    }
+    .main-block {
+      box-sizing: border-box;
+      margin: 0 auto;
+      max-width: 1024px;
+    }
+    #sidebar-left {
+      background-color: white;
+    }
+    #sidebar-left ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    #sidebar-left ul li {
+      padding: 15px;
+    } 
+    #sidebar-left ul li h4 {
+      background-color: white;
+    }
+    amp-accordion section .acc-button {
+      border: none;
+      outline: none;
+    }
+    #sidebar-left ul li > a,
+    amp-accordion section .acc-button p {
+      text-decoration: none;
+     
+      font-size: 13px;
+      font-weight: 600;
+      color: #2f2f2f;
+    }
+    .nav-button {
+      border: none;
+      background-color: transparent;
+      display: flex;
+      flex-direction: column;
+    }
+    .nav-button span {
+      width: 30px;
+      height: 2px;
+      background-color: black;
+      display: inline-block;
+    }
+    .nav-button span:not(:first-child) {
+      margin-top: 8px;
+    }
+    amp-accordion section .acc-button amp-img {
+      position: absolute;
+      right: 10%;
+      top: 50%;
+      transform: translate(0, -50%) rotate(0deg);
+    }
+    amp-accordion section[expanded] .acc-button amp-img {
+      transform: translate(0, -50%) rotate(90deg);
+    }
+    amp-accordion p {
+      margin: 0;
+    }
+    .amp-header amp-sidebar {
+      width: 100%;
+      max-width: 100vw;
+      padding: 0;
+    }
+    .nav-button {
+      float: right;
+    }
+    .amp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: white;
+      padding: 15px;
+      -webkit-box-shadow: 0px 6px 6px -4px rgba(59,66,71,0.5);
+        -moz-box-shadow: 0px 6px 6px -4px rgba(59,66,71,0.5);
+      box-shadow: 0px 6px 6px -4px rgba(59,66,71,0.5);
+    }
+    .amp-header .block-image {
+      width: 50px;
+    }
+    amp-sidebar nav {
+      margin-top: 75px;
+      height: 80vh;
+      overflow-y: auto;
+    }
+    .nav-button {
+      outline: none;
+    }
+    #sidebar-left ul .acc-button + ul {
+      padding: 0 0 0 15px;
+      margin-top: 15px;
+    }
+    .nav-button[aria-hidden] span:nth-child(1) {
+      display: none;
+    }
+    .nav-button[aria-hidden] span:nth-child(2) {
+      display: inline-block;
+      transform: translate(-100%) rotate(45deg);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+
+    }
+    .nav-button[aria-hidden] span:nth-child(3) {
+      transform: translate(-100%) rotate(-45deg);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+    }
+    .nav-info {
+      display: flex;
+      flex-direction: column;
+      margin: 25px -15px;
+      padding: 15px 0;
+      background-color: aliceblue;
+    }
+    .nav-info a {
+      padding: 0 15px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .nav-info a:not(:last-child) {
+      margin-bottom: 15px;
+      color: #2f2f2f;
+    }
+    .nav-info a:last-child {
+      color: rgba(47,47,47,0.5);
+    }
+    .nav-info a p {
+      margin: 0;
+    }
+        
+        .social-list ul {
+            padding: 15px;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+        }
+        @media screen and (min-width: 767px) {
+            .social-list ul {
+                justify-content: space-evenly;
+            }
+        }
+        @media screen and (max-width: 350px) {
+            .social-list ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            .social-list ul li:nth-child(1) {
+                margin-bottom: 15px;
+            }
+            .footer-phone .h3-text {
+                /* flex-direction: column; */
+                text-align: left;
+            }
+            .footer-phone .h3-text::before {
+                /* display: none; */
+            }
+            .footer-phone .h3-text span {
+                margin: 0 10 px;
+            }
+        }
+        .social-list ul li a {
+            display: flex;
+            color: #2f2f2f;
+            text-decoration: none;
+        }
+        .social-list ul li a:hover,
+        .social-list ul li a:focus,
+        .social-list ul li a:active {
+            color: #2f2f2f;
+        }
+        .social-list ul li a p {
+            margin: 0;
+        }
+        .social-list ul li a amp-img {
+            margin-right: 10px;
+        }
+        .social-block {
+            display: flex;
+            align-items: center;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 50px;
+        }
+        .gallery a {
+            width: 31%;
+        }
+        .gallery a:nth-child(2n+4) {
+            margin: 40px -10px -5px 10px;
+        }
+        .gallery a:nth-child(3n+2) {
+            margin: 5px -20px 5px -15px;
+        }
+        .gallery a:nth-child(7n) {
+            margin: 70px 0 0;
+        }
+        .gallery a img {
+            object-fit: cover;
+        }
+        .text-telegram {
+            width: 40px;
+            height: 40px;
+        }
+        .where-part {
+            margin: 0 15px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .where-part .where-part__bold {
+            font-weight: 500;
+            font-size: 21px;
+        }
+        .text-telegram {
+            margin-bottom: 30px;
+        }
+        .warning-text {
+            padding: 0 15px;
+        }
+        .warning-text p {
+            font-size: 12px;
+        }
+        #footer {
+      background-color: #3b4247;
+      padding: 0 15px;
+    }
+      .footer__logo {
+        width: 70px;
+        padding: 35px 0;
+      }
+      .footer-phone {
+        position: relative;
+      }
+      .footer-phone a,
+      .footer-links {
+        color: white;
+        text-decoration: none;
+      }
+      .footer-links {
+        margin-bottom: 35px;
+      }
+      .footer-phone .h3-text {
+        display: flex;
+        flex-wrap: wrap;
+        color: white;
+      }
+      .footer-phone .h3-text:before {
+        left: 0%;
+        transform: translateX(0);
+        background-color: white;
+      }
+      .footer-schedule p {
+        color: white;
+        font-size: 13px;
+        margin: 20px 0;
+      }
+      .footer-schedule p span {
+        display: block;
+      }
+      .footer-links ul {
+        list-style: none;
+        display: flex;
+        padding: 0;
+      }
+      .footer-links ul li {
+        width: 25px;
+      }
+      .footer-links ul li:not(:last-child) {
+        margin-right: 15px;
+      }
+      #footer-accordion {
+        background-color:transparent;
+        color: white;
+      }
+      #footer-accordion .h3-text {
+        background-color: transparent;
+        padding: 0 0 20px 0;
+        border: none;
+        outline: none;
+      }
+      #footer-accordion .h3-text:before {
+        left: 0%;
+        transform: translateX(0);
+        background-color: white;
+        height: 3px;
+        width: 15%;
+      }
+      #footer-accordion span {
+        position: relative;
+        display: block;
+        padding: 10px 0;
+        text-align: left;
+        outline: none;
+      }
+      #footer-accordion span:before {
+        content: '';
+        display: block;
+        border: 9px solid transparent;
+        border-top: 10px solid #b5b5b5;
+        width: 0px;
+        height: 0px;
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%) rotate(0deg);
+        margin-right: 0;
+      }
+      .footer-menu ul {
+        list-style: none;
+        padding: 0;
+      }
+      .footer-menu ul li a {
+        color: white;
+        text-decoration: none;
+      }
+      .footer-menu ul li:not(:last-child) {
+        margin-bottom: 10px;
+      }
+      .footer-accordion section {
+        padding-bottom: 40px;
+      }
+      .footer__copyright {
+        display: block;
+        padding: 15px 0 30px;
+        color: white;
+        font-size: 13px;
+      }
+      .face-block {
+        width: 93%;
+        margin: 0 auto;
+      }
+      .warning-text {
+        margin-bottom: 40px;
+      }
+    @media screen and (min-width: 767px) {
+      .burger-menu amp-sidebar [toolbar-target="target-element-left"] {
+        display: block;
+      }
+      .burger-menu [toolbar-target="target-element-left"] {
+        display: none;
+      }
+    }
+        /* CUSTOM CSS STYLES GLO_NANO */
+        .nano-screen__img img {
+            width: 100%;
+          	object-fit: contain;
+        }
+        .nano-screen {
+            position: relative;
+        }
+        .nano-screen__text {
+            position: absolute;
+            top: 0;
+        }
+        .nano-item {
+            display: flex;
+            align-items: center;
+        }
+        .nano-list {
+            padding: 15px;
+        }
+        .nano-list ul {
+            list-style: none;
+            padding: 0;
+        }
+        .nano-list ul li .nano-item__desc {
+            color: white;
+        }
+        .nano-item .nano-item__img {
+            min-width: 40px;
+            margin-right: 15px;
+        }
+        .nano-screen__text {
+            height: 90%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .nano-title {
+            padding: 15px;
+        }
+        .nano-video {
+            padding: 15px;
+        }
+        .nano-video__desc p {
+			font-size: 14px;
+          	line-height: 1.6;
+        }
+        .nano-video__desc a {
+            color: black;
+            font-weight: bold;
+        }
+        .nano-video__desc a:hover,
+        .nano-video__desc a:active {
+            color: black;
+        }
+        #carousel amp-img,
+        #carousel2 amp-img {
+            background: linear-gradient(360deg, #ddd 80%, transparent 0%);
+            padding-bottom: 20px;
+            background-size: 50% 80%;
+            background-repeat: no-repeat;
+            background-position: 50% 70%;
+        }
+        #carousel amp-img img,
+        #carousel2 amp-img img  {
+            object-fit: contain;
+        }
+        .nano-carousel .amp-slide {
+            display: flex;
+            justify-content: center;
+        }
+        .nano-carousel .amp-slide a {
+            height: 100%;
+            width: 100%;
+        }
+        .amp-carousel-button-prev {
+            background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDQ5MiA0OTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDQ5MiA0OTI7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxnPg0KCTxnPg0KCQk8cGF0aCBkPSJNMTk4LjYwOCwyNDYuMTA0TDM4Mi42NjQsNjIuMDRjNS4wNjgtNS4wNTYsNy44NTYtMTEuODE2LDcuODU2LTE5LjAyNGMwLTcuMjEyLTIuNzg4LTEzLjk2OC03Ljg1Ni0xOS4wMzJsLTE2LjEyOC0xNi4xMg0KCQkJQzM2MS40NzYsMi43OTIsMzU0LjcxMiwwLDM0Ny41MDQsMHMtMTMuOTY0LDIuNzkyLTE5LjAyOCw3Ljg2NEwxMDkuMzI4LDIyNy4wMDhjLTUuMDg0LDUuMDgtNy44NjgsMTEuODY4LTcuODQ4LDE5LjA4NA0KCQkJYy0wLjAyLDcuMjQ4LDIuNzYsMTQuMDI4LDcuODQ4LDE5LjExMmwyMTguOTQ0LDIxOC45MzJjNS4wNjQsNS4wNzIsMTEuODIsNy44NjQsMTkuMDMyLDcuODY0YzcuMjA4LDAsMTMuOTY0LTIuNzkyLDE5LjAzMi03Ljg2NA0KCQkJbDE2LjEyNC0xNi4xMmMxMC40OTItMTAuNDkyLDEwLjQ5Mi0yNy41NzIsMC0zOC4wNkwxOTguNjA4LDI0Ni4xMDR6Ii8+DQoJPC9nPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPC9zdmc+DQo=');
+            background-color: transparent;
+            outline: none;
+        }
+        .amp-carousel-button-next {
+            background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDQ5Mi4wMDQgNDkyLjAwNCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDkyLjAwNCA0OTIuMDA0OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8Zz4NCgk8Zz4NCgkJPHBhdGggZD0iTTM4Mi42NzgsMjI2LjgwNEwxNjMuNzMsNy44NkMxNTguNjY2LDIuNzkyLDE1MS45MDYsMCwxNDQuNjk4LDBzLTEzLjk2OCwyLjc5Mi0xOS4wMzIsNy44NmwtMTYuMTI0LDE2LjEyDQoJCQljLTEwLjQ5MiwxMC41MDQtMTAuNDkyLDI3LjU3NiwwLDM4LjA2NEwyOTMuMzk4LDI0NS45bC0xODQuMDYsMTg0LjA2Yy01LjA2NCw1LjA2OC03Ljg2LDExLjgyNC03Ljg2LDE5LjAyOA0KCQkJYzAsNy4yMTIsMi43OTYsMTMuOTY4LDcuODYsMTkuMDRsMTYuMTI0LDE2LjExNmM1LjA2OCw1LjA2OCwxMS44MjQsNy44NiwxOS4wMzIsNy44NnMxMy45NjgtMi43OTIsMTkuMDMyLTcuODZMMzgyLjY3OCwyNjUNCgkJCWM1LjA3Ni01LjA4NCw3Ljg2NC0xMS44NzIsNy44NDgtMTkuMDg4QzM5MC41NDIsMjM4LjY2OCwzODcuNzU0LDIzMS44ODQsMzgyLjY3OCwyMjYuODA0eiIvPg0KCTwvZz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjwvc3ZnPg0K');
+            background-color: transparent;
+            outline: none;
+        }
+        .nano-carousel {
+            padding: 15px;
+        }
+        .nano-carousel amp-selector ul {
+            padding: 15px;
+            display: flex;
+            list-style: none;
+            justify-content: center;
+        }
+        .nano-carousel amp-selector ul li {
+            font-size: 6px;
+            line-height: 20px;
+            top: 0px;
+            left: 0px;
+            width: 12px;
+            height: 12px;
+            content: "•";
+            text-align: center;
+            color: black;
+            -webkit-font-smoothing: antialiased;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            border-radius: 50%;
+            outline: none;
+            opacity: .25;
+            border: none;
+        }
+        .nano-carousel amp-selector ul li:not(:last-child) {
+            margin-right: 25px;
+        }
+        .nano-carousel amp-selector ul li[selected] {
+            opacity: .75;
+            outline: none;
+        }
+        .nano-carousel p {
+            font-size: 14px;
+        }
+        .justify-center {
+            display: flex;
+            justify-content: center;
+        }
+        @media screen and (min-width: 767px) {
+            .burger-menu amp-sidebar [toolbar-target="target-element-left"] {
+                display: block;
+            }
+            .burger-menu [toolbar-target="target-element-left"] {
+                display: none;
+            }
+        }
+        .dev-table {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 20px;
+            grid-auto-rows: minmax(50px, 70px);
+        }
+        .dev-title__img,
+        .dev-title__img img {
+            width: 100%;
+            height: 95%;
+            object-fit: contain;
+			display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .dev-title {
+            grid-row-start: 1;
+            grid-row-end: 3
+        }
+        .dev-title__text {
+			width: 100%;
+        }
+        .dev-title__text p {
+            margin: 0;
+            text-align: center;
+            font-size: 12px;
+            width: 60%;
+            margin: 0 auto;
+        }
+        .dev-desc {
+            align-self: center;
+            justify-self: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .dev-desc__txt {
+            font-size: 10px;
+            text-align: center;
+        }
+        .dev-desc__img {
+            width: 30px;
+        }
+        .dev-desc__img img {
+            width: 100%;
+        }
+        .nano-devices {
+            margin: 60px 0;
+        }
+        .welcome {
+            background-color: #3b4247;
+            padding: 50px 0;
+            margin-bottom: 50px;
+        }
+        .welcome .h2-text:before {
+            display: none;
+        }
+      	.nano-screen .nano-title {
+			padding: 0 15px 15px;
+        }
+        .nano-screen .h2-text {
+			margin: 5px 0 20px;
+            text-align: left;
+        }
+        h1:after, .nano-video h2:after, .nano-carousel h2:after{
+            content: '';
+            display: block;
+            height: 4px;
+            width: 80px;
+            background-color: #fff;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        .nano-video h2:after, .nano-carousel h2:after {
+			background-color: #000;
+        }
+        .nano-screen__text .nano-list {
+			padding: 110px 15px 15px;
+        }
+        .nano-item .nano-item__desc p {
+			margin: 0;
+          	font-size: 12px;
+        }
+      	.nano-list ul li:not(:last-child) .nano-item .nano-item__desc p {
+			margin-bottom: 10px;
+		}
+      	.nano-list ul {
+      		margin: 0 0 20px;
+      	}
+    </style>
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+    <script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>
+    <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.2.js"></script>
+    <script async custom-element="amp-selector" src="https://cdn.ampproject.org/v0/amp-selector-0.1.js"></script>
+    <script async custom-element="amp-vimeo" src="https://cdn.ampproject.org/v0/amp-vimeo-0.1.js"></script>
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "NewsArticle",
+        "headline": "Open-source framework for publishing content",
+        "author": "noName",
+        "@publisher": "glo",
+        "datePublished": "2015-10-07T12:02:41Z",
+        "image": [
+          "./img/logo.svg"
+        ]
+      }
+    </script>
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    {% include 'gtm-amp-header' %}
+  </head>
+  <body>
+    {% include 'gtm-amp-body' %}
+    <div class="main-block">
+        {% section 'header-amp' %}
+    	<main>
+          <div class="nano-screen">
+            <div class="nano-screen__img">
+              <amp-img
+                            src="{{ "page-pro_mob.png" | asset_url }}"
+                            width="450"
+                       		height="666"
+                            alt="pro"
+                            layout="responsive"
+                        ></amp-img>
+            </div>
+            <div class="nano-screen__text">
+                <div class="nano-title">
+                    <h1 class="h2-text h2-text__white text-left">glo pro - вишуканий та компактний</h1>
+                </div>
+                <div class="nano-list">
+                    <ul>
+                        <li>
+                            <div class="nano-item">
+                                <div class="nano-item__img">
+                                  <amp-img
+                                      src="{{ "icon_ind_tech.svg" | asset_url }}"
+                                      width="40"
+                                      height="40"
+                                      alt="pro"
+                                  ></amp-img>
+                                </div>
+                                <div class="nano-item__desc">
+                                    <p>Сучасна технологія індукційного нагрівання</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="nano-item">
+                                <div class="nano-item__img">
+                                  <amp-img
+                                      src="{{ "icon_boost.svg" | asset_url }}"
+                                      width="40"
+                                      height="40"
+                                      alt="pro"
+                                  ></amp-img>
+                                </div>
+                                <div class="nano-item__desc">
+                                    <p>Більше смаку із режимом Boost</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="nano-item">
+                                <div class="nano-item__img">
+                                  <amp-img
+                                      src="{{ "icon_time.svg" | asset_url }}"
+                                      width="40"
+                                      height="40"
+                                      alt="pro"
+                                  ></amp-img>
+                                </div>
+                                <div class="nano-item__desc">
+                                    <p>Вдвічі швидше нагрівання за 20 секунд</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="glo-button glo-button__white">
+                        <a href="/collections/glo-devices/products/glo-pro">Купити онлайн</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="nano-video">
+            <h2 class="h2-text h2-text__black text-left">
+                Детальніше про glo pro
+            </h2>
+            <amp-vimeo
+                data-videoid="380703027"
+                layout="responsive"
+                width="500"
+                height="281"
+            ></amp-vimeo>
+            <div class="nano-video__desc">
+                <p>Це найбільш інноваційний пристрій у лінійці glo з унікальною технологією індукційного нагрівання.</p>
+                <p>Має одразу 2 режими роботи - Standart та Boost, який збільшує температуру нагрівання до 280ºС, що дозволяє отримати ще більше насичення від тютюну.</p>
+                <p>
+                    <a href="https://cdn.shopify.com/s/files/1/0072/8111/5254/t/5/assets/pro-guide.pdf">Інструкція користувача</a>
+                </p>
+            </div>
+        </div>
+        <div class="nano-carousel">
+            <h2 class="h2-text h2-text__black text-left">
+                Широка лінія кольорів
+            </h2>
+            <amp-carousel
+                id="carousel"
+                width="400"
+                height="250"
+                layout="responsive"
+                type="slides"
+                controls
+                loop
+                autoplay
+                delay="1200"
+                on="slideChange:carousel1Selector.toggle(index=event.index, value=true)"
+                >
+                <div class="amp-slide">
+                    <a href="/collections/glo-devices/products/glo-pro?variant=31413739913350">
+                        <amp-img
+                            src="{{ "pro_black-min.png" | asset_url }}"
+                            width="450"
+                            height="250"
+                            alt="apples"
+                            layout="responsive"
+                        ></amp-img>
+                    </a>
+                </div>
+                <div class="amp-slide">
+                    <a href="/collections/glo-devices/products/glo-pro?variant=31413739978886">
+                        <amp-img
+                            src="{{ "pro_blue-min.png" | asset_url }}"
+                            width="450"
+                            height="250"
+                            alt="apples"
+                            layout="responsive"
+                        ></amp-img>
+                    </a>
+                </div>
+                <div class="amp-slide">
+                    <a href="/collections/glo-devices/products/glo-pro?variant=31413740044422">
+                        <amp-img
+                            src="{{ "pro_green-min.png" | asset_url }}"
+                            width="450"
+                            height="250"
+                            alt="apples"
+                            layout="responsive"
+                        ></amp-img>
+                    </a>
+                </div>
+                <div class="amp-slide">
+                    <a href="/collections/glo-devices/products/glo-pro?variant=31413739946118">
+                        <amp-img
+                            src="{{ "pro_rose-min.png" | asset_url }}"
+                            width="450"
+                            height="250"
+                            alt="apples"
+                            layout="responsive"
+                        ></amp-img>
+                    </a>
+                </div>
+            </amp-carousel>
+            <amp-selector id="carousel1Selector"
+                class="carousel-preview"
+                on="select:carousel.goToSlide(index=event.targetOption)"
+                layout="container">
+                <ul>
+                    <li option="0" selected></li>
+                    <li option="1"></li>
+                    <li option="2"></li>
+                    <li option="3"></li>
+                </ul>
+            </amp-selector>
+        </div>
+        <div class="nano-carousel">
+            <h2 class="h2-text h2-text__black text-left">
+                Стікі neo
+            </h2>
+            <p>
+                Відкрий лінійку преміум-стіків, розроблених ексклюзивно для glo
+            </p>
+            <amp-carousel
+                id="carousel2"
+                width="400"
+                height="250"
+                layout="responsive"
+                type="slides"
+                controls
+                loop
+                autoplay
+                delay="1200"
+                on="slideChange:carousel1Selector2.toggle(index=event.index, value=true)"
+                >
+                <div class="amp-slide">
+                    <a href="/pages/neosticks-packs">
+                        <amp-img
+                            src="{{ "stick_boostred.png" | asset_url }}"
+                            width="450"
+                            height="250"
+                            alt="apples"
+                            layout="responsive"
+                        ></amp-img>
+                    </a>
+                </div>
+                <div class="amp-slide">
+                    <a href="/pages/neosticks-packs">
+                        <amp-img
+                            src="{{ "stick_boostroyale.png" | asset_url }}"
+                            width="450"
+                            height="250"
+                            alt="apples"
+                            layout="responsive"
+                        ></amp-img>
+                    </a>
+                </div>
+                <div class="amp-slide">
+                    <a href="/pages/neosticks-packs">
+                        <amp-img
+                            src="{{ "stick_boostscarlet.png" | asset_url }}"
+                            width="450"
+                            height="250"
+                            alt="apples"
+                            layout="responsive"
+                        ></amp-img>
+                    </a>
+                </div>
+                <div class="amp-slide">
+                    <a href="/pages/neosticks-packs">
+                        <amp-img
+                            src="{{ "stick_citric.png" | asset_url }}"
+                            width="450"
+                            height="250"
+                            alt="apples"
+                            layout="responsive"
+                        ></amp-img>
+                    </a>
+                </div>
+                <div class="amp-slide">
+                    <a href="/pages/neosticks-packs">
+                        <amp-img
+                            src="{{ "stick_darkfresh.png" | asset_url }}"
+                            width="450"
+                            height="250"
+                            alt="apples"
+                            layout="responsive"
+                        ></amp-img>
+                    </a>
+                </div>
+                <div class="amp-slide">
+                    <a href="/pages/neosticks-packs">
+                        <amp-img
+                            src="{{ "stick_rich.png" | asset_url }}"
+                            width="450"
+                            height="250"
+                            alt="apples"
+                            layout="responsive"
+                        ></amp-img>
+                    </a>
+                </div>
+            </amp-carousel>
+            <amp-selector id="carousel1Selector2"
+                class="carousel-preview"
+                on="select:carousel2.goToSlide(index=event.targetOption)"
+                layout="container">
+                <ul>
+                    <li option="0" selected></li>
+                    <li option="1"></li>
+                    <li option="2"></li>
+                    <li option="3"></li>
+                    <li option="4"></li>
+                    <li option="5"></li>
+                </ul>
+            </amp-selector>
+            <div class="glo-button glo-button__black justify-center">
+                <a href="/pages/neosticks-packs">Детальніше про кожен смак</a>
+            </div>
+        </div>
+        <div class="nano-devices">
+            <div class="dev-table">
+                <div class="dev-title">
+                    
+                </div>
+                <div class="dev-title">
+                    <div class="dev-title__img">
+                      <a href="/collections/glo-devices/products/glo-pro">
+                        <amp-img
+                               src="{{ "comp_pro.png" | asset_url }}"
+                               width="75"
+                               height="150"
+                               alt="glo pro"
+                      ></amp-img>
+                      </a>
+                        <div class="dev-title__text">
+                            <p>glo pro</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="dev-title">
+                    <div class="dev-title__img">
+                      <a href="/collections/glo-devices/products/glo-nano">
+                        <amp-img
+                               src="{{ "product-nano-blue.png" | asset_url }}"
+                               width="100"
+                               height="200"
+                               alt="nano"
+                      ></amp-img>
+                      </a>
+                      <div class="dev-title__text">
+                           <p>glo nano</p>
+                      </div>
+                    </div>
+                </div>
+                <div class="dev-desc">
+                    <div class="dev-desc__img">
+                  		<amp-img
+                               src="{{ "complete-keyline.svg" | asset_url }}"
+                               width="450"
+                               height="500"
+                               layout="responsive"
+                               alt="nano"
+                      	></amp-img>
+                  	</div>
+                    <span class="dev-desc__txt">Час нагрівання</span>
+                </div>
+                <div class="dev-desc">
+                    <span class="dev-desc__num">20</span>
+                    <span class="dev-desc__txt">секунд</span>
+                </div>
+                <div class="dev-desc">
+                    <span class="dev-desc__num">40</span>
+                    <span class="dev-desc__txt">секунд</span>
+                </div>
+                <div class="dev-desc">
+                    <div class="dev-desc__img">
+                  		<amp-img
+                               src="{{ "complete-keyline.svg" | asset_url }}"
+                               width="450"
+                               height="500"
+                               layout="responsive"
+                               alt="nano"
+                      ></amp-img>
+                  	</div>
+                    <span class="dev-desc__txt">Потужність батареї</span>
+                </div>
+                <div class="dev-desc">
+                    <span class="dev-desc__num">До 20</span>
+                    <span class="dev-desc__txt">сеансів</span>
+                </div>
+                <div class="dev-desc">
+                    <span class="dev-desc__num">До 8</span>
+                    <span class="dev-desc__txt">сеансів</span>
+                </div>
+                <div class="dev-desc">
+                    <div class="dev-desc__img">
+                  		<amp-img
+                               src="{{ "complete-keyline.svg" | asset_url }}"
+                               width="450"
+                               height="500"
+                               layout="responsive"
+                               alt="nano"
+                      ></amp-img>
+                  	</div>
+                    <span class="dev-desc__txt">Тривалість сесії</span>
+                </div>
+                <div class="dev-desc">
+                    <span class="dev-desc__num">4</span>
+                    <span class="dev-desc__txt">хвилин</span>
+                </div>
+                <div class="dev-desc">
+                    <span class="dev-desc__num">3.5хв</span>
+                    <span class="dev-desc__txt">хвилин</span>
+                </div>
+                <div class="dev-desc">
+                    <div class="dev-desc__img">
+                  		<amp-img
+                               src="{{ "complete-keyline.svg" | asset_url }}"
+                               width="450"
+                               height="500"
+                               layout="responsive"
+                               alt="nano"
+                      	></amp-img>
+                  </div>
+                    <span class="dev-desc__txt">Вага пристрою</span>
+                </div>
+                <div class="dev-desc">
+                    <span class="dev-desc__num">98г</span>
+                    <!-- <span class="dev-desc__txt">секунд</span> -->
+                </div>
+                <div class="dev-desc">
+                    <span class="dev-desc__num">61г</span>
+                    <!-- <span class="dev-desc__txt">секунд</span> -->
+                </div>
+                <div class="dev-desc">
+                    <div class="dev-desc__img">
+                  		<amp-img
+                               src="{{ "complete-keyline.svg" | asset_url }}"
+                               width="450"
+                               height="500"
+                               layout="responsive"
+                               alt="nano"
+                      ></amp-img></div>
+                    <span class="dev-desc__txt">Розмір</span>
+                </div>
+                <div class="dev-desc">
+                    <span class="dev-desc__num">82х43х21</span>
+                    <span class="dev-desc__txt">мм</span>
+                </div>
+                <div class="dev-desc">
+                    <span class="dev-desc__num">95х32х21</span>
+                    <span class="dev-desc__txt">мм</span>
+                </div>
+                <div class="dev-desc">
+                    <div class="dev-desc__img">
+                  		<amp-img
+                               src="{{ "complete-keyline.svg" | asset_url }}"
+                               width="450"
+                               height="500"
+                               layout="responsive"
+                               alt="nano"
+                      	></amp-img></div>
+                    <span class="dev-desc__txt">Ціна</span>
+                </div>
+                <div class="dev-desc">
+                    <span class="dev-desc__num" style="font-weight: bold;">899грн</span>
+                    <!-- <span class="dev-desc__txt">секунд</span> -->
+                </div>
+                <div class="dev-desc">
+                    <span class="dev-desc__num" style="font-weight: bold;">499грн</span>
+                    <!-- <span class="dev-desc__txt">секунд</span> -->
+                </div>
+            </div>
+        </div>
+      	</main>
+        {% section 'footer-amp' %}
+    </div>    
+  </body>
+</html>

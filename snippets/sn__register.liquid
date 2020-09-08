@@ -1,0 +1,66 @@
+{% if sn__register == "register" %}
+<script src="{{ 'sn__register.js' | asset_url }}"></script>
+{% endif %}
+
+{% if sn__register == "login" %}
+<script src="{{ 'sn__login.js' | asset_url }}"></script>
+{% endif %}
+
+{% if sn__register == "account" %}
+<script src="{{ 'sn__account.js' | asset_url }}"></script>
+{% endif %}
+
+<script>
+    var SnConf = {
+        url: {
+            authSn: 'https://{{ settings.bride_domain }}/api/customer/sn-auth',
+            checkAccountBind: 'https://{{ settings.bride_domain }}/api/customer/sn-check-bind',
+            accountBind: 'https://{{ settings.bride_domain }}/api/customer/sn-bind',
+            urlLoader: "{{ 'loading2.gif' | asset_url }}",
+        },
+        msg: {
+            errorLogin: 'Помилка, спробуйте ще раз',
+            bindAccount: 'Прив\'язати аккаунт',
+            accountBound: 'Аккаунт прив\'язано',
+            errorGetBindStatus: 'Помилка, не вдалося отримати статус прив\'язки соціальних мереж'
+        },
+        googleClientId: '761519153427-fde01u2pk1e4rinm5ntio9vvfma7qano.apps.googleusercontent.com',
+        fbId: '865321020562860',
+        customerId: {{ customer.id | json }},
+        cartItemCount: {{ cart.item_count | json }}
+    };
+
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : SnConf.fbId,
+            cookie     : true,                     // Enable cookies to allow the server to access the session.
+            xfbml      : true,                     // Parse social plugins on this webpage.
+            version    : 'v6.0'                    // Use this Graph API version for this call.
+        });
+    };
+
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/uk_UA/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<script src="https://apis.google.com/js/api:client.js"></script>
+
+{% comment %}
+
+@see https://developers.google.com/identity/sign-in/web/sign-in
+
+https://console.developers.google.com/apis/dashboard?authuser=0&project=myglo-1580980714851
+GoogleClientId: 961123978525-bb3e11s4bt3gh1tmlbrsmr2u5a6fg587.apps.googleusercontent.com
+GoogleClientSecret: HggOywhs5kb2YUHBZRuRi8zN
+
+Google Prod:
+https://console.developers.google.com/?authuser=0&project=myglo-1582035516335
+761519153427-fde01u2pk1e4rinm5ntio9vvfma7qano.apps.googleusercontent.com
+WfIYvKRu7dmN253XxNS2X-16
+
+{% endcomment %}

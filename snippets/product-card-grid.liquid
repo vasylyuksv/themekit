@@ -1,0 +1,145 @@
+{% if product.tags contains 'sticks_new' %}
+    {% assign isSticks_new = true %}
+{% else %}
+    {% assign isSticks_new = false %}
+{% endif %}
+{% if product.tags contains 'glo_new' %}
+    {% assign isGlo_new = true %}
+{% else %}
+    {% assign isGlo_new = false %}
+{% endif %}
+{% if product.tags contains 'fone-hyper' %}
+    {% assign isfone-hyper = true %}
+{% else %}
+    {% assign isfone-hyper = false %}
+{% endif %}
+
+{% if customer.metafields.incust.incust_id != null %}
+    {% assign isIncustCustomer = true %}
+{% else %}
+    {% assign isIncustCustomer = false %}
+{% endif %}
+
+{% comment %}
+    Renders a product card using "Grid" style
+    Accepts:
+    - max_height: {Number} Maximum height of the product's image (required)
+    - product: {Object} Product Liquid object (required)
+    - show_vendor: {Boolean} Show the product's vendor depending on the section setting (optional)
+
+    Usage:
+    {% render 'product-card-grid', max_height: max_height, product: product, show_vendor: section.settings.show_vendor %}
+{% endcomment %}
+
+{% if product.has_only_default_variant or product.tags contains 'collapse_in_showcase' %}
+
+    {% render 'product-card-grid-single-product', product: product, max_height: max_height, wrapper_id: wrapper_id, img_id: img_id  %}
+
+{%else%}
+
+  {% for variant in product.variants %}
+
+      {% if product.tags contains 'bonuses_only' %}
+          {% assign isBonusesOnly = true %}
+      {% else %}
+          {% assign isBonusesOnly = false %}
+      {% endif %}
+
+  {% if variant.available %}
+    {%  if isBonusesOnly == false or isBonusesOnly == true and isIncustCustomer == true %}
+  <div class="col-md-4 col-sm-8 col-xs-16 product-card">
+  <div class="grid-view-item{% unless variant.available %} grid-view-item--sold-out{% endunless %} product-card">
+
+    <a class="grid-view-item__link grid-view-item__image-container " href="{{ variant.url | within: collection }}">
+      <span class="visually-hidden">{{ variant.title }}</span>
+    </a>
+
+    {% capture img_id %}ProductCardImage-{{ section.id }}-{{ variant.id }}{% endcapture %}
+    {% capture wrapper_id %}ProductCardImageWrapper-{{ section.id }}-{{ variant.id }}{% endcapture %}
+    {%- assign img_url = variant.featured_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
+    {% unless variant.featured_image == blank %}
+      {% render 'image-style', image: variant.featured_image, height: max_height, wrapper_id: wrapper_id, img_id: img_id %}
+    {% endunless %}
+
+    <div class="product-card__image-with-placeholder-wrapper" data-image-with-placeholder-wrapper>
+      
+      {% if isGlo_new == true %}
+      <div class="glo_new">NEW</div>
+      {%endif%}
+      {% if isSticks_new == true %}
+      <div class="glo_new">NEW<br/> glo HYPER</div>
+      {%endif%}
+      
+      <div id="{{ wrapper_id }}" class="grid-view-item__image-wrapper product-card__image-wrapper js  {% if isfone-hyper == true %}hyper-bg{%endif%}">
+        <div style="padding-top:{% unless variant.featured_image == blank %}{{ 1 | divided_by: variant.featured_image.aspect_ratio | times: 100 }}%{% else %}100%{% endunless %};">
+          <img id="{{ img_id }}"
+                class="grid-view-item__image lazyload"
+                alt="{{ variant.featured_image.alt }}"
+                data-src="{{ img_url }}"
+                data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                data-aspectratio="{{ variant.featured_image.aspect_ratio }}"
+                data-sizes="auto"
+                data-image>
+        </div>
+      </div>
+      <div class="placeholder-background placeholder-background--animation" data-image-placeholder></div>
+    </div>
+
+    <noscript>
+      {% capture image_size %}{{ max_height }}x{{ max_height }}{% endcapture %}
+      <img class="grid-view-item__image" src="{{ variant.featured_image.src | img_url: image_size, scale: 2 }}" alt="{{ variant.featured_image.alt }}" style="max-width: {{ max_height | times: variant.featured_image.aspect_ratio }}px;">
+    </noscript>    
+    
+    <div class="h4 grid-view-item__title product-card__title" aria-hidden="true">
+      <a class="grid-view-item__link grid-view-item__image-container js-gtm-product-click" data-id="{{ variant.id }}" href="{{ variant.url | within: collection }}">
+        {% if variant.metafields.additional.additional-title == blank %}
+          {{ variant.title }}
+        {% else %}
+          {{ variant.metafields.additional.additional-title }}
+        {% endif %}
+      </a>
+    </div>
+    <div class="product-card__metadesc">
+      {{product.variants.metafields.additional.additional-description}}
+      {{variant.metafields.additional.additional-description}}
+    </div>
+
+    {% render 'product-price', variant: variant, product: variant, show_vendor: show_vendor %}
+
+
+        <div
+              data-section-id="product-template-{{ product.id }}"
+              data-section-type="product"
+              data-enable-history-state="true"
+              data-ajax-enabled="true">
+
+          <form method="post" action="/cart/add" data-product-form>
+            <input type="hidden" name="id" value="{{ variant.id }}" />
+            <input type="submit" value="КУПИТИ" class="btn full-width" data-add-to-cart />
+            <input type="hidden" name="return_to" value="back" />
+          </form>
+          <script type="application/json" id="ProductJson-product-template-{{ product.id }}">{{ product | json }}</script>
+        </div>
+
+      <script>
+          {% assign product_category = product.collections| first %}
+          window.GTMcollection.products.push({
+              name: {{ product.title | json }},         // Name or ID is required.
+              id: {{ variant.sku  | json }},
+              innerID: {{ variant.id | json}},
+              price: {{ variant.price  | divided_by: 100.00 | json }},
+              brand: {{ product.vendor | json }},
+              category: {{ product_category.title | json }},
+              variant: {{ variant.title  | json }}
+          });
+      </script>
+
+  </div>
+
+  </div>
+  {%endif%}
+  {% endif %}
+  {%endfor%}
+
+{%endif%}

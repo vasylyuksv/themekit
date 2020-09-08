@@ -1,0 +1,103 @@
+<div class="announcement-bar">      
+<p class="announcement-bar__message">       
+	<a href="/blogs/info/delivery-glo" class="c-header__sub-a">Про сервіс та доставку glo™ під час карантину</a>        
+</p>
+</div>
+<header class="amp-header">
+            <div class="block-image">
+                <a href="/">
+                    <amp-img src="{{ "glo_logo-w.svg" | asset_url }}"
+                        width="40"
+                        height="30"
+                        layout="responsive"
+                        alt="glo">
+                    </amp-img>
+                </a>
+            </div>
+            <div class="toggle-sidebar">
+                <div class="login-block">
+                  <a href="/account/login"><svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-login" viewBox="0 0 28.33 37.68"><path d="M14.17 14.9a7.45 7.45 0 1 0-7.5-7.45 7.46 7.46 0 0 0 7.5 7.45zm0-10.91a3.45 3.45 0 1 1-3.5 3.46A3.46 3.46 0 0 1 14.17 4zM14.17 16.47A14.18 14.18 0 0 0 0 30.68c0 1.41.66 4 5.11 5.66a27.17 27.17 0 0 0 9.06 1.34c6.54 0 14.17-1.84 14.17-7a14.18 14.18 0 0 0-14.17-14.21zm0 17.21c-6.3 0-10.17-1.77-10.17-3a10.17 10.17 0 1 1 20.33 0c.01 1.23-3.86 3-10.16 3z" fill="#fff"></path></svg></a>
+                </div>
+                <div class="shop-block">
+                  <a href="/cart"><svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-cart" viewBox="0 0 37 40"><path d="M36.5 34.8L33.3 8h-5.9C26.7 3.9 23 .8 18.5.8S10.3 3.9 9.6 8H3.7L.5 34.8c-.2 1.5.4 2.4.9 3 .5.5 1.4 1.2 3.1 1.2h28c1.3 0 2.4-.4 3.1-1.3.7-.7 1-1.8.9-2.9zm-18-30c2.2 0 4.1 1.4 4.7 3.2h-9.5c.7-1.9 2.6-3.2 4.8-3.2zM4.5 35l2.8-23h2.2v3c0 1.1.9 2 2 2s2-.9 2-2v-3h10v3c0 1.1.9 2 2 2s2-.9 2-2v-3h2.2l2.8 23h-28z" fill="#fff"></path></svg></a>
+                </div>
+                <div class="burger-menu">
+                    <amp-sidebar id="sidebar-left" class="sample-sidebar" layout="nodisplay" side="right">
+                        <nav toolbar="(min-width: 784px)" toolbar-target="target-element-left">
+                          <ul>
+                              <li class="toggle-sidebar__child">
+                                  <a href="/pages/about">ПРО ТЕХНОЛОГІЮ</a>
+                              </li>
+                              <li class="toggle-sidebar__child">
+                                  <a href="/pages/glo-nano">glo HYPER</a>
+                              </li>
+                              <li class="toggle-sidebar__child">
+                                  <a href="/pages/glo-pro">glo PRO</a>
+                              </li>
+                              <li class="toggle-sidebar__child">
+                                  <a href="/pages/glo-nano">glo NANO</a>
+                              </li>
+                              
+                              <li class="toggle-sidebar__child">
+                                  <amp-accordion class="sample" disable-session-states>
+                                      <section >
+                                          <h4 class="acc-button">
+                                              <p>
+                                                  ЗАМОВИТИ ОНЛАЙН
+                                              </p>
+                                              <amp-img src="{{ "arrow_next-white.svg" | asset_url }}"
+                                                width="15"
+                                                height="15"
+                                                layout="fixed"
+                                                alt=""
+                                                data-amp-auto-lightbox-disable>
+                                              </amp-img>
+                                          </h4>  
+                                          <ul>
+                                              <li>
+                                                  <a href="/collections/glo-devices">ПРИСТРОЇ</a>
+                                              </li>
+                                              <li>
+                                                  <a href="/collections/neosticks">СТІКИ</a>
+                                              </li>
+                                              <li>
+                                                  <a href="/collections/accessories">АКСЕСУАРИ</a>
+                                              </li>
+                                          </ul>
+                                      </section>
+                                  </amp-accordion>
+                              </li>
+                              <li class="toggle-sidebar__child">
+                                  <a href="/pages/contact-us#go-buy">ДЕ ПРИДБАТИ</a>
+                              </li>
+                              <li>
+                                  <div class="nav-info">
+                                      <a href="/pages/register-device">Зареєструвати пристрій</a>
+                                      <a href="/pages/contact-us">Зв'язатися з нами</a>
+                                      <a href="tel: 8008"><p>8008 (Дзвінки  безкоштовні. Тільки для повнолітніх)</p></a>
+                                  </div>
+                              </li>
+                          </ul>
+                        </nav>
+                    </amp-sidebar>
+                    <button class="nav-button" on="tap:sidebar-left.toggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <div id="target-element-left">
+                    </div>
+                </div>
+            </div>
+        </header>
+
+{% schema %}
+  {
+    "name": "header-amp",
+    "settings": []
+  }
+{% endschema %}
+
+
+{% javascript %}
+{% endjavascript %}

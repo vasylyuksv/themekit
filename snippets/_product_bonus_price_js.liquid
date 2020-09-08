@@ -1,0 +1,20 @@
+{% assign all_products = collections.all.products | sort: 'metafields.bonuses.price' %}
+{% assign _products = '' %}
+
+{% for product in all_products %}
+
+    {% if product.tags contains 'bonuses_only' %}
+        {%- capture _product -%}[{{ product.id | json }},{{ product.metafields.bonuses.price | plus: 0 | json }}]{%- endcapture -%}
+
+        {% if _products != '' %}
+            {% assign _product = ',' | append:_product %}
+        {% endif %}
+
+        {% assign _products = _products | append:_product %}
+    {% endif %}
+
+{% endfor %}
+
+{% assign _products = '[' | append:_products | append:']' %}
+
+{{ _products }}

@@ -1,0 +1,213 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-16">
+        <h1>{{ page.title }}</h1>
+    </div>
+  </div>
+</div>
+<div class="container block-mb">
+  <div class="row">
+    <div class="col-lg-16">
+      <p>Реєстрація glo™ ― це можливість безкоштовно замінити пристрій, за умов виникнення технічних несправностей glo™ не з вини користувача.<br>Це наша Програма лояльності, яка дійсна для власників glo™ протягом року з моменту купівлі пристрою.</p>
+      <p><strong>Як зареєструвати glo™?</strong></p>
+      <p>Дуже просто! Реєстрація займає лише декілька хвилин:</p>
+      
+      <ul class="register-device">
+		<li class="">у спеціальну форму для реєстрації введіть свої дані. Для зручності зв’язку ми просимо вказати номер телефону та електронну адресу;</li>
+		<li class="">обов’язково зазначте унікальний код пристрою. Він знаходиться на зворотній частині коробки glo™ зверху на спеціальній наліпці круглої форми; </li>
+		<li class="">відправте заповнені дані, натиснувши на кнопку «Зареєструвати». Після цього – реєстрація завершена.</li>
+     </ul>
+      
+      
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-5">
+      <form method="post" action="https://{{ settings.bride_domain }}/device" id="register_device_form" class="form-vertical">
+            <!-- Name -->
+            <label class="c-field__label" for="RegisterDeviceFormName">Ім'я:</label>
+            <input type="text" name="name" id="RegisterDeviceFormName" class="c-field__input" placeholder="Ім'я" value="">
+            
+             <!-- Surname -->
+           <label class="c-field__label" for="RegisterDeviceFormSurname">Прізвище:</label>
+           <input type="text" name="surname" id="RegisterDeviceFormSurname" class="c-field__input" placeholder="Прізвище" value="">
+
+          <!-- Device -->
+          <label class="c-field__label" for="RegisterDeviceFormDevice">Пристрій:</label>
+          <select name="device"
+                  id="RegisterDeviceFormDevice"
+                  class="c-field__input">
+              <option value="">- Обрати -</option>
+              <option value="glo pro">glo pro</option>
+              <option value="glo nano">glo nano</option>
+              <option value="glo mini">glo mini</option>
+              <option value="glo 2.0">glo 2.0</option>
+          </select>
+           
+            <!-- City -->
+            <label class="c-field__label" for="RegisterDeviceFormCity">Місто:</label>
+            <input type="text" name="city" id="RegisterDeviceFormCity" class="c-field__input" placeholder="Місто" value="">
+            <!-- Email -->
+            <label class="c-field__label" for="RegisterDeviceFormEmail">Email:</label>
+            <input type="text" name="email" id="RegisterDeviceFormEmail" class="c-field__input" placeholder="email@example.com" value="">
+
+            <!-- Phone -->
+            <label class="c-field__label" for="RegisterDeviceFormPhone">Телефон:</label>
+            <input type="tel" name="phone" id="RegisterDeviceFormPhone" class="c-field__input phone-mask" placeholder="Телефон" value="">
+
+            <!-- SerialNumber -->
+            <label class="c-field__label" for="RegisterDeviceFormNumber">Унікальний код:</label>
+			<input type="text" name="serial_number" id="RegisterDeviceFormNumber" class="c-field__input device-mask" placeholder="Унікальний код" value="">
+
+            <input name="birth_date" value="01/01/1970" type="hidden">
+        	<div class="customer_agreement--wrap">
+                <input type="checkbox" requred="" name="customer_agreement_register" id="customer_agreement_register">
+				<label for="customer_agreement_register" class="c-fieldset__check-label"></label>
+        	
+        	<span style="font-size: 12px;">Я погоджуюсь з умовами обробки моїх персональних даних, викладених в <a href="/pages/ugoda-z-korystuvachem#conf" target="_blank" rel="noopener" aria-describedby="a11y-new-window-message">Положенні про конфіденційність</a></span>
+			</div>
+			<button type="submit" class="btn btn--primary js-register-device submit-register-btn" id="register_device_form" disabled="" style="opacity: 0.5;">Зареєструвати</button>
+
+</form>
+    </div>
+    <div class="col-lg-offset-1 col-lg-10">
+      <p><strong>Переваги реєстрації glo™</strong></p>
+      <ul class="register-device">
+      	<li class="">Можливість заміни несправного пристрою на новий, якщо протягом року з моменту купівлі, зареєстрований пристрій зламається, його можна обміняти на новий на умовах Програми лояльності.</li>
+		<li class="">Компанія здійснює підтримку своїх клієнтів. Користувачі, які зареєствували свій пристрій, мають можливість першими дізнаватись про спеціальні пропозиції glo™, про появу новинок, відкриття нових магазинів чи пунктів продажу.</li>
+		<li class="">Ексклюзивні переваги. Реєстрація девайсу дає можливість бути у центрі подій glo™, отримувати вигідні пропозиції та запрошення на тематичні заходи за участі бренду.</li>
+      </ul>
+      <p>
+        Важливо! Обмін пристрою здійснюється лише у повній комплектації набору glo™, в який входить: пристрій, USB кабель, адаптер, щіточка для чищення девайсу та оригінальна коробка. Крім цього необхідно надати розрахунковий документ, який підтверджує факт купівлі пристрою glo™.
+      </p>
+      <p>
+		Також зареєструвати пристрій можна в glo™ studio або зателефонувавши до служби підтримки клієнтів за телефоном 0–800–50–90–80 або 8008 (безкоштовно).
+      </p>
+    </div>
+      <div class="form-success-message success-message-block" style="display: none;">
+          <p><span class="success-user-name">Username</span>,</p>
+          <p style="margin-bottom: 0;">дякуємо за ваше звернення! Ми зв'яжемося з вами для підтвердження реєстрації пристрою.</p>
+          <a href="https://myglo.com.ua" class="c-btn c-btn--reversed">
+              <span>На головну сторінку</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+
+<style>
+  .register-device li {
+    display: block;
+    position: relative;
+    margin-left: 30px;
+    margin-bottom: 10px;
+  }
+  .register-device li:before {
+    content: '';
+    display: inline-block;
+    width: 3px;
+    height: 3px;
+    background-color: #2f2f2f;
+    border-radius: 50%;
+    position: absolute;
+    left: -20px;
+    top: 11px;
+</style>
+
+
+<script>
+    //   $('.date-mask').inputmask('dd/mm/yyyy', { 'placeholder': '__/__/____' });
+
+    $('.phone-mask').inputmask('+38(999)-999-99-99', { 'placeholder': '+38(___)-___-__-__' });
+
+    $('.device-mask').inputmask('U99a99a9', { 'placeholder': 'U_______' });
+
+    $(document).on('submit', '#register_device_form', function(e) {
+        e.preventDefault();
+
+//     var day = parseInt($('#RegisterDeviceBirthDate').val().slice(0, 2));
+//     var month = parseInt($('#RegisterDeviceBirthDate').val().slice(3, 5));
+//     var year = parseInt($('#RegisterDeviceBirthDate').val().slice(6, 10));
+//     var age = 18;
+//     var mydate = new Date();
+//     mydate.setFullYear(year, month - 1, day);
+
+//     var currdate = new Date();
+//     currdate.setFullYear(currdate.getFullYear() - age);
+
+//     if ((currdate - mydate) < 0) {
+//       	$('.birth-date__hint').show();
+//         return false;
+//     } else {
+//     	$('.birth-date__hint').hide();
+//     }
+
+        var $form = $(e.currentTarget),
+            $formSuccess = $('.form-success-message');
+        $form.find('input, select').removeClass('input--error');
+        $form.find('input[name="check"]').prev().removeClass('test-drive-checkbox-error');
+
+        $.post($form.attr('action'), $form.serialize(), function(response) {
+            document.location = '/pages/register-device-done'
+//     	$form.slideUp();
+//       	$formSuccess.find('.success-user-name').text($form.find('input[name="name"]').val() + ' ' + $form.find('input[name="surname"]').val());
+//       	$formSuccess.slideDown();
+        }, 'json')
+            .fail(function(response) {
+                $.each(response.responseJSON.errors, function(i, v) {
+                    if (i == 'check') {
+                        $('input[name="check"]').prev().addClass('test-drive-checkbox-error');
+                    } else {
+                        $('[name="'+i+'"]').addClass('input--error');
+                    }
+                });
+            });
+    });
+
+    checkRules = function() {
+        var $rulesBtn = $('#customer_agreement_register'),
+            $submitBtn = $('.submit-register-btn');
+
+        if ($rulesBtn.is(':checked')) {
+            $submitBtn.prop('disabled', false).css({
+                opacity: 1
+            });
+        } else {
+            $submitBtn.prop('disabled', true).css({
+                opacity: 0.5
+            });
+        }
+    };
+
+    checkRules();
+    $(document).on('change', '#customer_agreement_register', checkRules);
+
+    //accordion
+    accordionEls = document.querySelectorAll('.register-device_subtitle');
+
+    for (let i = 0; i < accordionEls.length; i++) {
+        const accordionEl = accordionEls[i];
+
+        accordionEl.addEventListener('click', function(){
+            // delete active class in case if it accordion
+            // for (let i = 0; i < accordionEls.length; i++) {
+            //   accordionEls[i].classList.remove('active');
+            // }
+            this.classList.toggle('active');
+        });
+    }
+</script>
+
+<style>
+    .test-drive-field-error {
+        border-color: transparent !important;
+        box-shadow: 0 0 0 1px #d0021b !important;
+    }
+
+    .test-drive-checkbox-error {
+        color: #d0021b !important;
+    }
+
+</style>

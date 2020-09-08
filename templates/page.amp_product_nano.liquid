@@ -1,0 +1,882 @@
+{% layout none %}
+
+<!doctype html>
+<html amp lang="{{ shop.locale }}">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ page_title }}</title>
+    <link rel="icon" type="image/png" sizes="16x16" href={{ "favicon-16x16.png" | asset_url }}>
+    <link rel="icon" type="image/png" sizes="32x32" href={{ "favicon-32x32.png" | asset_url }}>
+    <link rel="icon" type="image/png" sizes="48x48" href={{ "favicon-48x48.png" | asset_url }}>
+    <link rel="apple-touch-icon" sizes="180x180" href={{ "apple-touch-icon.png" | asset_url }}>
+    <link rel="icon" type="image/png" sizes="192x192" href={{ "android-chrome-192x192.png" | asset_url }}>
+    <link rel="icon" type="image/png" sizes="512x512" href={{ "android-chrome-512x512.png" | asset_url }}>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700,900&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    {%- if page_description -%}
+    	<meta name="description" content="{{ page_description | escape }}">
+  	{%- endif -%}
+    <link rel="canonical" href="https://myglo.com.ua/collections/glo-devices/products/glo-nano?variant=31276260425862">
+    <style amp-custom>
+        /* MAIN DIRECTIVES AND HEADER */
+      .announcement-bar {
+        background-color: #2f2f2f;
+        text-align: center;
+        position: relative;
+        z-index: 10;
+      }
+      .announcement-bar__message {
+          color: #fff;
+          font-size: 13px;
+          font-weight: 600;
+          padding: 10px 0;
+    	  margin: 0;
+      }
+      
+      .announcement-bar__message a {
+          color: #fff;
+        	text-decoration: none;
+      }
+    .burger-menu amp-sidebar {
+      z-index: 4;
+    }
+    .burger-menu button.nav-button {
+      z-index: 5;
+      position: relative;
+    }
+    body {
+      font-family: 'Montserrat', sans-serif;
+    }
+    .h1-text {
+      padding-bottom: 30px;
+      margin-bottom: 30px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 1.2;
+      color: #2f2f2f;
+      font-size: 1.8em;
+      position: relative;
+    }
+    .h1-text:before {
+      content: '';
+      width: 25%;
+      height: 4px;
+      background-color: #2f2f2f;
+      position: absolute;
+      bottom: 0;
+    }
+    .h2-text {
+      font-size: 1.25em;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .h2-text__white {
+      color: white;
+    }
+    .h2-text__black {
+      color: black;
+    }
+    .h3-text {
+      font-size: 21px;
+      margin: 0;
+      padding: 0 0 25px 0;
+      position: relative;
+      text-align: center;
+    }
+    .h3-text:before {
+      content: '';
+      width: 25%;
+      height: 4px;
+      background-color: #2f2f2f;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .h3-text span {
+      margin: 0 20px;
+    }
+    h2.h3-text span {
+      margin: 0;
+    }
+    .slider-detail a,
+    .glo-button a {
+     		user-select: none;
+            appearance: none;
+            display: inline-block;
+            width: auto;
+            text-decoration: none;
+            text-align: center;
+            vertical-align: middle;
+            cursor: pointer;
+            border-radius: 0;
+            padding: 8px 32px;
+            background-color: transparent;
+            font-family: Montserrat,sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: normal;
+            white-space: normal;
+            background-color: transparent;
+      margin-bottom: 25px;
+    }
+    .glo-intro {
+      margin: 45px 15px;
+    }
+    .glo-button__black a {
+      color: #2f2f2f;
+      border: 1px solid #2f2f2f;
+    }
+    .glo-button__white a {
+      color: white;
+      border: 1px solid white;
+    }
+    .toggle-sidebar,
+    .block-image {
+      position: relative;
+    }
+    .block-image {
+      z-index: 1;
+    }
+    .toggle-sidebar {
+      z-index: 3;
+      display: flex;
+    }
+    .toggle-sidebar .login-block,
+    .toggle-sidebar .shop-block {
+      width: 27px;
+      height: 22px;
+      margin-right: 20px;
+    }
+    .toggle-sidebar .login-block svg,
+    .toggle-sidebar .shop-block svg {
+      width: 100%;
+      height: 100%;
+    }
+    #sidebar-left ul > li.toggle-sidebar__child:not(:last-child) {
+      border-bottom: 1px solid #ebebeb;
+    }
+    body [class$="-sidebar-mask"] {
+      z-index: 2;
+    }
+    .main-block {
+      box-sizing: border-box;
+      margin: 0 auto;
+      max-width: 1024px;
+    }
+    #sidebar-left {
+      background-color: white;
+    }
+    #sidebar-left ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    #sidebar-left ul li {
+      padding: 15px;
+    } 
+    #sidebar-left ul li h4 {
+      background-color: white;
+    }
+    amp-accordion section .acc-button {
+      border: none;
+      outline: none;
+    }
+    #sidebar-left ul li > a,
+    amp-accordion section .acc-button p {
+      text-decoration: none;
+      
+      font-size: 13px;
+      font-weight: 600;
+      color: #2f2f2f;
+    }
+    .nav-button {
+      border: none;
+      background-color: transparent;
+      display: flex;
+      flex-direction: column;
+    }
+    .nav-button span {
+      width: 30px;
+      height: 2px;
+      background-color: black;
+      display: inline-block;
+    }
+    .nav-button span:not(:first-child) {
+      margin-top: 8px;
+    }
+    amp-accordion section .acc-button amp-img {
+      position: absolute;
+      right: 10%;
+      top: 50%;
+      transform: translate(0, -50%) rotate(0deg);
+    }
+    amp-accordion section[expanded] .acc-button amp-img {
+      transform: translate(0, -50%) rotate(90deg);
+    }
+    amp-accordion p {
+      margin: 0;
+    }
+    .amp-header amp-sidebar {
+      width: 100%;
+      max-width: 100vw;
+      padding: 0;
+    }
+    .nav-button {
+      float: right;
+    }
+    .amp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: white;
+      padding: 5px 15px;
+      -webkit-box-shadow: 0px 6px 6px -4px rgba(59,66,71,0.5);
+        -moz-box-shadow: 0px 6px 6px -4px rgba(59,66,71,0.5);
+      box-shadow: 0px 6px 6px -4px rgba(59,66,71,0.5);
+    }
+    .amp-header .block-image {
+      width: 50px;
+    }
+    amp-sidebar nav {
+      margin-top: 75px;
+      height: 80vh;
+      overflow-y: auto;
+    }
+    .nav-button {
+      outline: none;
+    }
+    #sidebar-left ul .acc-button + ul {
+      padding: 0 0 0 15px;
+      margin-top: 15px;
+    }
+    .nav-button[aria-hidden] span:nth-child(1) {
+      display: none;
+    }
+    .nav-button[aria-hidden] span:nth-child(2) {
+      display: inline-block;
+      transform: translate(-100%) rotate(45deg);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+
+    }
+    .nav-button[aria-hidden] span:nth-child(3) {
+      transform: translate(-100%) rotate(-45deg);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+    }
+    .nav-info {
+      display: flex;
+      flex-direction: column;
+      margin: 25px -15px;
+      padding: 15px 0;
+      background-color: aliceblue;
+    }
+    .nav-info a {
+      padding: 0 15px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .nav-info a:not(:last-child) {
+      margin-bottom: 15px;
+      color: #2f2f2f;
+    }
+    .nav-info a:last-child {
+      color: rgba(47,47,47,0.5);
+    }
+    .nav-info a p {
+      margin: 0;
+    }
+        
+        .social-list ul {
+            padding: 15px;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+        }
+        @media screen and (min-width: 767px) {
+            .social-list ul {
+                justify-content: space-evenly;
+            }
+        }
+        @media screen and (max-width: 350px) {
+            .social-list ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            .social-list ul li:nth-child(1) {
+                margin-bottom: 15px;
+            }
+            .footer-phone .h3-text {
+                /* flex-direction: column; */
+                text-align: left;
+            }
+            .footer-phone .h3-text::before {
+                /* display: none; */
+            }
+            .footer-phone .h3-text span {
+                margin: 0 10 px;
+            }
+        }
+        .social-list ul li a {
+            display: flex;
+            color: #2f2f2f;
+            text-decoration: none;
+        }
+        .social-list ul li a:hover,
+        .social-list ul li a:focus,
+        .social-list ul li a:active {
+            color: #2f2f2f;
+        }
+        .social-list ul li a p {
+            margin: 0;
+        }
+        .social-list ul li a amp-img {
+            margin-right: 10px;
+        }
+        .social-block {
+            display: flex;
+            align-items: center;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 50px;
+        }
+        .gallery a {
+            width: 31%;
+        }
+        .gallery a:nth-child(2n+4) {
+            margin: 40px -10px -5px 10px;
+        }
+        .gallery a:nth-child(3n+2) {
+            margin: 5px -20px 5px -15px;
+        }
+        .gallery a:nth-child(7n) {
+            margin: 70px 0 0;
+        }
+        .gallery a img {
+            object-fit: cover;
+        }
+        .text-telegram {
+            width: 40px;
+            height: 40px;
+        }
+        .where-part {
+            margin: 0 15px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .where-part .where-part__bold {
+            font-weight: 500;
+            font-size: 21px;
+        }
+        .text-telegram {
+            margin-bottom: 30px;
+        }
+        .warning-text {
+            padding: 0 15px;
+        }
+        .warning-text p {
+            font-size: 12px;
+        }
+        #footer {
+      background-color: #3b4247;
+      padding: 0 15px;
+    }
+      .footer__logo {
+        width: 70px;
+        padding: 35px 0;
+      }
+      .footer-phone {
+        position: relative;
+      }
+      .footer-phone a,
+      .footer-links {
+        color: white;
+        text-decoration: none;
+      }
+      .footer-links {
+        margin-bottom: 35px;
+      }
+      .footer-phone .h3-text {
+        display: flex;
+        flex-wrap: wrap;
+        color: white;
+      }
+      .footer-phone .h3-text:before {
+        left: 0%;
+        transform: translateX(0);
+        background-color: white;
+      }
+      .footer-schedule p {
+        color: white;
+        font-size: 13px;
+        margin: 20px 0;
+      }
+      .footer-schedule p span {
+        display: block;
+      }
+      .footer-links ul {
+        list-style: none;
+        display: flex;
+        padding: 0;
+      }
+      .footer-links ul li {
+        width: 25px;
+      }
+      .footer-links ul li:not(:last-child) {
+        margin-right: 15px;
+      }
+      #footer-accordion {
+        background-color:transparent;
+        color: white;
+      }
+      #footer-accordion .h3-text {
+        background-color: transparent;
+        padding: 0 0 20px 0;
+        border: none;
+        outline: none;
+      }
+      #footer-accordion .h3-text:before {
+        left: 0%;
+        transform: translateX(0);
+        background-color: white;
+        height: 3px;
+        width: 15%;
+      }
+      #footer-accordion span {
+        position: relative;
+        display: block;
+        padding: 10px 0;
+        text-align: left;
+        outline: none;
+      }
+      #footer-accordion span:before {
+        content: '';
+        display: block;
+        border: 9px solid transparent;
+        border-top: 10px solid #b5b5b5;
+        width: 0px;
+        height: 0px;
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%) rotate(0deg);
+        margin-right: 0;
+      }
+      .footer-menu ul {
+        list-style: none;
+        padding: 0;
+      }
+      .footer-menu ul li a {
+        color: white;
+        text-decoration: none;
+      }
+      .footer-menu ul li:not(:last-child) {
+        margin-bottom: 10px;
+      }
+      .footer-accordion section {
+        padding-bottom: 40px;
+      }
+      .footer__copyright {
+        display: block;
+        padding: 15px 0 30px;
+        color: white;
+        font-size: 13px;
+      }
+      .face-block {
+        width: 93%;
+        margin: 0 auto;
+      }
+      .warning-text {
+        margin-bottom: 40px;
+      }
+    @media screen and (min-width: 767px) {
+      .burger-menu amp-sidebar [toolbar-target="target-element-left"] {
+        display: block;
+      }
+      .burger-menu [toolbar-target="target-element-left"] {
+        display: none;
+      }
+    }
+        
+        /* CUSTOM CSS */
+        .main-content {
+            padding: 15px;
+        }
+        .product-img {
+            margin-bottom: 30px;
+        }
+        .product-img img {
+            object-fit: contain;
+        }
+        .product-name__title p {
+            margin: -0;
+            font-family: Montserrat,sans-serif;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 1.2;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            font-size: 32px;
+            padding-bottom: 20px ;
+            position: relative;
+        }
+        .product-name__title p:before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 3px;
+            width: 50px;
+            background-color: black;
+        }
+        .product-name__price {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .product-name__price .price-first {
+            font-size: 28px;
+            font-weight: 700;
+        }
+        .product-name__price .price-second {
+            margin-left: 20px;
+            font-size: 20px;
+            vertical-align: super;
+            color: #ababab;
+            font-weight: normal;
+            text-decoration: line-through;
+        }
+        .color-line {
+            margin-top: 15px;
+        }
+        .color-block ul {
+            padding: 0;
+            list-style-type: none;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .color-block ul li .pro-link {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 1px solid #292929;
+        }
+        .pro-link.pro-link__black {
+            background-color: black;
+        }
+        .pro-link.pro-link__white {
+            background-color: #ddd;
+        }
+        .pro-link.pro-link__blue {
+            background-color: #91c8df;
+        }
+        .pro-link.pro-link__green {
+            background-color: 	#a8bf2f;
+        }
+        .pro-link.pro-link__nanoblue {
+            background-color: #1c2748;
+        }
+        .pro-link.pro-link__nanoblue2 {
+            background-color: #1062b1;
+        }
+        .pro-link.pro-link__purple {
+            background-color: #643fb2;
+        }
+        .pro-link.pro-link__newgreen {
+            background-color: green;
+        }
+        .pro-link.pro-link__orange {
+            background-color: #e37f38;
+        }
+        .pro-link.pro-link__pink {
+            background-color: #d52db3;
+        }
+        .color-block ul li:not(:last-child) {
+            margin: 0 15px 15px 0;
+        }        
+        .color-line .glo-button.glo-button__black {
+            width: 290px;
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+        }
+        .color-line .glo-button.glo-button__black a {
+            width: 100%;
+        }
+        .block-open ul {
+            list-style: none;
+            padding: 0;
+        }
+        .product amp-accordion section .acc-button {
+            background: transparent;
+        }
+        .product amp-accordion section .acc-button p {
+            padding: 30px 0;
+            font-size: 1.125rem;
+            font-weight: 400;
+        }
+        .product amp-accordion section {
+            border-bottom: 1px solid #ccc;
+        }
+        .product amp-accordion section .block-open {
+            padding: 15px 20px 30px;
+        }
+        .block-open.block-open__about p {
+            margin: 20px 0;
+        }
+        .special {
+            margin-top: 50px;
+            text-align: center;
+        }
+        .special-title p {
+            font-style: normal;
+            font-weight: 400;
+            line-height: 1.2;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            font-weight: 700;
+            text-transform: none;
+            font-size: 1.25em;
+        }
+        .special .glo-button {
+            margin: 10px 0 20px;
+        }
+        .special-img img {
+            background-size: contain;
+        }
+        .color-title {
+            color: #ababab;
+            font-size: 13px;
+        }
+        .special-desc p {
+            font-size: 80%;
+            line-height: 1.8;
+        }
+        @media screen and (min-width: 767px) {
+            .product {
+                display: flex;
+                justify-content: space-between;
+            }
+            .block-left,
+            .block-right {
+                flex: 0 0 45%;
+            }
+            .product-img {
+                margin-bottom: none;
+            }
+            .product-img {
+                margin-bottom: 0;
+            }
+            .block-left {
+                position: relative;
+            }
+            .product-img {
+                
+            }
+        }
+    </style>
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+    <script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>
+    <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.2.js"></script>
+    <script async custom-element="amp-selector" src="https://cdn.ampproject.org/v0/amp-selector-0.1.js"></script>
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "NewsArticle",
+        "headline": "Open-source framework for publishing content",
+        "author": "noName",
+        "@publisher": "glo",
+        "datePublished": "2015-10-07T12:02:41Z",
+        "image": [
+          "./img/logo.svg"
+        ]
+      }
+    </script>
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    {% include 'gtm-amp-header' %}
+  </head>
+  <body>
+    {% include 'gtm-amp-body' %}
+    <div class="main-block">
+        {% section 'header-amp' %}
+        <main class="main-content">
+            <div class="product">
+                <div class="block-left">
+                    <section class="product-img">
+                        <amp-img src="//cdn.shopify.com/s/files/1/0072/8111/5254/products/nano-red_300x300.png?v=1576155688"
+                            width="500"
+                            height="300"
+                            layout="responsive"
+                            alt="">
+                        </amp-img>
+                    </section>
+                </div>
+                <div class="block-right">
+                    <section class="product-name">
+                        <div class="product-name__title">
+                            <p>glo pro</p>
+                        </div>
+                        <div class="product-name__price">
+                            <div class="price-first">
+                                499 грн
+                            </div>
+                            <div class="price-second">
+                                599 грн*
+                            </div>
+                        </div>
+                    </section>
+                    <section class="color-line">
+                        <div class="color-title">
+                            Колір
+                        </div>
+                        <div class="color-block">
+                            <ul>
+                                <li>
+                                    <a href="/collections/glo-devices/products/glo-nano?variant=31276260425862">
+                                        <div class="pro-link pro-link__red"></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/collections/glo-devices/products/glo-nano?variant=31276260360326">
+                                        <div class="pro-link pro-link__nanoblue"></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/collections/glo-devices/products/glo-nano?variant=31276260393094">
+                                        <div class="pro-link pro-link__nanoblue2"></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/collections/glo-devices/products/glo-nano?variant=31276260327558">
+                                        <div class="pro-link pro-link__white"></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/collections/glo-devices/products/glo-nano?variant=31377708810374">
+                                        <div class="pro-link pro-link__purple"></div>
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    <a href="/collections/glo-devices/products/glo-nano?variant=31377709334662">
+                                        <div class="pro-link pro-link__newgreen"></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/collections/glo-devices/products/glo-nano?variant=31377709367430">
+                                        <div class="pro-link pro-link__orange"></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/collections/glo-devices/products/glo-nano?variant=31377709432966">
+                                        <div class="pro-link pro-link__pink"></div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="glo-button glo-button__black">
+                            <a href="/collections/glo-devices/products/glo-nano?variant=31276260425862">Детальніше</a>
+                        </div>
+                    </section>
+                    <section class="tabs">
+                        <amp-accordion class="sample" disable-session-states>
+                            <section >
+                                <h4 class="acc-button">
+                                    <p>
+                                        Комплектація
+                                    </p>
+                                    <amp-img src="{{ "new-arrow.svg" | asset_url }}"
+                                      width="15"
+                                      height="15"
+                                      layout="fixed"
+                                      alt=""
+                                      data-amp-auto-lightbox-disable>
+                                    </amp-img>
+                                </h4> 
+                                <div class="block-open">
+                                    <p>До набору входить: </p>
+                                    <ul>
+                                        <li>                           
+                                            • пристрій для нагрівання тютюну glo™
+                                        </li>
+                                        <li>
+                                            • USB-кабель та блок живлення для зарядки
+                                        </li>
+                                        <li>
+                                            • щітка для чищення
+                                        </li>
+                                        <li>
+                                            • інструкція користувача glo™
+                                        </li>
+                                    </ul>
+                                </div> 
+                                
+                            </section>
+                            <section >
+                                <h4 class="acc-button">
+                                    <p>
+                                        Про пристрій
+                                    </p>
+                                    <amp-img src="{{ "new-arrow.svg" | asset_url }}"
+                                      width="15"
+                                      height="15"
+                                      layout="fixed"
+                                      alt=""
+                                      data-amp-auto-lightbox-disable>
+                                    </amp-img>
+                                </h4>  
+                                <div class="block-open block-open__about">
+                                    <p>Спробуй якість на смак. Новий пристрій став найпотужнішим серед існуючих серій glo™. Нагрівай швидше, заряджай менше та насолоджуйся довше зі стильним glo™ pro.</p>
+                                    <p>Індукційна технологія нагрівання гарантує рівномірне прогрівання тютюну зсередини. Маючи два режими, пристрій здатний миттєво збільшити температуру нагрівання з 250 до 280°С, завдяки чому смак тютюну стає ще більш насиченим.</p>
+                                    <p>Час нагрівання стіку зменшився до 20 секунд у стандартному режимі та до 10 секунд у режимі Boost. Кілька секунд і glo™ готовий до сеансу, який тепер триває 4 хвилини* — для справжніх поціновувачів смаку, які не люблять квапитись. Однієї зарядки вистачає до 20 сеансів поспіль**.</p>
+                                    <p><small>* Тривалість сеансу у стандартному режимі</small></p>
+                                    <p><small>** За умови повністю зарядженого акумулятора та може відрізнятися в залежності від поведінки користувача.</small></p>
+                                </div> 
+                            </section>
+                        </amp-accordion>
+                    </section>
+                </div>
+            </div>
+            <section class="special">
+                <div class="special-title">
+                    <p>Спеціальна пропозиція</p>
+                </div>
+                <div class="special-desc">
+                    <p>
+                        Придбай набір, в який входить пристрій glo pro та блок стіків всього за <strong>999 грн</strong>
+                    </p>
+                </div>
+                <div class="glo-button glo-button__black">
+                    <a href="/collections/all/products/glo-pro-kit">Детальніше</a>
+                </div>
+                <div class="special-img">
+                    <amp-img src="//cdn.shopify.com/s/files/1/0072/8111/5254/t/11/assets/starter-kit.png?v=5205134274692463474"
+                        width="500"
+                        height="350"
+                        layout="responsive"
+                        alt="">
+                    </amp-img>
+                </div>
+                <div class="special-desc">
+                    <p>
+                        * Дана пропозиція передбачає можливість придбати пристрій glo pro за спеціальною ціною 899 грн (звичайна ціна 1199 грн). Пропозиція діє з 03.04.2020 р. по 31.05.2020 р. включно при замовленні на веб-сайті
+                    </p>
+                </div>
+            </section>
+        </main>
+        {% section 'footer-amp' %}
+    </div>    
+  </body>
+</html>

@@ -1,0 +1,106 @@
+{% if product.tags contains 'sticks_new' %}
+    {% assign isSticks_new = true %}
+{% else %}
+    {% assign isSticks_new = false %}
+{% endif %}
+{% if product.tags contains 'glo_new' %}
+    {% assign isGlo_new = true %}
+{% else %}
+    {% assign isGlo_new = false %}
+{% endif %}
+{% if product.tags contains 'fone-hyper' %}
+    {% assign isfone-hyper = true %}
+{% else %}
+    {% assign isfone-hyper = false %}
+{% endif %}
+
+
+{% if product.available%}
+<div class="col-md-4 col-sm-8 col-xs-16 product-card">
+    <div class="grid-view-item{% unless product.available %} grid-view-item--sold-out{% endunless %} product-card">
+
+        <a class="grid-view-item__link grid-view-item__image-container" href="{{ product.url | within: collection }}">
+            <span class="visually-hidden">{{ product.title }}</span>
+        </a>
+
+        {% capture img_id %}ProductCardImage-{{ section.id }}-{{ product.id }}{% endcapture %}
+        {% capture wrapper_id %}ProductCardImageWrapper-{{ section.id }}-{{ product.id }}{% endcapture %}
+        {%- assign img_url = product.featured_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
+        {% unless product.featured_image == blank %}
+        {% render 'image-style', image: product.featured_image, height: max_height, wrapper_id: wrapper_id, img_id: img_id %}
+        {% endunless %}    	
+
+        <div class="product-card__image-with-placeholder-wrapper" data-image-with-placeholder-wrapper>
+          
+          {% if isGlo_new == true %}
+          <div class="glo_new">NEW</div>
+          {%endif%}
+          {% if isSticks_new == true %}
+          <div class="glo_new">NEW<br/> glo HYPER</div>
+          {%endif%}
+          
+            <div id="{{ wrapper_id }}" class="grid-view-item__image-wrapper product-card__image-wrapper {% if isfone-hyper == true %}hyper-bg{%endif%} js">              	
+                <div style="padding-top:{% unless product.featured_image == blank %}{{ 1 | divided_by: product.featured_image.aspect_ratio | times: 100 }}%{% else %}100%{% endunless %};">
+                    <img id="{{ img_id }}"
+                         class="grid-view-item__image lazyload"
+                         alt="{{ product.featured_image.alt }}"
+                         data-src="{{ img_url }}"
+                         data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                         data-aspectratio="{{ product.featured_image.aspect_ratio }}"
+                         data-sizes="auto"
+                         data-image>
+                </div>
+            </div>
+            <div class="placeholder-background placeholder-background--animation" data-image-placeholder></div>
+        </div>
+
+        <noscript>
+            {% capture image_size %}{{ max_height }}x{{ max_height }}{% endcapture %}
+            <img class="grid-view-item__image" src="{{ product.featured_image.src | img_url: image_size, scale: 2 }}" alt="{{ product.featured_image.alt }}" style="max-width: {{ max_height | times: product.featured_image.aspect_ratio }}px;">
+        </noscript>
+
+        <div class="h4 grid-view-item__title product-card__title" aria-hidden="true">
+            <a class="grid-view-item__link grid-view-item__image-container js-gtm-product-click" data-id="{{ product.id }}" href="{{ product.url | within: collection }}">{{ product.title }}</a>
+        </div>
+        
+        <div class="product-card__metadesc">
+            {{product.variants[0].metafields.additional.additional-description}}
+            {{variant.metafields.additional.additional-description}}
+        </div>
+
+        {% render 'product-price', variant: product.selected_or_first_available_variant, product: product, show_vendor: show_vendor %}
+
+        {% if product.has_only_default_variant %}
+        <div
+                data-section-id="product-template-{{ product.id }}"
+                data-section-type="product"
+                data-enable-history-state="true"
+                data-ajax-enabled="true">
+
+            <form method="post" action="/cart/add" data-product-form>
+                <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
+                <input type="submit" value="КУПИТИ" class="btn full-width" data-add-to-cart />
+                <input type="hidden" name="return_to" value="back" />
+            </form>
+          <script type="application/json" id="ProductJson-product-template-{{ product.id }}">{{ product | json }}</script>
+        </div>
+        {% else %}
+        <a href="{{ product.url | within: collection }}" class="btn btn-to-item">Детальніше</a>
+        {% endif %}
+        <script>
+            {% assign product_category = product.collections| first %}
+            window.GTMcollection.products.push({
+                name: {{ product.title | json }},         // Name or ID is required.
+                id: {{ product.selected_or_first_available_variant.sku  | json }},
+                innerID: {{ product.id | json}},
+                price: {{ product.selected_or_first_available_variant.price  | divided_by: 100.00 | json }},
+                brand: {{ product.vendor | json }},
+                category: {{ product_category.title | json }},
+                variant: {{ product.selected_or_first_available_variant.title  | json }}
+            });
+        </script>
+
+    </div>
+</div>
+{%endif%}

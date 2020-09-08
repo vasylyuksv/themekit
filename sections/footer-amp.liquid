@@ -1,0 +1,111 @@
+<footer class="footer" id="footer">
+  <div class="footer__logo">
+    <amp-img
+             src="{{ "logo_glo_fff.svg" | asset_url }}"
+             width="50"
+             height="50"
+             layout="responsive"
+             alt="insta"
+             ></amp-img>
+  </div>
+  <div class="footer-social">
+    <div class="footer-phone">
+      <p class="h3-text">
+        <a href="tel:0-800-50-90-80">0-800-50-90-80</a>
+        <span>або</span>
+        <a href="tel:8008">8008</a>
+      </p>
+    </div>
+    <div class="footer-schedule">
+      <p>
+        <span>Графік роботи кол-центру </span>
+        <span>Пн-Нд з 9:00 до 22:00</span>
+      </p>
+      <p>*Дзвінки безкоштовні. Тільки для повнолітніх</p>
+    </div>
+    <div class="footer-links">
+      <p>Приєднатися:</p>
+      <ul>
+        <li>
+          <a href="http://instagram.com/glo_ukraine" target="_blank">
+            <amp-img
+                     src="{{ "instagram.svg" | asset_url }}"
+                     width="50"
+                     height="50"
+                     layout="responsive"
+                     alt="insta"
+                     ></amp-img>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.facebook.com/mygloua/" target="_blank">
+            <amp-img
+                     src="{{ "facebook.svg" | asset_url }}"
+                     width="50"
+                     height="50"
+                     layout="responsive"
+                     alt="insta"
+                     ></amp-img>
+          </a>
+        </li>
+        <li>
+          <a href="https://t.me/myglo_ua_bot" target="_blank">
+            <amp-img
+                     src="{{ "i-telegram-white.svg" | asset_url }}"
+                     width="50"
+                     height="50"
+                     layout="responsive"
+                     alt="insta"
+                     ></amp-img>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <amp-accordion id="footer-accordion" class="footer-accordion" disable-session-states>
+    <section>
+      <h2 class="h3-text h3-text__white">
+        <span>Інформація</span>
+      </h2>
+      <div class="footer-menu footer-menu__1">
+        	<ul>
+            <li><a href="/pages/faq">Питання та відповіді</a></li>
+            <li><a href="/blogs/info">Блог</a></li>
+            <li><a href="/pages/contact-us">Зв'язатися з нами</a></li>
+            <li><a href="/pages/register-device">Зареєструвати пристрій</a></li>
+            <li><a href="/pages/glo-experts">Приєднуйся до команди glo</a></li>
+          </ul>
+      </div>
+    </section>
+    <section>
+      <h2 class="h3-text h3-text__white">
+        <span>Умови</span>
+      </h2>
+      <div class="footer-menu footer-menu__2">
+        <ul>
+          	<li><a href="/pages/ugoda-z-korystuvachem#delivery">Оплата і доставка</a></li>
+            <li><a href="/pages/ugoda-z-korystuvachem">Угода з користувачем</a></li>
+            <li><a href="/pages/ugoda-z-korystuvachem#cookie">Використання cookies-файлів</a></li>
+            <li><a href="/pages/ugoda-z-korystuvachem#conditions">Умови обслуговування та обміну</a></li>
+            <li><a href="/pages/promo-codes">Умови використання промокодів</a></li>
+            <li><a href="/pages/glo-pro-1199-400">Умови пропозиції «Купуй glo pro за 899 грн, отримуй промокод 400 грн»</a></li>
+        
+        </ul>
+      </div>
+    </section>
+  </amp-accordion>
+  <span class="footer__copyright">© Бритіш Американ Тобакко Україна. Всі права захищено.</span>
+</footer>
+
+{% schema %}
+  {
+    "name": "footer-amp",
+    "settings": []
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

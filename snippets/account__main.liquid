@@ -1,0 +1,69 @@
+<div class="row">
+  <div class="col-lg-11">
+	<h3 class="lk-title">glo BONUS CLUB</h3>
+    <p>Лови хвилю можливостей з glo BONUS CLUB!<br>Збирай друзів, накопичуй бали та вперед на зустріч яскравим враженням.</p>
+    <div class="lk-main__bonuses">
+      <div class="bonuses__title">Ти можеш отримувати бонуси за:</div>
+      
+      <div class="bonuses__list">
+        <div class="bonuses__list-item">
+          <div>Кожну покупку</div>
+          <span>1 грн = 4 бонуси</span>
+        </div>
+        <div class="bonuses__list-content text-left">
+          <p><strong>БІЛЬШЕ ПОКУПОК = БІЛЬШЕ БОНУСІВ</strong></p>
+          <p>При покупці на сайті конвертуємо кожну витрачену гривню у бонуси. І навіть купуючи акційні товари, тобі нараховуються бонуси.</p>
+      	  <a href="" class="btn btn-primary">Перейти до каталогу</a>
+        </div>
+        <div class="bonuses__list-item">
+          <div>Рекомендацію друга</div>
+          <span>+ 2 500 бонусів</span>
+        </div>
+        <div class="bonuses__list-content text-left">
+          <p><strong>2500 БОНУСІВ = <a href="#">5 ПАЧОК СТІКІВ</a></strong></p>
+          <p>Кожна запрошена тобою людина, яка здійснить покупку пристрою принесе тобі <b>2 500</b> бонусів!</p>
+      	  <a href="/account#invite-friend" class="btn btn-primary">Запросити друга</a>
+        </div>
+        {%comment%}
+        <div class="bonuses__list-item">
+          <div>За тег @glo_ukraine</div>
+          <span>+ 500 бонусів</span>
+        </div>
+        <div class="bonuses__list-item">
+          <div>За кожний відгук</div>
+          <span>+ 1000 бонусів</span>
+        </div>
+        <div class="bonuses__list-item">
+          <div>За участь в опитуванні</div>
+          <span>+ 1000 бонусів</span>
+        </div>
+        {%endcomment%}
+      </div>
+    </div>
+    {%comment%}
+    <div class="lk-main__bonuses-welcome">
+      <p>Кожна запрошена тобою людина, яка здійснить покупку заробить тобі <b>2 500</b> бонусів! </p>
+      <a href="" class="btn btn-primary">Запросити друга</a>
+    </div>
+    {%endcomment%}
+  </div>
+</div>
+
+
+
+<h3 class="lk-title lk-title--slider">ВИТРАЧАЙ<br/> БОНУСИ НА</h3>
+
+<div class="btn-lk-slider"><a href="/account#bonus" class="btn-underline" data-tab-link="bonus-items">Повний список бонусних товарів</a></div>
+
+<div class="lk-bonus-slider">
+  {% assign all_products = collections.all.products | sort: 'metafields.bonuses.price' %}
+
+{% for product in all_products %}
+
+  {% if product.tags contains 'bonuses_only' %}
+    {% render 'product-card-grid-bonuses_slider', max_height: 195, product: product %}
+  {% endif %}
+
+{% endfor %}
+
+</div>

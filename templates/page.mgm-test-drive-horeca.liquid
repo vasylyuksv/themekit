@@ -1,0 +1,285 @@
+<div class="container-fliud page-about__bg block-mb">
+  <div class="container">
+    <div class="row">
+    	<div class="col-lg-16">
+          <div class="page__title fff">ВИНАГОРОДА за програмою<br>glo™ Agent</div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fliud block-mb">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-16"><h2>Зареєструй свого знайомого, якому цікаво придбати glo™, та накопичуй бали</h2></div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6">
+		<form method="post"  class="form-vertical"  action="https://{{ settings.bride_domain }}/test-drive" id="test_drive_form">
+
+            <div class="">
+
+              <!-- Name -->
+              
+               <label class="c-field__label" for="DriveFormName">Ім'я:</label>
+               <input type="text" name="name" id="DriveFormName" class="c-field__input" placeholder="Ім'я" value="">
+
+              <!-- Phone -->
+              <label class="" for="DriveFormPhone">Телефон:</label>
+              <input type="tel" name="phone" id="DriveFormPhone" class="c-field__input phone-mask" placeholder="Телефон" value="">
+           
+
+              <!-- Surname -->
+              <label class="" for="DriveFormSurname">Прізвище:</label>
+              <input type="text" name="surname" id="DriveFormSurname" class="c-field__input" placeholder="Прізвище" value="">
+              
+
+              <!-- Email -->
+              <label class="" for="DriveFormEmail">Email:</label>
+              <input type="text" name="email" id="DriveFormEmail" class="c-field__input" placeholder="email@example.com" value="">
+
+              <input type="hidden" name="city" value="Kyiv">
+
+              <!-- Gender -->
+              <label class="">Стать</label>
+                <div class="">
+                  <select id="DriveFormGender" class="" name="sex">
+                    <option disabled="" selected=""></option>
+                    <option value="M">Чоловiча</option>
+                    <option value="F">Жiноча</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- MGM Сode -->
+              <label class="" for="DriveFormName">MGM Код</label>
+              <input type="text" name="mgm_code" id="DriveFormName" class="c-field__input" placeholder="MGM Код" value="">
+
+
+              <!-- MGM Сode -->
+              <label class="" for="DriveDeviceCode">Код пристрою</label>
+              <input type="text" name="device_code" id="DriveDeviceCode" class="c-field__input" placeholder="Код пристрою" value="">
+
+              <div class="c-fieldset__item" style="display: none;">
+                <p class="u-text-center">Тютюновий виріб, який Ви споживаєте:</p>
+
+                <!-- Category --> 
+                <div class="">
+                  <div class="">
+                    <div class="">
+                      <select id="DriveFormCategory" class="" name="category">
+                        <option disabled="" selected="">Категорія</option>
+                        <option value="Sigarette">Сигарети</option>
+                        <option value="Sigaretta Elettronica">Електронні сигарети</option>
+                        <option value="Tabacco Riscaldato (GLO/IQOS)">GLO/IQOS</option>
+                        <option value="Tabacco Sfuso da Rollare">Скручений тютюн</option>
+                        <option value="Other">Інше</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Brand --> 
+                <div class="">
+                  <div class="">
+                    <div class="">
+                      <select id="DriveFormBrand" class="" name="brand">
+                        <option disabled="" selected="">Бренд</option>
+                        <option value="MARLBORO">Marlboro</option>
+                        <option value="CHESTERFIELD">Chesterfield</option>
+                        <option value="CAMEL">Camel</option>
+                        <option value="WINSTON">Winston</option>
+                        <option value="ROTHMANS">Rothmans</option>
+                        <option value="MS">MS</option>
+                        <option value="PHILIP MORRIS">Philip Morris</option>
+                        <option value="MERIT">Merit</option>
+                        <option value="BENSON &amp; HEDGES">Benson &amp; Hedges</option>
+                        <option value="JPS">JPS</option>
+                        <option value="LUCKY STRIKE">Lucky Strike</option>
+                        <option value="YESMOKE">Yesmoke</option>
+                        <option value="DUNHILL">Dunhill</option>
+                        <option value="Other">Інше</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!--Check -->
+              <input type="checkbox" name="check" id="DriveFormCheck" class="c-field__check" value="1">
+              <label for="DriveFormCheck" class="c-fieldset__check-label"></label>
+				Я приймаю <a href="//cdn.shopify.com/s/files/1/0072/8111/5254/t/5/assets/mgmagree.pdf?5758" target="_blank" aria-describedby="a11y-new-window-external-message" rel="noopener">Угоду з користувачем</a> і даю згоду на обробку персональних даних
+
+
+              <input type="hidden" name="sales_doubler" id="salesDoublerInp">
+              <input type="hidden" name="is_mgm" value="1">
+              <input type="hidden" name="formtype" value="8" id="formTypeInp">
+              <input type="hidden" name="dob" value="01/01/1900">
+          		<input type="hidden" name="google_client_id" value="0" id="googeIdInp" />
+
+              <div class="form-err-msg form-error text-center drawer--top"></div>
+
+              <!-- Submit -->
+              <div class="text-center pT20">
+                    <button type="submit" class="btn btn--primary auto-width" id="submitTestDrive"> 
+                      <span>Зареєструвати</span>
+                    </button>
+          </div>
+          </form>
+
+          <div class="form-success-message success-message-block block-mgm" style="display: none;">
+              <p><span class="success-user-name">Username</span>, дякуємо Вам за участь у программі!</p>
+              <p style="margin-bottom: 0;">Ми зв’яжемося з вашим другом найближчим часом, та одразу як він придбає <b>glo™</b>, ми повідомиво Вас про це!</p>
+              <a href="/pages/about" class="c-btn c-btn--reversed">
+                  <span>Дізнатись більше про <span style="text-transform: none;">glo™</span></span>
+              </a>
+          </div>
+        
+        
+      </div>
+      <div class="col-lg-offset-1 col-lg-9">
+        
+        <ul class="info-list benefits-block__list pT60">
+                <li class="info-list__item">
+                    <span class="i-check"></span>
+                    <p class="info-list__text">Заповніть дані свого клієнта та обов’язково введіть свій персональний код</p>
+                </li>
+                <li class="info-list__item">
+                    <span class="i-check"></span>
+                    <p class="info-list__text">Ми зателефонуємо Вашому клієнту та домовимось з ним про зручний варіант придбання пристрою</p>
+                </li>
+                <li class="info-list__item">
+                    <span class="i-check"></span>
+                    <p class="info-list__text">Після того, як клієнт придбає пристрій - Вам буде нараховано 300 балів</p>
+                </li>
+         		<li class="info-list__item">
+                    <span class="i-check"></span>
+                    <p class="info-list__text">Про нарахування балів вам буде повідомлено додатково</p>
+                </li>
+		</ul>
+        <p><small>Послуга дійсна тільки в Києві, Харкові, Дніпрі, Запоріжжі, Одесі та Львові.</small></p>
+      </div>
+    </div>
+</div>
+
+
+<script src="{{ 'form-validation.js' | asset_url }}"></script>
+<script src="{{ 'home.js' | asset_url }}"></script>
+<script>
+    $('.date-mask').inputmask('dd/mm/yyyy', { 'placeholder': 'дд/мм/рррр' });
+
+    $('.phone-mask').inputmask('+38(999)-999-99-99', { 'placeholder': '+38(___)-___-__-__' });
+
+    Inputmask.extendDefinitions({
+        '^': {
+            validator: "[0-9A-Za-z]",
+            casing: "upper"
+        }
+    });
+    $('#DriveDeviceCode').inputmask('U^^^^^^^', { 'placeholder': 'U_______' });
+
+    $.urlParam = function (name) {
+        var results = new RegExp('[\?&]' + name + '=([^&#]*)')
+            .exec(window.location.href);
+
+        return (!!results) ? results[1] : 0;
+    }
+
+    if(mgm = $.urlParam('mgm')) {
+        $('[name="mgm_code"]').val(mgm).attr('readonly', true);
+    }
+
+    $(document).on('submit', '#test_drive_form', function(e) {
+        e.preventDefault();
+
+        var $form = $(e.currentTarget), submitBtn,
+            $formErrMsg = $('.form-err-msg'),
+            $formSuccess = $('.form-success-message'),
+            errClass = 'input--error';
+
+        $form.find('input, select').removeClass(errClass);
+        $form.find('input[name="check"]').prev().removeClass(errClass);
+
+        submitBtn = $form.find('[type="submit"]').attr('disabled', true);
+
+        $.post($form.attr('action'), $form.serialize(), function(response) {
+            $formErrMsg.empty();
+            $form.slideUp();
+            $formSuccess.find('.success-user-name').text($form.find('input[name="name"]').val() + ' ' + $form.find('input[name="surname"]').val());
+            $formSuccess.slideDown();
+        }, 'json')
+            .fail(function(response) {
+
+                console.log(response, response.responseJSON);
+
+                if (typeof response.responseJSON.message !== 'undefined') {
+                    var objResponce = response.responseJSON.message.match(/\{(.*)\}/gi),
+                        errMsg = '',
+                        hotLineStr = 'Якщо у вас виникатимуть додаткові питання з цього приводу, будь ласка, звертайтесь за номером гарячої лінії 8008. Дякуємо.',
+                        responseData;
+
+                    if (!!objResponce) {
+                        responseData =  JSON.parse(objResponce[0]);
+
+                        if (!!responseData.status) {
+
+                            switch (responseData.status) {
+                                case 2: errMsg = "Приносимо свої вибачення, але клієнт з такими даними вже був зареєстрований раніше. <br> " + hotLineStr;
+                                    break;
+                                case 3: errMsg = "Заповніть, будь ласка, усі обов’язкові поля. Дякуємо.";
+                                    break;
+                                case 6: errMsg = "Персональний MGM код, який ви використовуєте невірний. Будь ласка, перевірте код. <br> " + hotLineStr;
+                                    break;
+
+                                default:
+                                    break;
+                            }
+
+                            $formErrMsg.html(errMsg);
+                        }
+                    }
+                }
+
+
+                $.each(response.responseJSON.errors, function(i, v) {
+                    if (i == 'check') {
+                        $('input[name="check"]').prev().addClass(errClass);
+                    } else {
+                        $('[name="'+i+'"]').addClass(errClass);
+                    }
+                });
+
+                submitBtn.attr('disabled', false);
+            });
+    });
+  
+  $(document).ready(function() {
+
+      var timerId = setTimeout(function(){
+          var clientId = false;
+
+          try {
+              if(typeof ga !== 'undefined') {
+                  ga(function(tracker) {
+                      clientId = tracker.get('clientId');
+                      $('#googeIdInp').val(clientId);
+
+                      clearTimeout(timerId);
+                  });
+              }
+          } catch (e) {}
+
+          try {
+              if(!clientId) {
+                  clientId = ga.getAll()[0].get('clientId');
+                  $('#googeIdInp').val(clientId);
+
+                  clearTimeout(timerId);
+              }
+
+          } catch (e) {}
+
+      }, 3000);
+    
+  });
+</script>

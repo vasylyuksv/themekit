@@ -1,0 +1,12 @@
+{% assign money_price = variant.price | money %}
+{% assign bonus_price = product.metafields.bonuses.price | plus: 0 %}
+
+{% capture bounusesEnough %}{% render '_is_bonuses_enough', variant: variant, product: product %}{% endcapture %}
+
+
+<div class="lk-bonus-item__cost">
+    <div class="ic--price">
+        <div {% if bounusesEnough == 'false' %}class="disabled"{% endif %}><span>{{ bonus_price }}</span> бонусів</div>
+        <span><span>{{ money_price }}</span> ГРН</span>
+    </div>
+</div>

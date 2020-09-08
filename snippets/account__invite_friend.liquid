@@ -1,0 +1,310 @@
+<h3 class="lk-title">Рекомендуй друзів</h3>
+	
+	<p>
+      	Запрошуй друзів до glo Bonus Club!
+  		Після того як твій друг придбає пристрій - ти отримаєш <b>2 500 бонусів</b> на свій рахунок.
+	</p>
+	<p><strong>2500 бонусів = <a href="#">5 пачок стіків</a></strong></p>
+  <p>Слідкувати за статусом своїх друзів можеш у розділі <a href="/account#transaction-history">Історія бонусів</a></p>
+
+<div class="row">
+  <div class="col-md-7">
+    <form method="post" action="https://{{ settings.bride_domain }}/test-drive" class="form-vertical lk-friend__form" id="test_drive_form">              
+      <!-- Name -->
+      <label class="c-field__label" for="DriveFormName">Ім'я та Прізвище</label>
+      <input type="text" name="name" id="DriveFormName" class="full-width" value="">
+      <div class="form-error" id="fioError" style="display:none;">Заповніть, будь ласка, ім'я та прізвище</div>
+
+
+      <!-- Surname -->
+      <input type="hidden" name="surname" id="DriveFormSurname" class="c-field__input" placeholder="Прізвище" value="Прізвище">
+
+      <!-- Phone -->
+      <label class="c-field__label" for="DriveFormPhone">Телефон</label>
+      <input type="tel" name="phone" id="DriveFormPhone" class="c-field__input phone-mask" value="">
+      <div class="form-error" id="phoneError" style="display:none;">Заповніть, будь ласка, поле</div>
+
+
+      <!-- City -->
+      <input type="hidden" name="city" value="City">
+
+      <!-- Gender -->
+      <select id="DriveFormGender" name="sex" style="display:none;">
+        <option value="M"></option>
+      </select>
+
+      <!-- Email -->
+      <input type="hidden" name="email" id="DriveFormEmail" value="">
+
+      {% if customer.metafields.incust.mgm_code != null %}
+      <!-- Code -->
+      <label class="c-field__label" for="DriveFormCode">Твій персональний код</label>
+      <input type="text" name="mgm_code" id="DriveFormName" class="c-field__input" readonly="readonly"
+             value="{{ customer.metafields.incust.mgm_code }}">
+      {% endif %}
+
+      <input type="hidden" name="check" value="1">
+
+
+
+      <input type="hidden" name="sales_doubler" id="salesDoublerInp">
+      <input type="hidden" name="is_mgm" value="1">
+      <input type="hidden" name="formtype" value="1">
+      <input type="hidden" name="dob" value="01/01/1900">
+      <input type="hidden" name="google_client_id" value="0" id="googeIdInp" />
+      <input type="hidden" name="owner_phone" value="{{  customer.phone }}" />
+
+      <div class="form-err-msg form-error text-center drawer--top"></div>
+
+      <!-- Submit -->
+      <div class="c-fieldset__item u-1/1">
+        <button type="submit" class="btn btn--primary auto-width" id="submitTestDrive">
+          <span>запросити друга</span>
+        </button>
+
+      </div>
+
+    </form>
+    <div class="form-success-message success-message-block block-mgm" style="display: none;">
+      <p>Дякуємо Вам за участь у программі!</p>
+      <p style="margin-bottom: 0;">Ми зв’яжемося з вашим другом найближчим часом, та одразу як він придбає <b>glo™</b>, ми повідомиво Вас про це!</p>
+      <a href="/pages/about" class="c-btn c-btn--reversed">
+        <span>Дізнатись більше про <span style="text-transform: none;">glo™</span></span>
+      </a>
+    </div>
+
+  </div>
+
+  {% if customer.metafields.incust.mgm_code != null %}
+  <div class="col-md-8 col-md-offset-1">
+    <p><b>Відправити посилання для запрошення</b></p>
+    
+    <div class="lk-copy-text" id="inviteFriendLink">https://{{ shop.domain }}/pages/mgm-test-drive?mgm={{ customer.metafields.incust.mgm_code }}</div>
+    <!--     <a href="/pages/mgm-test-drive?mgm={{ customer.metafields.incust.mgm_code }}" target="_blank">Посилання «приведи друга»</a> -->
+    <div class="lk-copy-btn--wrapper">
+      <div class="lk-copy-btn" onclick="copytext('.lk-copy-text', '.lk-copy-btn--wrapper')" >копіювати</div>
+      <span>скопійовано</span>
+    </div>
+    
+
+    <div class="lk-socials">
+      {% comment %}https://www.addtoany.com/buttons/api/{% endcomment %}
+      <a href="https://www.addtoany.com/add_to/facebook_messenger?linkurl=https://{{ shop.domain }}/pages/mgm-test-drive?mgm={{ customer.metafields.incust.mgm_code }}" target="_blank"><img src={{ "lk-icon_messenger-black.svg" | asset_url }} alt="customers_fb-messenger"/></a>
+      <a href="https://t.me/share/url?url=https://{{ shop.domain }}/pages/mgm-test-drive?mgm={{ customer.metafields.incust.mgm_code }}&text={{ 'Привіт! Хочу тебе запросити спробуватися glo. Заповнюй форму та отримай можливість спробувати glo на протязі 3 днів безкоштовно.' | url_encode }}" target="_blank"><img src={{ "lk-icon_telegram-black.svg" | asset_url }} alt="customers_telegram"/></a>
+      <!--<a href="tg://msg?text={'https://{{ shop.domain }}/pages/mgm-test-drive?mgm={{ customer.metafields.incust.mgm_code }}'}" target="_blank"><img src={{ "lk-icon_telegram-black.svg" | asset_url }} alt="customers_telegram"/></a>-->
+      {% capture viberText %}Привіт! Хочу тебе запросити спробуватися glo. Заповнюй форму https://{{ shop.domain }}/pages/mgm-test-drive?mgm={{ customer.metafields.incust.mgm_code }} та отримай можливість спробувати glo на протязі 3 днів безкоштовно.{% endcapture %}
+      <a href="viber://forward?text={{ viberText }}"><img src={{ "lk-icon_viber-black.svg" | asset_url }} alt="customers_viber"/></a>
+    
+      
+      <!-- AddToAny BEGIN -->
+      <!--<div>
+        
+        <a href="https://www.addtoany.com/add_to/facebook_messenger?linkurl=https%3A%2F%2Fgoogle.com&amp" target="_blank"><img src="{{ "lk-icon-fb_messenger.svg" | asset_url }}"></a>
+        <a href="https://www.addtoany.com/add_to/telegram?linkurl=https%3A%2F%2Fgoogle.com&amp" target="_blank"><img src="{{ "lk-icon-telegram.svg" | asset_url }}"></a>
+        <a href="https://www.addtoany.com/add_to/viber?linkurl=https%3A%2F%2Fgoogle.com&amp" target="_blank"><img src="{{ "lk-icon-viber.svg" | asset_url }}"></a>
+      </div>-->
+      <!-- AddToAny END -->
+      
+    </div>
+  </div>
+  {% endif %}
+</div>
+
+{% include "account__invite_friend__ref_list" %}
+
+
+
+
+
+
+
+<script>
+  function copytext(el, current) {
+    var $this = $(current).find('span');
+    $this.addClass('active');
+    var $tmp = $("<textarea>");
+    $("body").append($tmp);
+    $tmp.val($(el).text()).select();
+    $(el).css('background', '#bbbbf9');
+    document.execCommand("copy");
+    $tmp.remove();
+    
+    setTimeout(function(){
+      $this.removeClass('active');
+    	$(el).css('background', 'transparent');
+    }, 3000);
+    
+  }
+  
+  
+  $('.phone-mask').inputmask('+38(999)-999-99-99', { 'placeholder': '+38(___)-___-__-__' });
+
+  $(document).on('submit', '#test_drive_form', function(e) {
+    e.preventDefault();
+
+    var $form = $(e.currentTarget), submitBtn, fioError, phoneError, hasError = false, fio,
+        phoneRegex = /^\+38\(0\d{2}\)-\d{3}-\d{2}-\d{2}$/,
+        $formErrMsg = $('.form-err-msg'),
+        $formSuccess = $('.form-success-message'),
+        errClass = 'input--error';
+
+    $form.find('input, select').removeClass(errClass);
+    $form.find('input[name="check"]').prev().removeClass(errClass);
+
+    var ns = $('#DriveFormPhone').val();
+    ns = ns.replace(/([-~!@#$%^&*()_+=`{}\[\]\|\\:;'<>])+/g, '');
+
+    $('#DriveFormEmail').val(ns + '@batmyglo.com.ua');
+
+    submitBtn = $form.find('[type="submit"]').attr('disabled', true);
+
+    fio = $form.find('input[name="name"]').val().trim();
+    fioError = $('#fioError').hide();
+
+
+    if(!/^[^\s]+\s+[^\s]+$/.test(fio)) {
+      fioError.show();
+      $form.find('input[name="name"]').addClass(errClass);
+      hasError = true;
+    }
+
+    phoneError = $('#phoneError').hide();
+    if(!phoneRegex.test($('#DriveFormPhone').val())) {
+      phoneError.show();
+      $('#DriveFormPhone').addClass(errClass);
+      hasError = true;
+    }
+
+    if(hasError) {
+      submitBtn.attr('disabled', false);
+      return false;
+    }
+
+    $.post($form.attr('action'), $form.serialize(), function(response) {
+      $formErrMsg.empty();
+      $form.slideUp();
+      $formSuccess.find('.success-user-name').text($form.find('input[name="name"]').val());
+      $formSuccess.slideDown();
+
+      setTimeout(function() {
+        $form.find('input[name="name"]').val('');
+        $form.find('input[name="phone"]').val('');
+        $form.slideDown();
+        $formSuccess.slideUp();
+        submitBtn.attr('disabled', false);
+      }, 2000);
+    }, 'json')
+    .fail(function(response) {
+
+      if (typeof response.responseJSON.message !== 'undefined') {
+        var objResponce = response.responseJSON.message.match(/\{(.*)\}/gi),
+            errMsg = '',
+            hotLineStr = 'Якщо у вас виникатимуть додаткові питання з цього приводу, будь ласка, звертайтесь за номером гарячої лінії 8008. Дякуємо.',
+            responseData;
+
+        if (!!objResponce) {
+          responseData =  JSON.parse(objResponce[0]);
+
+          if (!!responseData.status) {
+
+            switch (responseData.status) {
+              case 2: errMsg = "Приносимо свої вибачення, але клієнт з такими даними вже був зареєстрований раніше. <br> " + hotLineStr;
+                break;
+              case 3: errMsg = "Заповніть, будь ласка, усі обов’язкові поля. Дякуємо.";
+                break;
+              case 6: errMsg = "Персональний MGM код, який ви використовуєте невірний. Будь ласка, перевірте код. <br> " + hotLineStr;
+                break;
+
+              default:
+                break;
+            }
+
+            $formErrMsg.html(errMsg);
+          }
+        } else {
+            errMsg = [];
+            $.each(response.responseJSON.errors, function(key, errors) {
+              errMsg = errMsg.concat(errors);
+            });
+
+            $formErrMsg.html(errMsg.join('<br />'));
+        }
+      }
+
+
+      $.each(response.responseJSON.errors, function(i, v) {
+        if (i == 'check') {
+          $('input[name="check"]').addClass(errClass);
+        } else {
+          $('[name="'+i+'"]').addClass(errClass);
+        }
+      });
+
+      submitBtn.attr('disabled', false);
+    });
+  });
+
+  var PhoneValidationConfig = {
+    phoneId: '#DriveFormPhone',
+    containerId: '.c-field__input-wrapper'
+  };
+
+  $(document).ready(function() {
+    var timerId = setTimeout(function(){
+      var clientId = false;
+
+      try {
+        if(typeof ga !== 'undefined') {
+          ga(function(tracker) {
+            clientId = tracker.get('clientId');
+            $('#googeIdInp').val(clientId);
+
+            clearTimeout(timerId);
+          });
+        }
+      } catch (e) {}
+
+      try {
+        if(!clientId) {
+          clientId = ga.getAll()[0].get('clientId');
+          $('#googeIdInp').val(clientId);
+
+          clearTimeout(timerId);
+        }
+
+      } catch (e) {}
+
+    }, 3000);
+  });
+
+</script>
+
+
+
+<style>
+  .transition, p, ul li i:before, ul li i:after {
+    transition: all 0.25s ease-in-out;
+  }
+
+  .flipIn, h1, ul li {
+    animation: flipdown 0.5s ease both;
+  }
+</style>
+
+
+<style>
+  .form-success-message.success-message-block.block-mgm {
+    width: 550px;
+  }
+  @media (max-width: 900px) {
+    .form-success-message.success-message-block.block-mgm {
+      width: 100%;
+      margin: 30px 0;
+      padding: 15px;
+    }
+  }
+  .about__info .benefits {
+    padding-top: 20px;
+  }
+
+</style>

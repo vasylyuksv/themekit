@@ -1,0 +1,128 @@
+{% assign enter_date_of_birth = true %}
+
+{% assign age = 18 %}
+
+{% capture adult_header %}
+Adults only (18+)
+{% endcapture %}
+
+{% capture adult_text %}
+This website contains adult material and is only suitable for those 18 years or older. Click Enter only if you are at least 18 years of age.
+{% endcapture %}
+
+<div id="prompt-background" style="display:none;">
+  <div id="age-check-prompt" class="modal-prompt age-modal">
+    
+    <p class="age-title">Перевірка віку</p>
+    
+    <p class="age-add-text">Цей сайт призначений для осіб віком старше 18 років,
+    які є споживачами тютюнових або нікотиновмісних виробів
+    та проживають на території України. </p>
+    
+    <div{% unless enter_date_of_birth %} style="display:none;"{% endunless %}>
+      <p>Вам виповнилося 18 років і ви споживаєте тютюн?</p>
+      <input type="hidden" id="bday" value="1">
+      <input type="hidden" id="bmonth" value="1">
+      <input type="hidden" id="byear" value="1990">
+      <div style="clear:both; margin-bottom:15px"></div>
+    </div>
+    <button id="submit_birthdate" class="btn-age" type="button" onclick="ageCheck()">Так</button>
+    <button class="btn-age btn-age-no js-open-modal" type="button" onclick="refuseMessage()">Ні</button>
+    <p class="refuse-message" style="display: none; margin-top:0;">
+      Доступ на сайт дозволений тільки особам
+      старше 18 років, які є споживачами тютюнових
+      або нікотиновмісних виробів. Ви будете
+      перенаправлені з сайту найближчим часом.</p>
+  </div>
+</div>
+
+<div id="cookies">
+  <button type="button" class="btn-transp">{% include 'icon-close' %}</button>
+  <p style="margin: 0;">Цей веб-сайт використовує файли cookie. Якщо ви продовжуєте перегляд веб-сайту без зміни налаштувань cookie, ми вважатимемо, що ви згодні отримувати всі файли cookies на веб-сайті. 
+  Налаштування cookie можна змінити у Вашому браузері. Детальніше в розділі <a href="/pages/ugoda-z-korystuvachem#cookie" target="_blank">Використання cookie-файлів</a>.</p>
+</div>
+
+<script>
+    function readCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0;i < ca.length;i++) {
+            var c = ca[i];
+            while (c.charAt(0)==' ') c = c.substring(1,c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+        }
+        return null;
+    };
+
+    function showCookiesAlert() {
+        var exeptPages = ['/pages/free-test-drive', '/pages/free-test-drive-pillar'];
+
+        if (!readCookie('cookieAlert') && $.inArray("{{page.url}}", exeptPages) == -1) {
+            $('#cookies').show();
+        };
+    }
+
+ function ageCheck() {
+   var min_age = {{ age }};  // Set the minimum age. 
+   var year =   parseInt(document.getElementById('byear').value);
+   var month =  parseInt(document.getElementById('bmonth').value);
+   var day =    parseInt(document.getElementById('bday').value);
+   var theirDate = new Date((year + min_age), month, day);
+   var today = new Date;
+          
+   if ((today.getTime() - theirDate.getTime()) < 0) {
+     
+     $('#prompt-background').show();
+
+     
+   } else {
+     var days = 14; //number of days until they must go through the age checker again.
+     var date = new Date();
+     date.setTime(date.getTime() + 14 * 36000 * 100 * 15);
+     var expires = ";expires=" + date.toGMTString();
+     document.cookie = 'isAnAdult=true'+expires+"; path=/";
+     
+//      document.cookie = 'isAnAdult=true;path=/';   
+     
+     location.reload();
+   };
+         
+  };
+
+  var isAnAdult = readCookie('isAnAdult');
+
+  if (isAnAdult || "{{page.url}}" == "/pages/mgm-test-drive") {
+      $('body').removeClass('is-fixed');
+    } else {
+      $('body').addClass('is-fixed');
+      $('#prompt-background').show();
+    };
+  
+  function refuseMessage() {
+    $('.modal-prompt *').hide();
+    $('.refuse-message').show();
+    $('.refuse-message br').show();
+    setTimeout(function() {
+      history.go(-1);
+    }, 4000);
+  }
+  
+  $('#cookies button').on('click', function() {
+      var days = 14; //number of days until they must go through the age checker again.
+      var date = new Date();
+      date.setTime(date.getTime() + 14 * 1000);
+      var expires = "; expires=";
+      document.cookie = 'cookieAlert=true;'+expires+"; path=/";
+
+    $('#cookies').hide();
+  });
+
+  $(document).ready(function() {
+      var isAnAdult = readCookie('isAnAdult');
+      if(isAnAdult) {
+          showCookiesAlert();
+      }
+  });
+  
+</script>
+

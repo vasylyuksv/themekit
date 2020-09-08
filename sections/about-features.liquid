@@ -1,0 +1,90 @@
+<section class="about-features">
+  <div class="container">
+    <h2>{{ 'about-featres_title' | t }}</h2>
+    <p class="about-features__text">{{ 'about-featres_descr' | t }}</p>
+
+    <div class="about-features__descr">      
+      <div class="about-features__temps">        
+        <div class="about-features__glo">          
+          <div class="about-features__imgs">          	
+            <img src="{{ "about-featurer_glo.svg" | asset_url }}" class="about-features__line anim-glo_img_2" alt="{{ 'about-featres_temp-glo-alt' | t }}">
+            <img src="{{ "about-featurer_glo.png" | asset_url }}" class="about-features__img anim-glo_img_1" alt="{{ 'about-featres_temp-glo-alt' | t }}">
+          </div>          
+          <p>{%if shop.locale != 'ru' %}Температура нагрівання glo™ HYPER{% else %}Температура нагревания glo™ HYPER{% endif %}</p>
+        </div>
+
+        <div class="about-features__cig">
+          <div class="about-features__imgs">          	
+            <img src="{{ "about-featurer_cig.svg" | asset_url }}" class="about-features__line anim-cig_img_2" alt="{{ 'about-featres_temp-cig-alt' | t }}">
+            <img src="{{ "about-featurer_cig.png" | asset_url }}" class="about-features__img anim-cig_img_1" alt="{{ 'about-featres_temp-cig-alt' | t }}">
+          </div>          
+          <p>{%if shop.locale != 'ru' %}Температура<br/> горіння сигарет{% else %}Температура<br/> горения сигарет{% endif %}</p>
+        </div>        
+      </div>
+
+      <div class="about-features__list">
+        <div class="about-features__item">
+          <img src="{{ "complete-keyline.svg" | asset_url }}" alt="{{ 'about-featres_item-text-1' | t }}">
+          {{ 'about-featres_item-text-1' | t }}*
+        </div>
+        <div class="about-features__item">
+          <img src="{{ "complete-keyline.svg" | asset_url }}" alt="{{ 'about-featres_item-text-1' | t }}">
+          {{ 'about-featres_item-text-2' | t }}**
+        </div>
+        <div class="about-features__item">
+          <img src="{{ "complete-keyline.svg" | asset_url }}" alt="{{ 'about-featres_item-text-1' | t }}">
+          {{ 'about-featres_item-text-3' | t }}
+        </div>
+      </div>     
+    </div>
+    
+    <div class="about-features__disclaimer">
+      <p>{{ 'about-featres_disclaimer-text-1' | t }}</p>
+      <p>{{ 'about-featres_disclaimer-text-2' | t }}</p>
+    </div>
+  </div>
+  
+</section>
+
+{% schema %}
+  {
+	"locales": {
+      "uk": {
+        "about-featres_title": "ОСОБЛИВОСТІ glo™",
+		"about-featres_descr": "Інноваційна технологія, яка нагріває тютюн, а не спалює його.",
+		"about-featres_temp-glo-alt": "Температура нагрівання glo™ HYPER",
+        "about-featres_temp-cig-alt": "Температура горіння сигарет",
+        "about-featres_item-text-1": "На 90% менше токсинів",
+        "about-featres_item-text-2": "Без попелу та диму",
+        "about-featres_item-text-3": "Справжній смак тютюну",
+        "about-featres_disclaimer-text-1": "* порівняння диму від спаленого тютюну у стандартних сигаретах 3R4F (приблизно 9 мг смол) та аерозолю від нагрітого тютюну у пристрої glo™. Порівнюється 9 шкідливих компонентів, рекомендованих ВООЗ до зменшення. Це не обов’язково означає, що даний продукт є менш шкідливим, ніж інші тютюнові продукти.",
+        "about-featres_disclaimer-text-2": "** в порівнянні зі звичайною сигаретою під час куріння. Це не обов'язково означає, що цей продукт є менш шкідливим, ніж інші тютюнові"
+      		},
+      "ru": {
+		"about-featres_title": "ОСОБЕННОСТИ glo™",
+		"about-featres_descr": "Инновационная технология, которая нагревает табак, а не сжигает его.",
+		"about-featres_temp-glo-alt": "Температура нагревания glo™ HYPER",
+        "about-featres_temp-cig-alt": "Температура горения сигарет",
+        "about-featres_item-text-1": "На 90% меньше токсинов",
+        "about-featres_item-text-2": "Без пепла и дыма",
+        "about-featres_item-text-3": "Настоящий вкус табака",
+        "about-featres_disclaimer-text-1": "* Сравнения дыма от сожженного табака в стандартных сигаретах 3R4F (примерно 9 мг смол) и аэрозоля от нагретого табака в устройстве glo™. Сравнивается 9 вредных компонентов, рекомендованных ВОЗ к уменьшению. Это не обязательно означает, что данный продукт является менее вредным, чем другие табачные продукты.",
+        "about-featres_disclaimer-text-2": "** В сравнении с обычной сигаретой при курении. Это не обязательно означает, что этот продукт является менее вредным, чем другие табачные продукты."
+      		},
+      "en": {
+		"about-featres_title": "ОСОБЛИВОСТІ glo™",
+		"about-featres_descr": "Інноваційна технологія, яка нагріває тютюн, а не спалює його.",
+		"about-featres_temp-glo-alt": "Температура нагрівання glo™ HYPER",
+        "about-featres_temp-cig-alt": "Температура горіння сигарет",
+        "about-featres_item-text-1": "На 90% менше токсинів",
+        "about-featres_item-text-2": "Без попелу та диму",
+        "about-featres_item-text-3": "Справжній смак тютюну",
+        "about-featres_disclaimer-text-1": "* порівняння диму від спаленого тютюну у стандартних сигаретах 3R4F (приблизно 9 мг смол) та аерозолю від нагрітого тютюну у пристрої glo™. Порівнюється 9 шкідливих компонентів, рекомендованих ВООЗ до зменшення. Це не обов’язково означає, що даний продукт є менш шкідливим, ніж інші тютюнові продукти.",
+        "about-featres_disclaimer-text-2": "** в порівнянні зі звичайною сигаретою під час куріння. Це не обов'язково означає, що цей продукт є менш шкідливим, ніж інші тютюнові"
+      		}
+  	},
+
+    "name": "Section name",
+    "settings": []
+  }
+{% endschema %}

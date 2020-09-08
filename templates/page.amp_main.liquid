@@ -1,0 +1,1298 @@
+{% layout none %}
+
+<!doctype html>
+<html amp lang="{{ shop.locale }}">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ page_title }}</title>
+    <meta name="google-site-verification" content="AZJyhtEWgrXALW8SDc4HzcU1XQ5w9mCjcq8YdigGwvQ" />
+    <link rel="icon" type="image/png" sizes="16x16" href={{ "favicon-16x16.png" | asset_url }}>
+    <link rel="icon" type="image/png" sizes="32x32" href={{ "favicon-32x32.png" | asset_url }}>
+    <link rel="icon" type="image/png" sizes="48x48" href={{ "favicon-48x48.png" | asset_url }}>
+    <link rel="apple-touch-icon" sizes="180x180" href={{ "apple-touch-icon.png" | asset_url }}>
+    <link rel="icon" type="image/png" sizes="192x192" href={{ "android-chrome-192x192.png" | asset_url }}>
+    <link rel="icon" type="image/png" sizes="512x512" href={{ "android-chrome-512x512.png" | asset_url }}>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,500i,600,600i,700,700i,800&display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
+    {%- if page_description -%}
+    	<meta name="description" content="{{ page_description | escape }}">
+  	{%- endif -%}
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <link rel="canonical" href="https://myglo.com.ua/">
+    <style amp-custom>
+      
+      *, *::before, *::after {
+        box-sizing: border-box;
+      }
+      
+      .TM {
+    	font-size: 14px !important;
+    	text-transform: uppercase !important;
+        vertical-align: super;
+      }
+      .fw-600 {
+        font-weight: 600 !important;
+      }
+      
+      
+      .btn, .shopify-payment-button .shopify-payment-button__button--unbranded, .shopify-payment-button .shopify-payment-button__button--unbranded:hover {
+        -moz-user-select: none;
+        -ms-user-select: none;
+        -webkit-user-select: none;
+        user-select: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        display: inline-block;
+        width: auto;
+        text-decoration: none;
+        text-align: center;
+        vertical-align: middle;
+        cursor: pointer;
+        border: 1px solid #2f2f2f;
+        border-radius: 0;
+        padding: 8px 32px;
+        background-color: #fff;
+        color: #2f2f2f;
+        font-family: Montserrat,sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: normal;
+        white-space: normal;
+        font-size: 16px;
+      }
+      .btn--secondary-light {
+        background-color: transparent;
+        color: #fff;
+        border-color: #fff;
+      }
+      
+      
+      
+      
+      .announcement-bar {
+        background-color: #0b0b0b;
+        text-align: center;
+        position: relative;
+        z-index: 10;
+      }
+      .announcement-bar__message {
+          color: #fff;
+          font-size: 13px;
+          font-weight: 600;
+          padding: 10px 0;
+    	  margin: 0;
+      }
+      
+      .announcement-bar__message a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: normal;
+      }
+      @media screen and (max-width: 375px){
+        .announcement-bar__message {
+            font-size: 10px;
+        }
+      }
+      
+      
+      
+      
+      
+    /* MAIN DIRECTIVES AND HEADER */
+    .burger-menu amp-sidebar {
+      z-index: 4;
+    }
+    .burger-menu button.nav-button {
+      z-index: 5;
+      position: relative;
+    }
+    body {
+      font-family: 'Montserrat', sans-serif;
+    }
+    .h1-text {
+      padding-bottom: 30px;
+      margin-bottom: 30px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 1.2;
+      color: #2f2f2f;
+      font-size: 1.8em;
+      position: relative;
+    }
+    .h1-text:before {
+      content: '';
+      width: 25%;
+      height: 4px;
+      background-color: #2f2f2f;
+      position: absolute;
+      bottom: 0;
+    }
+    .h2-text {
+      font-size: 1.25em;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .h2-text__white {
+      color: white;
+    }
+    .h2-text__black {
+      color: black;
+    }
+    .h3-text {
+      font-size: 21px;
+      margin: 0;
+      padding: 0 0 25px 0;
+      position: relative;
+      text-align: center;
+    }
+    .h3-text:before {
+      content: '';
+      width: 25%;
+      height: 4px;
+      background-color: #2f2f2f;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .h3-text span {
+      margin: 0 20px;
+    }
+    h2.h3-text span {
+      margin: 0;
+    }
+    .slider-detail a,
+    .glo-button a {
+      user-select: none;
+      appearance: none;
+      display: inline-block;
+      width: auto;
+      text-decoration: none;
+      text-align: center;
+      vertical-align: middle;
+      cursor: pointer;
+      border-radius: 0;
+      padding: 8px 32px;
+      background-color: transparent;
+      font-family: Montserrat,sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: normal;
+      white-space: normal;
+      background-color: transparent;
+      margin-bottom: 25px;
+    }
+    .glo-intro {
+      margin: 45px 15px;
+    }
+    .glo-button__black a {
+      color: #2f2f2f;
+      border: 1px solid #2f2f2f;
+    }
+    .glo-button__white a {
+      color: white;
+      border: 1px solid white;
+    }
+    .toggle-sidebar,
+    .block-image {
+      position: relative;
+    }
+    .block-image {
+      z-index: 1;
+    }
+    .toggle-sidebar {
+      z-index: 3;
+      display: flex;
+    }
+    .toggle-sidebar .login-block,
+    .toggle-sidebar .shop-block {
+      width: 27px;
+      height: 22px;
+      margin-right: 20px;
+    }
+    .toggle-sidebar .login-block svg,
+    .toggle-sidebar .shop-block svg {
+      width: 100%;
+      height: 100%;
+    }
+    #sidebar-left ul > li.toggle-sidebar__child:not(:last-child) {
+      border-bottom: 1px solid #656666;
+    }
+    body [class$="-sidebar-mask"] {
+      z-index: 2;
+    }
+    .main-block {
+      box-sizing: border-box;
+      margin: 0 auto;
+      max-width: 1024px;
+    }
+    #sidebar-left {
+      background-color: #292c2c;
+    }
+    #sidebar-left ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    #sidebar-left ul li {
+      padding: 15px;
+    } 
+    #sidebar-left ul li h4 {
+      background-color: #292c2c;
+    }
+    amp-accordion section .acc-button {
+      border: none;
+      outline: none;
+    }
+    #sidebar-left ul li > a,
+    amp-accordion section .acc-button p {
+      text-decoration: none;
+      
+      font-size: 13px;
+      font-weight: 600;
+      color: #fff;
+    }
+    .nav-button {
+      border: none;
+      background-color: transparent;
+      display: flex;
+      flex-direction: column;
+    }
+    .nav-button span {
+      width: 30px;
+      height: 2px;
+      background-color: #fff;
+      display: inline-block;
+    }
+    .nav-button span:not(:first-child) {
+      margin-top: 8px;
+    }
+    amp-accordion section .acc-button amp-img {
+      position: absolute;
+      right: 10%;
+      top: 50%;
+      transform: translate(0, -50%) rotate(0deg);
+    }
+    amp-accordion section[expanded] .acc-button amp-img {
+      transform: translate(0, -50%) rotate(90deg);
+    }
+    amp-accordion p {
+      margin: 0;
+    }
+    .amp-header amp-sidebar {
+      width: 100%;
+      max-width: 100vw;
+      padding: 0;
+    }
+    .nav-button {
+      float: right;
+    }
+    .amp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #292c2c;
+      color: #fff;
+      padding: 5px 15px;
+      -webkit-box-shadow: 0px 6px 6px -4px rgba(59,66,71,0.5);
+        -moz-box-shadow: 0px 6px 6px -4px rgba(59,66,71,0.5);
+      box-shadow: 0px 6px 6px -4px rgba(59,66,71,0.5);
+    }
+    .amp-header .block-image {
+      width: 50px;
+    }
+    amp-sidebar nav {
+      margin-top: 75px;
+      height: 80vh;
+      overflow-y: auto;
+    }
+    .nav-button {
+      outline: none;
+    }
+    #sidebar-left ul .acc-button + ul {
+      padding: 0 0 0 15px;
+      margin-top: 15px;
+    }
+    .nav-button[aria-hidden] span:nth-child(1) {
+      display: none;
+    }
+    .nav-button[aria-hidden] span:nth-child(2) {
+      display: inline-block;
+      transform: translate(-100%) rotate(45deg);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+
+    }
+    .nav-button[aria-hidden] span:nth-child(3) {
+      transform: translate(-100%) rotate(-45deg);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+    }
+    .nav-info {
+      display: flex;
+      flex-direction: column;
+      margin: 25px -15px;
+      padding: 15px 0;
+      background-color: #656666;
+    }
+    .nav-info a {
+      padding: 0 15px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .nav-info a:not(:last-child) {
+      margin-bottom: 15px;
+      color: #fff;
+    }
+    .nav-info a:last-child {
+      color: #ffffffa3;
+    }
+    .nav-info a p {
+      margin: 0;
+    }
+      
+      
+      /***** Main Slider *****/
+      .main-carousel{
+      	margin-bottom: 90px;
+      }
+      .main-carousel,
+      .main-carousel .amp-slide{
+      	position: relative;
+      }
+      h2.descr__h2{
+      	position: absolute;
+        top: 4%;
+        width: 100%;
+        margin: 0px;
+        padding: 0 15px;
+        font-size: 32px;
+        color: #fff;
+        font-weight: bold;
+        line-height: 1.24;
+      }
+      .descr__btns{
+        position: absolute;
+        bottom: 5%;
+        width: 100%;
+      }
+      .descr__btns .btn {
+        margin: 0px auto 10px;
+        display: block;
+        min-width: 260px;
+        width: 260px;
+        font-weight: 400;
+    	font-size: 14px;
+      }
+      
+      
+      
+      
+      
+      
+      
+      
+    /* CAROUSEL */
+    #carousel2, 
+    #carousel3 {
+      margin-bottom: 30px;
+    }
+    #carousel3 {
+      margin-top: 50px;
+    }
+    #carousel3 .amp-carousel-button {
+      position: absolute;
+      top: 100px;
+    }
+    .test-carousel .amp-carousel-button {
+      top: 73px;
+    }
+    .amp-carousel-button-prev {
+      left: 10px;
+    }
+    .amp-carousel-button-next {
+      right: 10px;
+    }
+    .main-carousel .amp-carousel-slide > [class$="-replaced-content"] {
+      object-fit: cover;
+    }
+    .main-carousel [class$="-carousel-arrows"] {
+      display: none;
+    }
+    .main-carousel amp-selector#carousel1Selector {
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, 0);
+      width: 100%;
+      display: block;
+      min-height: 12px;
+      text-align: center;
+      bottom: -30px;
+      
+    }
+    .main-carousel amp-selector#carousel1Selector button {
+      border: none;
+      box-shadow: none;
+      width: 10px;
+      max-width: 10px;
+      height: 10px;
+      min-height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+      background-color: black;
+      opacity: .25;
+      outline: none;
+      padding: 0px;
+    }
+    .main-carousel amp-selector#carousel1Selector button[selected] {
+      opacity: .75;
+    }
+    .main-carousel amp-selector#carousel1Selector button:not(:last-child) {
+      margin-right: 15px;
+    }
+    [class$="-carousel-slide-item"]:nth-child(-n+2) .amp-slide .slider-title p {
+      color: #2f2f2f;
+    }
+    [class$="-carousel-slide-item"]:nth-child(n+3) .amp-slide .slider-title p {
+      color: white;
+    }
+    [class$="-carousel-slide-item"]:nth-child(-n+2) .amp-slide .slider-title:before {
+      background-color: #2f2f2f;
+    }
+    [class$="-carousel-slide-item"]:nth-child(n+3) .amp-slide .slider-title:before {
+      background-color: white;
+    }
+    .slider-title {
+      position: absolute;
+      top: 10px;
+      left: 5%;
+      width: 40%;
+    }
+    .slider-title p {
+      font-size: 24px;
+      margin: 0;
+      font-weight: 700;
+    }
+    .slider-title:before {
+      content: '';
+      display: block;
+      height: 5px;
+      position: absolute;
+      bottom: -24px;
+      width: 60%;
+    }
+    .slider-detail {
+      position: absolute;
+      bottom: 0;
+      left: 5%;
+    }
+    [class$="-carousel-slide-item"]:nth-child(-n+2) .amp-slide .slider-detail a {
+      border: 1px solid #2f2f2f;
+      color: #2f2f2f;
+    }
+    [class$="-carousel-slide-item"]:nth-child(n+3) .amp-slide .slider-detail a {
+      border: 1px solid white;
+      color: white;
+    }
+    .glo-desc {
+    	line-height: 1.6;  
+    }
+    .glo-list ul {
+      padding: 0;
+      list-style: none;
+    }
+    .glo-list ul li {
+      display: flex;
+      align-items: center;
+    }
+    .glo-list ul li:not(:last-child) {
+      margin-bottom: 15px;
+    }
+    .glo-list__check {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1px solid #b0b0b0;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-right: 20px;
+    }
+    .glo-list__check:after {
+      content: "";
+      display: block;
+      width: 12px;
+      height: 22px;
+      border: solid #b0b0b0;
+      border-width: 0 4px 4px 0;
+      transform: rotate(45deg);
+      margin-top: -4px;
+    }
+    .test-title {
+      background-color: #3b4247;
+      padding: 30px 15px;
+      text-align: center;
+    }
+    .test-slider__title {
+      margin: 20px 0;
+      display: block;
+    }
+    .text-part {
+      padding: 0 15px;
+      text-align: center;
+    }
+    .amp-carousel-button-prev {
+      background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDQ5MiA0OTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDQ5MiA0OTI7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxnPg0KCTxnPg0KCQk8cGF0aCBkPSJNMTk4LjYwOCwyNDYuMTA0TDM4Mi42NjQsNjIuMDRjNS4wNjgtNS4wNTYsNy44NTYtMTEuODE2LDcuODU2LTE5LjAyNGMwLTcuMjEyLTIuNzg4LTEzLjk2OC03Ljg1Ni0xOS4wMzJsLTE2LjEyOC0xNi4xMg0KCQkJQzM2MS40NzYsMi43OTIsMzU0LjcxMiwwLDM0Ny41MDQsMHMtMTMuOTY0LDIuNzkyLTE5LjAyOCw3Ljg2NEwxMDkuMzI4LDIyNy4wMDhjLTUuMDg0LDUuMDgtNy44NjgsMTEuODY4LTcuODQ4LDE5LjA4NA0KCQkJYy0wLjAyLDcuMjQ4LDIuNzYsMTQuMDI4LDcuODQ4LDE5LjExMmwyMTguOTQ0LDIxOC45MzJjNS4wNjQsNS4wNzIsMTEuODIsNy44NjQsMTkuMDMyLDcuODY0YzcuMjA4LDAsMTMuOTY0LTIuNzkyLDE5LjAzMi03Ljg2NA0KCQkJbDE2LjEyNC0xNi4xMmMxMC40OTItMTAuNDkyLDEwLjQ5Mi0yNy41NzIsMC0zOC4wNkwxOTguNjA4LDI0Ni4xMDR6Ii8+DQoJPC9nPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPC9zdmc+DQo=');
+    }
+    .amp-carousel-button-next {
+      background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDQ5Mi4wMDQgNDkyLjAwNCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDkyLjAwNCA0OTIuMDA0OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8Zz4NCgk8Zz4NCgkJPHBhdGggZD0iTTM4Mi42NzgsMjI2LjgwNEwxNjMuNzMsNy44NkMxNTguNjY2LDIuNzkyLDE1MS45MDYsMCwxNDQuNjk4LDBzLTEzLjk2OCwyLjc5Mi0xOS4wMzIsNy44NmwtMTYuMTI0LDE2LjEyDQoJCQljLTEwLjQ5MiwxMC41MDQtMTAuNDkyLDI3LjU3NiwwLDM4LjA2NEwyOTMuMzk4LDI0NS45bC0xODQuMDYsMTg0LjA2Yy01LjA2NCw1LjA2OC03Ljg2LDExLjgyNC03Ljg2LDE5LjAyOA0KCQkJYzAsNy4yMTIsMi43OTYsMTMuOTY4LDcuODYsMTkuMDRsMTYuMTI0LDE2LjExNmM1LjA2OCw1LjA2OCwxMS44MjQsNy44NiwxOS4wMzIsNy44NnMxMy45NjgtMi43OTIsMTkuMDMyLTcuODZMMzgyLjY3OCwyNjUNCgkJCWM1LjA3Ni01LjA4NCw3Ljg2NC0xMS44NzIsNy44NDgtMTkuMDg4QzM5MC41NDIsMjM4LjY2OCwzODcuNzU0LDIzMS44ODQsMzgyLjY3OCwyMjYuODA0eiIvPg0KCTwvZz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjwvc3ZnPg0K');
+    }
+    .amp-carousel-button {
+      background-color: transparent;
+      outline: none;
+    }
+    .amp-carousel-button.amp-disabled {
+      visibility: visible;
+      opacity: .25;
+    }
+    .text-part .test-desc__title {
+      font-size: 16px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    .test-slider__desc p,
+    .test-desc__expl p {
+      margin: 25px 0;
+      line-height: 1.6;
+    }
+    .test-carousel .test-slider__desc,
+    .blog-carousel .test-slider__desc {
+      padding: 0 5px;
+    }
+
+    .amp-slide2,
+    .amp-slide3 {
+      margin-bottom: 35px;
+    }
+    .text-part {
+      margin-bottom: 15px;
+    }
+
+    .blog-carousel .amp-slide3 .h3-text:before {
+      content: none;
+    }
+    .blog-carousel .amp-slide3 img {
+      object-fit: contain;
+    }
+    .social-list ul {
+      padding: 15px;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+    }
+    @media screen and (min-width: 767px) {
+      .social-list ul {
+        justify-content: space-evenly;
+      }
+    }
+    @media screen and (max-width: 350px) {
+      .social-list ul {
+        flex-direction: column;
+        align-items: center;
+      }
+      .social-list ul li:nth-child(1) {
+        margin-bottom: 15px;
+      }
+      .footer-phone .h3-text {
+        flex-direction: column;
+        text-align: left;
+      }
+      .footer-phone .h3-text::before {
+        display: none;
+      }
+      .footer-phone .h3-text span {
+        margin: 15px 0;
+      }
+    }
+    .social-list ul li a {
+      display: flex;
+      color: #2f2f2f;
+      text-decoration: none;
+    }
+    .social-list ul li a:hover,
+    .social-list ul li a:focus,
+    .social-list ul li a:active {
+      color: #2f2f2f;
+    }
+    .social-list ul li a p {
+      margin: 0;
+    }
+    .social-list ul li a amp-img {
+      margin-right: 10px;
+    }
+    .social-block {
+      display: flex;
+      align-items: center;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-gap: 5px;
+      grid-auto-rows: minmax(50px, 150px);
+      padding: 5px;
+      margin-bottom: 50px;
+	  max-width: 600px;
+      margin: 0 auto;
+      
+    }
+    .gallery a .gallery__img,
+    .gallery a .gallery__img amp-img,
+    .gallery a .gallery__img amp-img img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .gallery a:nth-child(1) {
+      grid-area: 1 / 1 / 2 / 4;
+    }
+    .gallery a:nth-child(2) {
+      grid-area: 1 / 4 / 2 / 8;
+    }
+    .gallery a:nth-child(3) {
+      grid-area: 1 / 8 / 2 / 13;
+    }
+    .gallery a:nth-child(4) {
+      grid-area: 2 / 1 / 3 / 5;
+    }
+    .gallery a:nth-child(5) {
+      grid-area: 2 / 5 / 3 / 9;
+    }
+    .gallery a:nth-child(6) {
+      grid-area: 2 / 9 / 3 / 13;
+    }
+    .gallery a:nth-child(7) {
+      grid-area: 3 / 1 / 4 / 6;
+    }
+    .gallery a:nth-child(8) {
+      grid-area: 3 / 6 / 4 / 10;
+    }
+    .gallery a:nth-child(9) {
+      grid-area: 3 / 10 / 4 / 13;
+    }
+    .gallery a img {
+      object-fit: cover;
+    }
+    .text-telegram {
+      width: 40px;
+      height: 40px;
+    }
+    .where-part {
+      margin: 0 15px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .where-part .where-part__bold {
+      font-weight: 500;
+      font-size: 18px;
+    }
+    .text-telegram {
+      margin-bottom: 30px;
+    }
+    .warning-text {
+      padding: 0 15px;
+    }
+    .warning-text p {
+      font-size: 12px;
+    }
+    #footer {
+      background-color: #3b4247;
+      padding: 0 15px;
+    }
+      .footer__logo {
+        width: 70px;
+        padding: 35px 0;
+      }
+      .footer-phone {
+        position: relative;
+      }
+      .footer-phone a,
+      .footer-links {
+        color: white;
+        text-decoration: none;
+      }
+      .footer-links {
+        margin-bottom: 35px;
+      }
+      .footer-phone .h3-text {
+        display: flex;
+        flex-wrap: wrap;
+        color: white;
+      }
+      .footer-phone .h3-text:before {
+        left: 0%;
+        transform: translateX(0);
+        background-color: white;
+      }
+      .footer-schedule p {
+        color: white;
+        font-size: 13px;
+        margin: 20px 0;
+      }
+      .footer-schedule p span {
+        display: block;
+      }
+      .footer-links ul {
+        list-style: none;
+        display: flex;
+        padding: 0;
+      }
+      .footer-links ul li {
+        width: 25px;
+      }
+      .footer-links ul li:not(:last-child) {
+        margin-right: 15px;
+      }
+      #footer-accordion {
+        background-color:transparent;
+        color: white;
+      }
+      #footer-accordion .h3-text {
+        background-color: transparent;
+        padding: 0 0 20px 0;
+        border: none;
+        outline: none;
+      }
+      #footer-accordion .h3-text:before {
+        left: 0%;
+        transform: translateX(0);
+        background-color: white;
+        height: 3px;
+        width: 15%;
+      }
+      #footer-accordion span {
+        position: relative;
+        display: block;
+        padding: 10px 0;
+        text-align: left;
+        outline: none;
+      }
+      #footer-accordion span:before {
+        content: '';
+        display: block;
+        border: 9px solid transparent;
+        border-top: 10px solid #b5b5b5;
+        width: 0px;
+        height: 0px;
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%) rotate(0deg);
+        margin-right: 0;
+      }
+      .footer-menu ul {
+        list-style: none;
+        padding: 0;
+      }
+      .footer-menu ul li a {
+        color: white;
+        text-decoration: none;
+      }
+      .footer-menu ul li:not(:last-child) {
+        margin-bottom: 10px;
+      }
+      .footer-accordion section {
+        padding-bottom: 40px;
+      }
+      .footer__copyright {
+        display: block;
+        padding: 15px 0 30px;
+        color: white;
+        font-size: 13px;
+      }
+      .face-block {
+        width: 93%;
+        margin: 0 auto;
+      }
+      .warning-text {
+        margin-bottom: 40px;
+      }
+    @media screen and (min-width: 767px) {
+      .burger-menu amp-sidebar [toolbar-target="target-element-left"] {
+        display: block;
+      }
+      .burger-menu [toolbar-target="target-element-left"] {
+        display: none;
+      }
+    }
+      
+      /***** CHANGE TOGETHER block *****/
+      .info-product .info-product__item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+      .info-product .info-product__item img{
+      	margin-right: 10px;
+      }
+      .info-product .info-product__item p{
+          font-size: 16px;
+          font-weight: 500;
+      }
+      .info-product{
+          max-width: 380px;
+          width: 380px;
+          margin-bottom: 30px;
+      }
+      .info-product .info-product__item{
+          margin-bottom: 10px;
+      }
+      .btn{
+          width: 380px;
+      }
+
+
+@media screen and (max-width: 767px){
+  .info-product{
+    max-width: 100%;
+    width: 100%;
+  }
+  .info-product .info-product__item img{
+  	margin-right: 20px;
+  }
+}
+/***** end CHANGE TOGETHER block *****/
+  </style>
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+    <script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>
+    <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.2.js"></script>
+    <script async custom-element="amp-selector" src="https://cdn.ampproject.org/v0/amp-selector-0.1.js"></script>
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "NewsArticle",
+        "headline": "Open-source framework for publishing content",
+        "author": "noName",
+        "@publisher": "glo",
+        "datePublished": "2015-10-07T12:02:41Z",
+        "image": [
+          "./img/logo.svg"
+        ]
+      }
+    </script>
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    {% include 'gtm-amp-header' %}
+
+  </head>
+  <body>
+  {% include 'gtm-amp-body' %}
+
+  <div class="main-block">
+      	{% section 'header-amp' %}
+    
+    
+    <div class="main-carousel">
+            <amp-carousel
+                id="carousel1"
+                width="400"
+                height="738"
+                layout="responsive"
+                type="slides"
+                on="slideChange:carousel1Selector.toggle(index=event.index, value=true)"
+                >
+              
+              <div class="amp-slide">
+                <a href="/products/glo-pro-kit?utm_source=index_slider&utm_medium=display&utm_campaign=special_price&utm_campaign=pro-kit">
+                  <amp-img
+                           src="{{ "demi_slider-sm.png" | asset_url }}"
+                           width="400"
+                           height="738"
+                           layout="responsive"
+                           alt="apples"
+                           ></amp-img>
+
+                </a>
+                <h2 class="descr__h2 fff"><span class="fw-600">НОВИЙ</span> glo<span class="TM">TM</span> HYPER<br><span class="fw-600">НОВИЙ ФОРМАТ ДЕМІ</span></h2>
+				
+                <div class="descr__btns">
+                  <a href="/pages/glo-hyper" class="btn btn-primary btn--secondary-light js-gtm-click-main-slider" tabindex="0">
+                    Дізнатися більше
+                  </a>
+                  <a href="/products/glo-hyper-kit" class="btn btn-primary btn--secondary-light js-gtm-click-main-slider" tabindex="0">
+                    Купити
+                  </a>
+                </div>
+                
+              </div>
+              
+              <div class="amp-slide">
+                <a href="/products/glo-pro-kit?utm_source=index_slider&utm_medium=display&utm_campaign=special_price&utm_campaign=pro-kit">
+                  <amp-img
+                           src="{{ "demi_slider-sm.png" | asset_url }}"
+                           width="400"
+                           height="738"
+                           layout="fill"
+                           alt="apples"
+                           ></amp-img>
+
+                </a>
+                <h2 class="descr__h2 fff"><span class="fw-600">TEST</span> glo<span class="TM">TM</span> NANO<br><span class="fw-600">LOrem  IPSum</span></h2>
+				
+                <div class="descr__btns">
+                  <a href="/pages/glo-hyper" class="btn btn-primary btn--secondary-light js-gtm-click-main-slider" tabindex="0">
+                    Дізнатися більше
+                  </a>
+                  <a href="/products/glo-hyper-kit" class="btn btn-primary btn--secondary-light js-gtm-click-main-slider" tabindex="0">
+                    Купити
+                  </a>
+                </div>
+                
+              </div>
+              
+            </amp-carousel>
+            <amp-selector id="carousel1Selector"
+                class="carousel-preview"
+                on="select:carousel1.goToSlide(index=event.targetOption)"
+                layout="container">
+                <button option="0" selected>
+                </button>
+                <button option="1">
+                </button>
+            </amp-selector>
+        </div>
+    
+    
+    
+    
+        <div class="homepage__changing">
+          <div>
+            <amp-img 
+                     width="1100"
+                     height="908"
+                     layout="responsive"
+                     class="homepage__changing--image" 
+                     src={{ "demi_change.jpg" | asset_url }} 
+                     alt="Сучасність вимагає постійних змін"
+            ></amp-img>
+          </div>
+          <h2>ЗМІНЮЄМОСЯ РАЗОМ<br/><amp-img src={{ "amp_000.svg" | asset_url }} class="amp-000"></amp-img><span class="fw-600">більше</span></h2>
+          <p>Сучасне життя сповнене захоплюючих відкриттів. Ми створили технологію, що відкриває нові можливості та надихає до маленьких, але визначних змін, здатних збагатити твоє життя. Зустрічай пристрій glo, що змінює уяву про звичні способи споживання тютюну, і дає можливість насолодитися улюбленим смаком у новому форматі.</p>
+          <div class="info-product block-mb">
+            <div class="info-product__item">
+              <amp-img src={{ "complete-keyline.svg" | asset_url }} alt=""></amp-img>
+              <p class=""> На 90% менше токсинів*</p>
+            </div>
+            <div class="info-product__item">
+              <amp-img src={{ "complete-keyline.svg" | asset_url }} alt=""></amp-img>
+              <p class="">Без диму, без попелу**</p>
+            </div>
+            <div class="info-product__item">
+              <amp-img src={{ "complete-keyline.svg" | asset_url }} alt=""></amp-img>
+              <p class="">Відбірний, високоякісний тютюн</p>
+            </div>
+          </div>
+          <div class="glo-button glo-button__black"><a href="/pages/about" title="Про продукт">Дізнайся більше</a></div>
+        </div>
+    
+    
+    
+    
+        <main>
+			
+            
+          
+          
+          
+            <div class="glo-test">
+                <div class="test-title">
+                    <h2 class="h2-text h2-text__white">Тест-драйв glo&#8482;</h2>
+                    <div class="glo-button glo-button__white">
+                        <a href="/pages/free-test-drive">Замовити</a>
+                    </div>
+                </div>
+                <div class="test-carousel">
+                    <div class="amp-slide2">
+                            <amp-img
+                                src="{{ "slider-glo-pink.jpg" | asset_url }}"
+                                width="450"
+                                height="420"
+                                layout="responsive"
+                                alt="apples"
+                            ></amp-img>
+                            <div class="text-part">
+                                <div class="test-slider__title">
+                                    <h3 class="h3-text">glo&#8482; pro</h3>
+                                </div>
+                                <div class="test-slider__desc">
+                                    <div class="test-desc__title">
+                                        <p>Вишуканий. Потужний</p>
+                                    </div>
+                                    <div class="test-desc__expl">
+                                        <p>Новий унікальний девайс з режимом Boost, завдяки якому смак тютюну стає ще більш насиченим</p>
+                                    </div>
+                                    <div class="glo-button glo-button__black">
+                                        <a href="/pages/glo-pro">Дізнайся більше</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <div class="amp-slide2">
+                            <amp-img
+                                src="{{ "slider-glo-nano.jpg" | asset_url }}"
+                                width="450"
+                                height="420"
+                                layout="responsive"
+                                alt="lemons"
+                            ></amp-img>
+                            <div class="text-part">
+                                <div class="test-slider__title">
+                                    <h3 class="h3-text">glo&#8482; nano</h3>
+                                </div>
+                                <div class="test-slider__desc">
+                                    <div class="test-desc__title">
+                                        <p>Легкий та компактний</p>
+                                    </div>
+                                    <div class="test-desc__expl">
+                                        <p>Більше твого стилю та індивідуальності в новому легкому, витонченому та яскравому пристрої.</p>
+                                    </div>
+                                    <div class="glo-button glo-button__black">
+                                        <a href="/pages/glo-nano">Дізнайся більше</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+            <div class="blog-carousel">
+                <h2 class="h3-text h3-text__black">Блог</h2>
+                <div class="amp-slide3">
+                        <div class="text-part">
+                            <div class="test-slider__title">
+                                <h3 class="h3-text">TODAY I WILL челендж</h3>
+                            </div>
+                            <div class="test-slider__desc">
+                                <div class="test-desc__expl">
+                                    <p>Захоплюючий політ над Києвом з Андрієм Бєдняковим та переможцями TIW челенджу</p>
+                                </div>
+                                <div class="glo-button glo-button__black">
+                                    <a href="/blogs/info/today-i-will">Детальніше</a>
+                                </div>
+                            </div>
+                        </div>
+                        <amp-img
+                            src="{{ "slider_bednyakov.jpg" | asset_url }}"
+                            width="450"
+                            height="300"
+                            layout="responsive"
+                            alt="apples"
+                        ></amp-img>
+                    </div>
+                <div class="amp-slide3">
+                        <div class="text-part">
+                            <div class="test-slider__title">
+                                <h3 class="h3-text">glo&#8482; оголошує про партнерство з McLaren</h3>
+                            </div>
+                            <div class="test-slider__desc">
+                                <div class="test-desc__expl">
+                                    <p>Зустрічай пристрій, натхненний партнерством з командою Формули-1 McLaren</p>
+                                </div>
+                                <div class="glo-button glo-button__black">
+                                    <a href="/blogs/info/glo-and-mclaren-partners">Дізнайся більше</a>
+                                </div>
+                            </div>
+                        </div>
+                        <amp-img
+                            src="{{ "slider_mclaren.jpg" | asset_url }}"
+                            width="450"
+                            height="300"
+                            layout="responsive"
+                            alt="lemons"
+                        ></amp-img>
+                    </div>
+            </div>
+            <div class="glo-insta">
+                <h2 class="h3-text h3-text__black">Приєднуйся до glo&#8482;</h2>
+                <div class="face-block">
+                    <div class="social-list">
+                        <ul>
+                            <li>
+                                <a href="https://www.instagram.com/glo_ukraine/" target="_blank">
+                                    <div class="social-block">
+                                        <amp-img
+                                            src="{{ "insta.svg" | asset_url }}"
+                                            width="28"
+                                            height="28"
+                                            alt="insta"
+                                        ></amp-img>
+                                        <p>@glo_ukraine</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.facebook.com/mygloua/" target="_blank">
+                                    <div class="social-block">
+                                        <amp-img
+                                            src="{{ "facebook-dark.svg" | asset_url }}"
+                                            width="28"
+                                            height="28"
+                                            alt="face"
+                                        ></amp-img>
+                                        <p>@mygloua</p>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="gallery">
+                    <a href="https://www.instagram.com/p/B_zi1KkpvJx/" target="_blank">
+                        <div class="gallery__img">
+                            <amp-img
+                                src="{{ "insta_2020_1.jpg" | asset_url }}"
+                                width="150"
+                                height="200"
+                                layout="responsive"
+                                alt="insta"
+                            ></amp-img>
+                        </div>
+                    </a>
+                    <a href="https://www.instagram.com/p/B_mJk_cp3if/" target="_blank">
+                        <div class="gallery__img">
+                            <amp-img
+                                src="{{ "insta_2020_2.jpg" | asset_url }}"
+                                width="150"
+                                height="200"
+                                layout="responsive"
+                                alt="insta"
+                            ></amp-img>
+                        </div>
+                    </a>
+                    <a href="https://www.instagram.com/p/B_iB2NaJdQo/" target="_blank">
+                        <div class="gallery__img">
+                            <amp-img
+                                src="{{ "insta_2020_3.jpg" | asset_url }}"
+                                width="150"
+                                height="200"
+                                layout="responsive"
+                                alt="insta"
+                            ></amp-img>
+                        </div>
+                    </a>
+                    <a href="https://www.instagram.com/p/B_SddOKJ6W5/" target="_blank">
+                        <div class="gallery__img">
+                            <amp-img
+                                src="{{ "insta_2020_4.jpg" | asset_url }}"
+                                width="150"
+                                height="200"
+                                layout="responsive"
+                                alt="insta"
+                            ></amp-img>
+                        </div>
+                    </a>
+                    <a href="https://www.instagram.com/p/B-zXKymho90/" target="_blank">
+                        <div class="gallery__img">
+                            <amp-img
+                                src="{{ "insta_2020_5.jpg" | asset_url }}"
+                                width="150"
+                                height="200"
+                                layout="responsive"
+                                alt="insta"
+                            ></amp-img>
+                        </div>
+                    </a>
+                    <a href="https://www.instagram.com/p/B-on1HQBw1o/" target="_blank">
+                        <div class="gallery__img">
+                            <amp-img
+                                src="{{ "insta_2020_6.jpg" | asset_url }}"
+                                width="150"
+                                height="200"
+                                layout="responsive"
+                                alt="insta"
+                            ></amp-img>
+                        </div>
+                    </a>
+                    <a href="https://www.instagram.com/p/B-Joo9Ahbw8/" target="_blank">
+                        <div class="gallery__img">
+                            <amp-img
+                                src="{{ "insta_2020_7.jpg" | asset_url }}"
+                                width="150"
+                                height="200"
+                                layout="responsive"
+                                alt="insta"
+                            ></amp-img>
+                        </div>
+                    </a>
+                    <a href="hhttps://www.instagram.com/p/B91dUaeB61_/" target="_blank">
+                        <div class="gallery__img">
+                            <amp-img
+                                src="{{ "insta_2020_8.jpg" | asset_url }}"
+                                width="150"
+                                height="200"
+                                layout="responsive"
+                                alt="insta"
+                            ></amp-img>
+                        </div>
+                    </a>
+                    <a href="https://www.instagram.com/p/B9UGnQ6BiiE/" target="_blank">
+                        <div class="gallery__img">
+                            <amp-img
+                                src="{{ "insta_2020_9.jpg" | asset_url }}"
+                                width="150"
+                                height="200"
+                                layout="responsive"
+                                alt="insta"
+                            ></amp-img>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="glo-where">
+            <h2 class="h3-text h3-text__black">Де купити</h2>
+            <div class="where-part">
+                <div class="test-desc__expl">
+                    <p>Знайдіть найближчий магазин, де можна придбати пристрій, тютюнові стіки або аксесуари</p>
+                </div>
+                <div class="glo-button glo-button__black">
+                    <a href="/pages/contact-us#go-buy">Знайти на карті</a>
+                </div>
+            </div>
+            <div class="where-part">
+                <div class="test-desc__expl where-part__bold">
+                    <p>Офіційний бот бренду glo&#8482; вже в Telegram! Дізнавайся новини бренду та знаходь точки продажу поруч з тобою!</p>
+                </div>
+                <div class="text-telegram">
+                    <amp-img
+                        src="{{ "i-telegram-grey.svg" | asset_url }}"
+                        width="28"
+                        height="28"
+                        layout="responsive"
+                        alt="insta"
+                    ></amp-img>
+                </div>
+                <div class="glo-button glo-button__black">
+                    <a href="https://t.me/myglo_ua_bot" target="_blank">Перейти</a>
+                </div>
+            </div>
+            <div class="warning-text">
+                <p>* Порівняння диму від спаленого тютюну в стандартних сигаретах 3R4F (приблизно 9 мг смол) та аерозолю від нагрітого тютюну в пристрої glo™. Порівнюються 9 шкідливих компонентів, рекомендованих ВООЗ до зменшення. Це не обов’язково означає, що даний продукт є менш шкідливим, ніж інші тютюнові продукти.</p>
+                <p>** В порівнянні зі звичайною сигаретою під час куріння. Це не обов'язково означає, що цей продукт є менш шкідливим, ніж інші тютюнові продукти</p>
+             </div>
+        </div>
+        </main>
+        {% section 'footer-amp' %}
+    </div>
+    
+  </body>
+</html>

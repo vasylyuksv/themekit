@@ -1,0 +1,35 @@
+{% if customer.metafields.incust.mgm_code != null %}
+    <br /><br />
+    <div class="row">
+        <div class="col-md-16">
+            <div class="lk-history_transaction">
+                <div class="lyt-transaction-loader" data-mgmref-loader>
+                    <img src="{{ 'loading2.gif' | asset_url }}" />
+                </div>
+
+                <div class="lk-table--wrapper">
+                    <table class="lk-table dn" data-mgmref-table>
+                        <thead>
+                        <tr>
+                            <th class="dn">Id</th>
+                            <th scope="col">Твій Друг</th>
+                            <th scope="col">Статус</th>
+                            <th scope="col">Дата</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="lk-table__pagination--wrapper">
+                    <div class="lk-table__pagination">
+                        <ul data-mgmref-pagination>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endif %}

@@ -1,0 +1,296 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-offset-5 col-lg-6 col-md-offset-3 col-md-10 col-xs-16">
+      <div class="form-vertical">
+        <div class="form-message form-message--success hide" id="ResetSuccess">
+          {{ 'customer.recover_password.success' | t }}
+        </div>
+        <div id="CustomerRegisterForm" class="register-form">
+          {%- assign formId = 'RegisterForm' -%}
+          {% form 'create_customer', id: formId, novalidate: 'novalidate', class: 'form' %}
+          <h1 class="text-center">{{ 'customer.register.title' | t }}</h1>
+          
+    <div class="text-center">
+      <p class="text-help">Використовуй соцмережі для спрощеної реєстрації та авторизації на сайті</p>
+    </div>
+    <div class="c-fieldset c-fieldset--offset sn-btn-cont">
+          <a href="#" id="fbReg" class="btn btn-primary btn-fb">
+              Facebook
+          </a>
+          <a href="#" id="googleReg"class="btn btn-primary btn-google">
+              Google
+          </a>
+          <div id="snAuthError" class="form-error" style="margin-top: 10px;"></div>
+    </div>
+    <div class="text-center pT20">
+      <p class="text-help">або зареєструйся за допомогою форми</p>
+    </div>
+          
+          <div class="form-message form-message--error" style="display:none" id="errBox">
+          </div>
+          {%- if form.errors -%}
+          <div class="form-message form-message--error">
+            {{ form.errors | default_errors }}
+          </div>
+          {%- endif -%}
+          
+          
+          <!-- Name -->
+          <label for="first_name">Ім'я:</label>
+          <input
+                  type="text"
+                  name="first_name"
+                  id="first_name"
+          >
+          <div class="form__hint"></div>
+          <div id="firstNameError" class="form-error"></div>
+          <!-- Surname -->
+          <label for="last_name">Прізвище:</label>
+          <input
+                  type="text"
+                  name="last_name"
+                  id="last_name"
+                  class="c-field__input"
+          >
+          <div class="form__hint"></div>
+          <div id="lastNameError" class="form-error"></div>
+          <!-- Phone -->
+          <label for="phone">Телефон:</label>
+          <input
+                  type="text"
+                  name="phone"
+                  id="phone"
+                  class="c-field__input"
+          >
+          <div class="form__hint"></div>
+          <div id="phoneError" class="form-error"></div>
+          <!-- Email -->
+          <label for="email">Email:</label>
+          <input
+                  type="text"
+                  name="email"
+                  id="email"
+          >
+          <div class="form__hint"></div>
+          <div id="emailError" class="form-error"></div>
+          <!-- DOB -->
+          <label for="date_birthday">Дата народження:</label>
+          <input
+                  type="text"
+                  name="date_birthday"
+                  id="date_birthday"
+                  class="c-field__input date-mask"
+          >
+          <div class="form__hint"></div>
+          <div id="birthdate-err" class="form-error"></div>
+
+
+          <div class="customer_agreement--wrap">
+            <!--Check -->
+            <input type="checkbox"
+                   value="1"
+                   name="customer_agreement"
+                   id="customer_agreement">
+            <label for="customer_agreement" class="c-fieldset__check-label"></label>
+            <p style="font-size: 12px;">Я приймаю <a href="/pages/ugoda-z-korystuvachem">Угоду з користувачем</a> і даю згоду на обробку персональних даних</p>
+          </div>
+            <div id="agreement-err" class="form-error"></div>
+
+          <div class="text-center pT20">
+            <button type="submit" class="btn">Зареєструватись</button>
+          </div>
+          {% comment %}
+          <!-- Name -->
+          <label for="CustomerRegisterName">Ім'я:</label>
+          <input type="text"
+                 name="customer[first_name]"
+                 id="CustomerRegisterName"
+                 class="c-field__input"
+                 placeholder="Ім'я"
+                 {% if form.first_name %}value="{{ form.first_name }}"{% endif %}
+          >
+          <div id="firstNameError" class="form-error"></div>
+
+          <!-- Surname -->
+          <label for="CustomerRegisterSurname">Прізвище:</label>
+          <input type="text"
+                 name="customer[last_name]"
+                 id="CustomerRegisterSurname"
+                 class="c-field__input"
+                 placeholder="Прізвище"
+                 {% if form.last_name %}value="{{ form.last_name }}"{% endif %}
+          >
+          <div id="lastNameError" class="form-error"></div>
+
+          <!-- DOB -->
+          <label for="CustomerRegisterDOB">Дата народження:</label>
+          <input type="text"
+                 name="customer[note][birth_date]"
+                 id="CustomerRegisterDOB"
+                 class="c-field__input date-mask"
+                 placeholder="Дата народження"
+                 value=""
+          >
+          <div id="birthdate-err"></div>
+
+          <!-- Email -->
+          <label class="c-field__label" for="CustomerRegisterEmail">{{ 'customer.login.email' | t }}</label>
+          <input type="email"
+                 name="customer[email]"
+                 id="CustomerRegisterEmail"
+                 class="{% if form.errors contains 'email' %} input--error{% endif %} c-field__input"
+                 autocorrect="off" autocapitalize="off" autofocus
+                 placeholder=""
+                 required
+                 {% if form.email %} value="{{ form.email }}"{% endif %}
+          >
+          <!-- Password -->
+          <label class="c-field__label" for="CustomerRegisterPassword">{{ 'customer.login.password' | t }}</label>
+          <input type="password"
+                 name="customer[password]"
+                 id="CustomerRegisterPassword"
+                 class="{% if form.errors contains 'password' %} input--error{% endif %} c-field__input"
+                 placeholder=""
+                 required
+                 value=""
+          >
+          <label class="c-field__label"></label>
+          <div id="password-err" class="form-error"></div>
+          <!--Check -->
+          <input type="checkbox"
+                 name="check"
+                 id="CustomerRegisterCheck"
+                 class="c-field__check is_rules_checkbox"
+                 value="1"
+          >
+          <label for="CustomerRegisterCheck" class="c-fieldset__check-label"></label>
+          <p style="font-size: 12px;">Я приймаю <a href="/pages/ugoda-z-korystuvachem">Угоду з користувачем</a> і даю згоду на обробку персональних даних</p>
+          <div class="text-center">
+            <button type="submit" class="btn submit-register-btn" style="width: 240px; margin: 20px 5px 0;">Зареєструватись</button>
+            <!--                  <button type="submit" class="c-btn c-btn--primary" style="width: 240px; margin: 20px 5px 0;">Відмінити</button> -->
+          </div>
+          {% endcomment %}
+          
+          <input type="hidden" id="fbId" name="fb_id" value="" />
+          <input type="hidden" id="googleId" name="google_id" value="" />
+          
+          {% endform %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <div class="page-width">
+   <div class="grid">
+     <div class="grid__item medium-up--one-half medium-up--push-one-quarter">
+
+       <div class="form-vertical">
+         {% form 'create_customer' %}
+
+           <h1 class="text-center">{{ 'customer.register.title' | t }}</h1>
+
+           {%- if form.errors -%}
+             <div class="form-message form-message--error">
+               {{ form.errors | default_errors }}
+             </div>
+           {%- endif -%}
+
+           <label for="FirstName">{{ 'customer.register.first_name' | t }}</label>
+           <input type="text" name="customer[first_name]" id="FirstName" {% if form.first_name %}value="{{ form.first_name }}"{% endif %} autofocus>
+
+           <label for="LastName">{{ 'customer.register.last_name' | t }}</label>
+           <input type="text" name="customer[last_name]" id="LastName" {% if form.last_name %}value="{{ form.last_name }}"{% endif %}>
+
+           <label for="Email">{{ 'customer.register.email' | t }}</label>
+           <input type="email" name="customer[email]" id="Email" class="{% if form.errors contains 'email' %} input--error{% endif %}" {% if form.email %} value="{{ form.email }}"{% endif %} autocorrect="off" autocapitalize="off">
+
+           <label for="BirthDate">Дата нарождення</label>
+           <input type="text" required id="BirthDate" name="customer[note][birth_date]" class="date-mask">
+
+           <label for="CreatePassword">{{ 'customer.register.password' | t }}</label>
+           <input type="password" name="customer[password]" id="CreatePassword" class="{% if form.errors contains 'password' %} input--error{% endif %}">
+
+         	<label for="is_rules_checkbox" style="line-height: 0;">
+               <input class="input-checkbox" type="checkbox" value="1" id="is_rules_checkbox" checked="checked">
+               Я погоджуюсь з <a href="https://api.myglo.com.ua/customer-agreement" target="blank" style="text-decoration: underline;">Угодою користувача</a> та укладенням договору купівлі-продажу на визначених нею умовах.
+         	</label><br>
+
+           <p class="text-center">
+             <input type="submit" value="{{ 'customer.register.submit' | t }}" class="btn submit-register-btn">
+           </p>
+
+         {% endform %}
+       </div>
+     </div>
+   </div>
+   </div> -->
+
+
+{% assign sn__register = "register" %}
+{% include "sn__register" %}
+
+
+<script src="{{ 'customer_register.js' | asset_url }}"></script>
+<script>
+    checkRules = function() {
+        var $rulesBtn = $('#customer_agreement'),
+            $submitBtn = $('.submit-register-btn2');
+
+        if ($rulesBtn.is(':checked')) {
+            $submitBtn.prop('disabled', false).css({
+                opacity: 1
+            });
+        } else {
+            $submitBtn.prop('disabled', true).css({
+                opacity: 0.5
+            });
+        }
+    };
+
+    checkRules();
+    $(document).on('change', '#customer_agreement', checkRules);
+
+    $('.date-mask').inputmask('dd/mm/yyyy', { 'placeholder': 'дд/мм/рррр' });
+    $('#phone').inputmask('+38(999)-999-99-99', { 'placeholder': '+38(___)-___-__-__' });
+
+    var ConfValidation = {
+        urlLoginPhone: 'https://{{ settings.bride_domain }}/api/customer/registration',
+        urlConfirmPhone: '/pages/phone-verification?customerId={id}',
+
+        formId: '#RegisterForm',
+
+        birthdateId: '#date_birthday',
+        errorFieldId: '#birthdate-err',
+
+        firstNameId: '#first_name',
+        firstNameError: '#firstNameError',
+
+        lastNameId: '#last_name',
+        lastNameError: '#lastNameError',
+
+        phoneId: '#phone',
+        phoneError: '#phoneError',
+
+        email: '#email',
+        emailError: '#emailError',
+
+        msg: {
+            wrongDate: 'Дата народження некоректна',
+            tooYoung: 'Допустимий вік - не менше 18 років',
+            required: 'Необхідно заповнити поле',
+            wrongEmail: 'Некоректний Email',
+            wrongPhone: 'Некоректний телефон',
+            tryAgain: 'Помилка, спробуйте ще раз'
+        }
+    };
+
+</script>
+<style>
+  .form-error {
+    display: block;
+    color: #d0021b;
+    font-size: 12px;
+    top: -10px;
+    position: relative;
+  }
+</style>

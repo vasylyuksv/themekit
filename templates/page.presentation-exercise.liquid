@@ -1,0 +1,169 @@
+<link href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css" rel="stylesheet" media="all">
+
+{{ 'presentation-exercise.scss.css' | asset_url | stylesheet_tag }}
+
+
+<div class="container">
+      <div class="section-header">
+        <h1>{{ page.title }}</h1>
+      </div>
+
+      <div class="rte">
+        {{ page.content }}
+      </div>
+</div>
+
+
+
+
+<div class="container">
+  <h3>Предложения:</h3>
+  <p class="title">1. Анимаций на сайте и ховер эффекты</p>
+  <br/>
+</div>
+<div class="container">
+    <div>
+      <a class="iframe-link" href="https://laurent.qodeinteractive.com/" target="__blank">laurent.qodeinteractive.com</a>
+      <iframe src="https://laurent.qodeinteractive.com/" width="100%" height="600" allowtransparency frameborder="0"></iframe>        
+    </div>
+    
+    <br/>
+    <hr/>
+    <br/>
+
+    <div>
+      <a class="iframe-link" href="https://wokas.pl/ru" target="__blank">wokas.pl</a>
+      <iframe src="https://wokas.pl/ru" width="100%" height="600" allowtransparency frameborder="0"></iframe>     
+    </div>
+</div>
+
+<div class="container">
+  <br/>
+  <ul class="list">
+    <li class="hvr-overline-from-left">анимация по скролу, для отдельных элементов на котороые необходимо сделать акцент</li>
+    <li class="hvr-shutter-in-vertical">двигающиеся элементы</li>
+    <li class="hvr-bounce-to-right">динамика на сайте для призыва к действию</li>
+    <li class="hvr-back-pulse">ховер эффекты на элементы</li>
+  </ul>
+  <br/>
+</div>
+
+<div class="container">
+  <a class="iframe-link" href="https://www.brainportindustriescampus.com/en/" target="__blank">www.brainportindustriescampus.com</a>
+	<iframe src="https://www.brainportindustriescampus.com/en/" width="100%" height="600" allowtransparency frameborder="0"></iframe>
+</div>
+
+<hr/>
+<hr/>
+
+<div class="container">
+  <p class="title">2. Баннер на главной странице</p>
+  <br/>
+  
+  <ul class="list">
+    <li class="">добавить динамики</li>
+    <li class="">максимальное количество слайдов - 4шт.</li>
+    <li class="">соблюдать стилистику между слайдами</li>
+    <li class="">что бы на первом экране были видны популярные запросы (тест-драйв, где купить, популярный девайс )</li>
+  </ul>
+  
+  <br/>
+
+  <div>
+    <a class="iframe-link" href="https://www.pro-m2.de/" target="__blank">www.pro-m2.de</a>
+    <iframe src="https://www.pro-m2.de/" width="100%" height="600" allowtransparency frameborder="0"></iframe>     
+  </div>
+</div>
+
+<hr/>
+<hr/>
+
+<div class="container">
+  <p class="title">3. Особенности на сайте</p>
+  <br/>
+  <ul class="list">
+    <li class="">уменьшение текста в блоках, чередуя с блоками с текстом - что бы акцент был на текст, а не на картинку</li>
+    <li class="">слайдер товаров с "картинкой экспозицией" например на одной картинке разные цвета девайса с переходом на страницу товара(компактность)</li>
+    <li class=""> видео на заднем фоне, без текста в ролике (например ролик "Как пользоватся устройством")</li>
+  </ul>
+  
+  <br/>
+
+  <div>
+    <a class="iframe-link" href="https://olbrick-darmstadt.de/seite" target="__blank">olbrick-darmstadt.de</a>
+    <iframe src="https://olbrick-darmstadt.de/seite/" width="100%" height="600" allowtransparency frameborder="0"></iframe>     
+  </div>
+</div>
+
+<hr/>
+<hr/>
+
+<div class="container">
+  <p class="title">4. Применение технологий</p>
+  <br/>
+  <p>3Д анимация на ховер</p>
+  <div>
+    <iframe src="https://gijsroge.github.io/tilt.js/" width="100%" height="600" allowtransparency frameborder="0"></iframe>     
+  </div>
+  <br/>
+  <hr/>
+  <p>ScrollTrigger - GSAP - сложная анимация, возможность использовать разные виды анимации на один элемент с управлением скрола</p>
+  <iframe style="margin: auto;display: block;" width="50%" height="300" src="https://www.youtube.com/embed/uYMYlipIReA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+<hr/>
+<hr/>
+
+<div class="container gsap-test">
+  <a href="" class="mobile">Mobile</a>
+  <a href="" class="desktop">Desktop</a>
+</div>
+
+<hr/>
+<hr/>
+
+<div class="container">
+  <p class="title">5. Пример сложных сайтов</p>
+  <br/>
+  <div>
+    <a class="iframe-link" href="https://sumi.fillinglife.co/en/" target="__blank">sumi.fillinglife.co</a>
+    <iframe src="https://sumi.fillinglife.co/en/" width="100%" height="600" allowtransparency frameborder="0"></iframe>     
+  </div>
+</div>
+
+<br/>
+
+<blockquote cite="http://www.worldwildlife.org/who/index.html">
+Макет - это сюжет, а мы пишем под него сценарий
+</blockquote>
+
+
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.0/gsap.min.js"></script>
+<script src="https://greensock.com/js/v3/ScrollTrigger.min.js"></script>
+
+<script>
+
+  gsap.registerPlugin(ScrollTrigger);
+  
+  let tl = gsap.timeline({
+    scrollTrigger: {      
+      trigger: ".desktop",
+      start: "top center",
+      end: "200%",
+      markers: true,
+      toggleActions: "restart pause reverse pause",
+      pin: false,      
+      scrub: 1      
+    }
+  });
+  
+  tl.to(".desktop", {scale: 2, rotation: 360})
+  	.to(".desktop", {scale: 1});
+  
+	
+</script>

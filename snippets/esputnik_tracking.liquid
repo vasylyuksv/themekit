@@ -1,0 +1,16 @@
+{% if customer != null %}
+<span id="EsMail" style="display:none">{{ customer.email }}</span>
+<span id="EsPhone" style="display:none">{{ customer.phone }}</span>
+{% endif %}
+<script>!function(t,e,c,n){    var s=e.createElement(c);s.async=1,        s.src='https://script.esputnik.com/' + n + '/sc.js';    var r=e.scripts[0];    r.parentNode.insertBefore(s,r);}(window,document,'script', '8D9AAD1EA85D4B8F9B50EFAA20B207E3');</script>
+<script src="{{ 'esputnik_tracking.js' | asset_url }}"></script>
+
+{% if settings.is_prod == '1' %}
+<script>
+    var ESConf = {
+        PAGE_TYPE_CART: 'cart',
+        requestPage: {{ request.page_type | json }},
+        orderName: {{ checkout.order_name | json }}
+    };
+</script>
+{% endif %}

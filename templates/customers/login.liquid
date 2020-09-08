@@ -1,0 +1,81 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-offset-5 col-lg-6 col-md-offset-3 col-md-10 col-xs-16">
+      <div class="form-message form-message--success hide" id="ResetSuccess" tabindex="-1">
+        {{ 'customer.recover_password.success' | t }}
+      </div>
+      <div id="CustomerLoginForm" class="form-vertical">
+        <h1 id="LoginHeading" class="text-center">{{ 'customer.login.title' | t }}</h1>
+        <p class="text-center text-help">
+          Немає профілю? <a href="/account/register" style="text-decoration: underline; font-weight: bolder;">Зареєструйся</a>
+        </p>
+
+        <div>
+
+            <div class="text-center text-help"><p>Увійти за допомогою</p></div>
+            <div class="c-fieldset c-fieldset--offset sn-btn-cont">
+              <a href="#" id="fbAuth" class="btn btn-primary btn-fb">Facebook</a>
+              <a href="#" id="googleAuth" class="btn btn-primary btn-google">Google</a>
+            </div>
+            <div id="snAuthError" class="form-error" style="margin-top: 20px;text-align: center;"></div>
+      
+            <div class="text-center"><p class="text-help">або</p></div>
+
+            <div id="sendSmsForm">
+                <label for="CustomerEmail">Телефон*</label>
+                <input type="text" class="fd-email c-field__input" id="loginPhone">
+                <div class="form-error dn" id="phoneError"></div>
+
+                <br /><br />
+                <button type="button" class="btn" id="sendSmsBtn">{%if shop.locale == 'ru' %}Далее{% else %}Продовжити{% endif %}</button>
+            </div>
+
+            <div id="confirmSmsForm" class="sms-form dn">
+                <label for="CustomerEmail">СМС-код*</label>
+                <input type="text" class="fd-email c-field__input" id="loginSms">
+                <div class="form-error dn" id="smsError"></div>
+                <div class="resend-lnks">
+                    <a href="#" class="sms-resend" id="resendSmsLnk">{%if shop.locale == 'ru' %}Отправить еще раз{% else %}Надіслати ще раз{% endif %}</a>
+                </div>
+
+                <br /><br />
+                <button type="button" class="btn" id="loginSmsBtn">{%if shop.locale == 'ru' %}Далее{% else %}Продовжити{% endif %}</button>
+            </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="{{ 'jquery.inputmask.bundle.min.js' | asset_url }}" defer></script>
+<script src="{{ 'login_phone.js' | asset_url }}" defer></script>
+
+{% assign sn__register = "login" %}
+{% include "sn__register" %}
+
+<script>
+    var LoginPhone = {
+        urlSms: 'https://{{ settings.bride_domain }}/api/customer/login-sms?lang={{ shop.locale }}',
+        urlSmsConfirm: 'https://{{ settings.bride_domain }}/api/customer/confirm-sms?lang={{ shop.locale }}',
+        cartItemsCount: {{ cart.item_count | json }},
+        msg: {
+            required: '{%if shop.locale == \'ru\' %}Необходимо заполнить поле{% else %}Необхідно заповнити поле{% endif %}',
+            incorrectPhone: '{%if shop.locale == \'ru\' %}Некорректный номер телефона{% else %}Некоректний номер телефону{% endif %}',
+            tryAgain: '{%if shop.locale == \'ru\' %}Ошибка, попробуйте еще раз{% else %}Помилка, спробуйте ще раз{% endif %}'
+        }
+    };
+</script>
+
+<style>
+    .dn {
+        display: none;
+    }
+    .sms-form .resend-lnks {
+        font-size: 12px;
+    }
+    .sms-form .resend-lnks .sms-resend {
+        float: right;
+    }
+</style>

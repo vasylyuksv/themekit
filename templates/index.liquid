@@ -1,0 +1,122 @@
+{% section 'index-slider_ua' %}
+
+<div class="container-fliud page-glo-nano__bg block-mb homepage__changing">
+   <div class="container">
+      <div class="row">
+         <div class="col-lg-8 col-md-7">
+           <h2 class="none-border-after">ЗМІНЮЄМОСЯ РАЗОМ<br/><img src={{ "amp_000.svg" | asset_url }} class="amp-000"><span class="fw-600">більше</span></h2>
+            <p>Сучасне життя сповнене захоплюючих відкриттів. Ми створили технологію, що відкриває нові можливості та надихає до маленьких, але визначних змін, здатних збагатити твоє життя. Зустрічай пристрій glo, що змінює уяву про звичні способи споживання тютюну, і дає можливість насолодитися улюбленим смаком у новому форматі.</p>
+            <div class="info-product block-mb">
+               <div class="info-product__item">
+                  <img src={{ "complete-keyline.svg" | asset_url }} alt="Без диму">
+                  <p class=""> На 90% менше токсинів*</p>
+               </div>
+               <div class="info-product__item">
+                  <img src={{ "complete-keyline.svg" | asset_url }} alt="Без попелу">
+                  <p class="">Без диму, без попелу**</p>
+               </div>
+               <div class="info-product__item">
+                  <img src={{ "complete-keyline.svg" | asset_url }} alt="Відбірний, високоякісний тютюн">
+                  <p class="">Відбірний, високоякісний тютюн</p>
+               </div>
+            </div>
+            <a href="/pages/about" class="btn mB30" title="Про продукт">Дізнайся більше</a>
+         </div>
+        <div class="col-lg-8 col-md-9">
+        	<img class="homepage__changing--image" src={{ "demi_change.jpg" | asset_url }} alt="Сучасність вимагає постійних змін">
+        </div>
+      </div>
+   </div>
+</div>
+
+{% section 'home_product-slider_ua' %}
+
+
+
+<div class="container-fliud block-mb-lg">
+  <div class="container">
+    <div class="row">
+    	<div class="col-lg-16 test-drive__block">
+        <h3><span>Спробуй glo<span class="TM">TM</span><span class="dot">.</span></span> Безкоштовний тест-драйв</h3>
+        <a href="/pages/free-test-drive" class="btn btn-primary">
+        	Замовити
+        </a>
+      </div>
+	</div>
+   </div>
+</div>
+
+
+
+{% section 'video-slider' %}
+
+
+{% section 'home_instafeed_ua' %}
+
+{%comment%}
+<div class="container-fliud bg-grey block-mb">
+  <div class="container">
+    <div class="row">
+    	<div class="col-lg-16 test-drive__block">
+        <h3><span>Завітай у наші glo<span class="TM">TM</span><span class="dot">.</span></span> spaces</h3>
+        <a href="/pages/contact-us#go-buy" class="btn btn-primary btn--secondary-light">
+        Знайти на карті
+        </a>
+      </div>
+	</div>
+   </div>
+</div>
+{%endcomment%}
+
+<div class="container block-mb">
+  <div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-md-8">
+          <img data-src="{{ "map_stores-min.jpg" | asset_url }}" class="lazyload hidden-sm hidden-xs" alt="glo точки продажу">
+      	</div>
+    	<div class="col-lg-8  col-md-8 text-center--xs">
+          <h2>Де купити</h2>
+          <p>Знайдіть найближчий магазин, де можна придбати пристрій, тютюнові стіки або аксесуари</p>
+          <a href="/pages/contact-us#go-buy" class="btn">
+              Знайти на карті
+          </a>
+      	</div>
+	</div>
+   </div>
+</div>
+
+<div class="container block-mb">
+  <div class="container">
+    <div class="row">
+    	<div class="col-lg-16 text-center">
+        <h3 style="font-size: 21px;font-weight: 600;padding-bottom: 10px;">Офіційний бот бренду glo<span class="TM">TM</span> вже в Telegram!<br>Дізнавайся новини бренду та знаходь точки продажу поруч з тобою!</h3>
+          <div>
+          <a href="https://t.me/myglo_ua_bot" target="_blank">
+            <img src={{ "i-telegram-grey.svg" | asset_url }} alt="myglo_ua_bot">
+          </a>
+          </div>
+          <a href="https://t.me/myglo_ua_bot" class="btn btn-primary" target="_blank">Перейти</a>
+      </div>
+	</div>
+   </div>
+</div>
+
+
+<div class="container-fliud block-mb">
+  <div class="container">
+      <div class="row">
+        <div class="col-lg-16">
+        <div class="warning-text">
+           <p>* Порівняння диму від спаленого тютюну у стандартних сигаретах 3R4F (приблизно 9 мг смол) та аерозолю від нагрітого тютюну у пристрої glo™. Порівнюється 9 шкідливих компонентів, рекомендованих ВООЗ до зменшення. Це не обов’язково означає, що даний продукт є менш шкідливим, ніж інші тютюнові продукти.</p>
+           <p>** В порівнянні зі звичайною сигаретою під час куріння. Це не обов'язково означає, що цей продукт є менш шкідливим, ніж інші тютюнові продукти</p>
+          <p>*** В режимах Стандарт та Boost у порівнянні із попередніми моделями glo™ series 1, glo™ 2.0, glo™ 2.0 mini, glo™ nano</p>
+        </div>
+        </div>
+      </div>
+	</div>
+</div>
+{%comment%}  
+{{ content_for_index }}
+{%endcomment%}
+  
+<script src="{{ 'home.js' | asset_url }}"></script>

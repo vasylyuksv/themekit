@@ -1,0 +1,125 @@
+{{ 'landing-friends.scss.css' | asset_url | stylesheet_tag }}
+
+<section class="friends-main">
+  <div class="friends-main__bg">  	
+    <img class="friends-main__bg--desk" src={{ "friends-main-bg-1.png" | asset_url }}/>
+    <img class="friends-main__bg--mob" src={{ "friends-main-bg-2.png" | asset_url }}/>
+  </div>
+  <div class="container">
+    <h1 class="friends-main__title">
+      Приводь друзів <img src={{ "amp_000.svg" | asset_url }}/><br/>
+      Даруй знижки <img src={{ "amp_000.svg" | asset_url }}/><br/>
+      Отримуй бонуси<br/>
+      <div class="small"><img src={{ "amp_000.svg" | asset_url }}/> більше</div>
+    </h1>
+    
+    <p>Відтепер з друзями ще краще! З 10 серпня по 14 вересня 2020 року придбай пристрій для нагрівання тютюну glo™ pro/hyper або стартовий набір glo™ pro/hyper та даруй своєму другу можливість придбати glo™ hyper лише <b>за 299 грн</b>!</p>
+  </div>
+</section>
+
+<section class="friends-choose">
+  <h2 class="friends-choose__title">обери<br/> свій пристрій</h2>
+  <div class="friends-choose__devices">
+    <div class="friends-choose__hyper">
+      <div class="friends-choose__devices--wrapper">
+        <img src={{ "friends-choose-hyper.png" | asset_url }}/>
+        <div class="friends-choose__devices--title">Новий рівень насичення</div>
+        <a href="{{ pages['glo-hyper'].url }}" class="btn">ЗАМОВИТИ glo™ hyper</a>
+      </div>
+    </div>
+    
+    <div class="friends-choose__pro">
+      <div class="friends-choose__devices--wrapper">
+        <img src={{ "friends-choose-pro.png" | asset_url }}/>
+        <div class="friends-choose__devices--title">Вишуканий та компактний</div>
+        <a href="{{ pages['glo-pro'].url }}" class="btn">ЗАМОВИТИ glo™ pro</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="friends-todo">
+  <div class="container">
+    <h3 class="friends-todo__title">Що потрібно<br/> зробити:</h3>
+    
+    <div class="friends-todo__list">
+
+      <div class="friends-todo__item">
+        <div class="todo__item--img">
+          <img src={{ "friends-choose-icon-1.svg" | asset_url }}/>
+          <img class="todo__item--img-arrow" src={{ "friends-arrow-right.svg" | asset_url }}/>
+        </div>      
+        <div class="todo__item--descr"><b>1.</b> Купуй пристрій glo™ pro/hyper за 899 грн або стартовий набір glo™ pro/hyper за 999 грн</div>
+      </div>
+
+      <div class="friends-todo__item">
+        <div class="todo__item--img">        
+          <img class="todo__item--img-arrow" src={{ "friends-arrow-left.svg" | asset_url }}/>
+          <img src={{ "friends-choose-icon-2.svg" | asset_url }}/>
+        </div>      
+        <div class="todo__item--descr"><b>2.</b> Очікуй на дзвінок від служби підтримки, щоб залишити контакти свого повнолітнього друга* курця</div>
+      </div>
+
+      <div class="friends-todo__item">
+        <div class="todo__item--img">
+          <img src={{ "friends-choose-icon-3.svg" | asset_url }}/>
+          <img class="todo__item--img-arrow" src={{ "friends-arrow-right.svg" | asset_url }}/>
+        </div>      
+        <div class="todo__item--descr"><b>3.</b> Після верифікації віку друг отримує можливість придбати glo™ hyper за спеціальною ціною – <b>299 грн</b></div>
+      </div>
+
+      <div class="friends-todo__item">
+        <div class="todo__item--img">
+          <img src={{ "friends-choose-icon-4.svg" | asset_url }}/>
+        </div>      
+        <div class="todo__item--descr"><b>4.</b> Отримуй свій бонус**</div>
+      </div>
+
+    </div>
+    
+    
+    <div class="friends-todo__text">Пропозиція діє у фірмових магазинах glo™ studio або на <a href="/">сайті</a></div>
+  </div>
+</section>
+{%comment%}
+<section class="friends-map">
+  <div class="friends-map__left">
+    <div class="friends-map__left--wrapper">
+      <div class="friends-map__left--title">ШУКАТИ<br/> НАЙБЛИЖЧУ<br/> ТОЧКУ ПРОДАЖУ<br/> glo™</div>
+      <a href="" class="btn">ЗНАЙТИ glo™ stuido ПОРУЧ</a>
+    </div>
+  </div>
+  <div class="friends-map__right">
+  	<iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d20321.750685971758!2d30.536324654980472!3d50.45564951164831!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2sua!4v1597663032121!5m2!1sru!2sua" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+  </div>
+</section>
+{%endcomment%}
+<div class="friends-btnback">
+  <a href="" class="btn">Повернутись на головну </a>
+</div>
+
+<section class="friends-disclaimer">
+  <div class="container">
+    <div class="friends-disqlaimer__left">
+      *Друг – повнолітня особа споживач тютюну або нікотину яка пройшла верифікацію колл-центром або персоналом glo™ studio<br/>
+      **Під бонусами мається придбання обмеженого асортименту товарів за спеціальною ціновою пропозицією. Деталі на сайті або за номером 8008***<br/>
+      ****Дзвінки безкоштовні. Тільки для повнолітніх<br/>
+      Пропозиція діє при придбанні пристрою для нагрівання тютюну glo™ pro/hyper за 899 грн або стартового набору glo™ pro/hyper за 999 грн у фірмових магазинах glo™ studio або на сайті<br/>
+      В пропозиції не приймає участь пристрій glo hyper NATIV EDTN<br/>
+      <b>Ця продукція призначена для повнолітніх осіб які споживають тютюн або нікотин</b>
+    </div>
+    
+    <div class="friends-disqlaimer__right">
+      <div class="friends-disqlaimer__right--wrapper">
+        <h4 class="friends-disqlaimer__right--title">
+          Приводь друзів <img src={{ "amp_000.svg" | asset_url }}/><br/>
+          Даруй знижки <img src={{ "amp_000.svg" | asset_url }}/><br/>
+          Отримуй подарунки<br/>
+          <div class="small"><img src={{ "amp_000.svg" | asset_url }}/> більше</div>
+        </h4>
+        <a href="" class="btn">Умови пропозиції </a>
+      </div>
+    </div>
+  </div>
+</section>
+

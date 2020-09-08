@@ -1,0 +1,134 @@
+{% if settings.is_prod == '1' %}
+    <script type="text/javascript">
+      var pwScript;
+      
+      if(allowStatCounters) {
+          // landing.txt
+          console.log('[Postview] landing');
+          (_gdeaq = window._gdeaq || []).push(['nc', 'false']);
+          (_gdeaq = window._gdeaq || []).push(['cmp', 'false'], ['gdpr_consent', '']);
+          (_gdeaq = window._gdeaq || []).push(['pageView', 'gde-default', '0thKgedlR8PxBVNpH4V7OLb.zST88WctnVuIiZ4ItD3.Y7']);
+          // end landing.txt
+
+        // all admixer
+          pwScript = document.createElement('script')
+          pwScript.setAttribute('src', '//inv-dmp.admixer.net/dmpcnt.js?cntoid=bf4be9d4-1bd9-4cf0-a70b-2a8d46b33d2b')
+          pwScript.setAttribute('async', 'async')
+          document.body.appendChild(pwScript)
+        // end all admixer
+      }
+
+
+      // busket.txt
+      if(window.location.pathname.replace(/\/$/, "") === '/cart') {
+        console.log('[Postview] baket');
+        (_gdeaq = window._gdeaq || []).push(['nc', 'false']);
+        (_gdeaq = window._gdeaq || []).push(['cmp', 'false'], ['gdpr_consent', '']);
+        (_gdeaq = window._gdeaq || []).push(['pageView', 'gde-default', 'bDfgG1AWWzxWsdwwshHmluUVzdspPGcxgk9o7pR1TOj.p7']);
+
+
+          pwScript = document.createElement('script')
+          pwScript.setAttribute('src', '//inv-dmp.admixer.net/dmpcnt.js?cntoid=8f1264b9-c210-46db-937c-35f314bc05ea')
+          pwScript.setAttribute('async', 'async')
+          document.body.appendChild(pwScript)
+      }
+      // end busket.txt
+
+      // buy.txt
+      if(Shopify.Checkout && Shopify.Checkout.step === 'thank_you') {
+        console.log('[Postview] buy');
+        (_gdeaq = window._gdeaq || []).push(['nc', 'false']);
+        (_gdeaq = window._gdeaq || []).push(['cmp', 'false'], ['gdpr_consent', '']);
+        (_gdeaq = window._gdeaq || []).push(['pageView', 'gde-default', 'bJ3qH1A4N1VcHlOpGyoD_JewLeUsdydiZ4C4wis0pEH.17']);
+
+
+          pwScript = document.createElement('script')
+          pwScript.setAttribute('src', '//inv-dmp.admixer.net/dmpcnt.js?cntoid=5893063e-9d85-48dd-9d00-143d114cf0d5')
+          pwScript.setAttribute('async', 'async')
+          document.body.appendChild(pwScript)
+      }
+      // end buy.txt
+
+      // mclaren.txt
+      if(window.location.pathname.replace(/\/$/, "") === '/products/glo-nano-mclaren') {
+        console.log('[Postview] mclaren');
+          pwScript = document.createElement('script')
+          pwScript.setAttribute('src', '//inv-dmp.admixer.net/dmpcnt.js?cntoid=29082a8e-1595-443c-8721-9f82e3b50bea')
+          pwScript.setAttribute('async', 'async')
+          document.body.appendChild(pwScript)
+      }
+      // end mclaren.txt
+
+      // glo-nano.txt
+      if(window.location.pathname.replace(/\/$/, "") === '/products/glo-nano') {
+          console.log('[Postview] glo-nano');
+          pwScript = document.createElement('script')
+          pwScript.setAttribute('src', '//inv-dmp.admixer.net/dmpcnt.js?cntoid=737d3fd0-6493-4447-84d7-59de4c42fb29')
+          pwScript.setAttribute('async', 'async')
+          document.body.appendChild(pwScript)
+      }
+      // end glo-nano.txt
+
+      // glo-pro.txt
+      if(window.location.pathname.replace(/\/$/, "") === '/collections/all') {
+          console.log('[Postview] glo-pro');
+          pwScript = document.createElement('script')
+          pwScript.setAttribute('src', '//inv-dmp.admixer.net/dmpcnt.js?cntoid=dda0dab0-ffab-4f00-8670-1831ff9136c5')
+          pwScript.setAttribute('async', 'async')
+          document.body.appendChild(pwScript)
+      }
+      // end glo-pro.txt
+
+      // glo-pro.txt
+      if(window.location.pathname.replace(/\/$/, "") === '/products/glo-pro-kit') {
+          console.log('[Postview] glo-pro');
+          pwScript = document.createElement('script')
+          pwScript.setAttribute('src', '//inv-dmp.admixer.net/dmpcnt.js?cntoid=f9960a7f-8357-4ac0-8bf6-c07a168c5f69')
+          pwScript.setAttribute('async', 'async')
+          document.body.appendChild(pwScript)
+      }
+      // end glo-pro.txt
+
+      if(window.location.pathname.replace(/\/$/, "") === '/collections/accessories') {
+          console.log('[Postview] accessories');
+          pwScript = document.createElement('script')
+          pwScript.setAttribute('src', '//inv-dmp.admixer.net/dmpcnt.js?cntoid=21a2b70d-238f-4d23-879e-da511e3714b1')
+          pwScript.setAttribute('async', 'async')
+          document.body.appendChild(pwScript)
+      }
+
+      if(window.location.pathname.replace(/\/$/, "") === '/pages/contact-us') {
+          console.log('[Postview] contact-us');
+          pwScript = document.createElement('script')
+          pwScript.setAttribute('src', '//inv-dmp.admixer.net/dmpcnt.js?cntoid=26c29ab3-8e04-4865-8f1a-f439ef27baa7')
+          pwScript.setAttribute('async', 'async')
+          document.body.appendChild(pwScript)
+      }
+
+      if(window.location.pathname.replace(/\/$/, "") === '/collections/neosticks') {
+          console.log('[Postview] neosticks');
+          pwScript = document.createElement('script')
+          pwScript.setAttribute('src', '//inv-dmp.admixer.net/dmpcnt.js?cntoid=f61321e3-7b9e-4316-a91f-8ad692924cee')
+          pwScript.setAttribute('async', 'async')
+          document.body.appendChild(pwScript)
+      }
+
+      if(window.location.pathname.replace(/\/$/, "") === '/pages/free-test-drive') {
+          console.log('[Postview] free-test-drive');
+          pwScript = document.createElement('script')
+          pwScript.setAttribute('src', '//inv-dmp.admixer.net/dmpcnt.js?cntoid=73c56d01-7494-49c1-b1c2-cd7b92847bc7')
+          pwScript.setAttribute('async', 'async')
+          document.body.appendChild(pwScript)
+      }
+      
+      if(window.location.pathname.replace(/\/$/, "") === '/pages/glo-pro-aware') {
+          console.log('[Postview] free-test-drive');
+          pwScript = document.createElement('script')
+          pwScript.setAttribute('src', '//inv-dmp.admixer.net/dmpcnt.js?cntoid=f9960a7f-8357-4ac0-8bf6-c07a168c5f69')
+          pwScript.setAttribute('async', 'async')
+          document.body.appendChild(pwScript)
+      }
+
+    </script>
+    <script type="text/javascript" src="//gde-default.hit.gemius.pl/gdejs/xgde.js"> </script>
+{% endif %}

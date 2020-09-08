@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="53px" height="53px" viewBox="0 0 53 53" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+  <desc>Created with Lunacy</desc>
+  <defs>
+    <filter id="filter_1">
+      <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.7764706 0 0 0 0 0.7764706 0 0 0 0 0.7764706 0 0 0 1 0" />
+    </filter>
+  </defs>
+  <g id="taste" transform="translate(0.5 0.5)" filter="url(#filter_1)">
+    <path d="M51.8596 25.9298C51.8596 11.609 40.2506 0 25.9298 0C11.609 0 0 11.609 0 25.9298C0 40.2506 11.609 51.8596 25.9298 51.8596C40.2506 51.8596 51.8596 40.2506 51.8596 25.9298Z" id="Stroke-1" fill="none" stroke="#2A2C2C" stroke-width="1" />
+    <path d="M1.58876 15.7332C1.58876 15.7332 16.597 17.9084 16.8868 0C16.8868 0 -3.41386 0.07266 0.501376 12.4706" transform="translate(23.824219 20.968018)" id="Stroke-1" fill="none" stroke="#2A2C2C" stroke-width="0.84" />
+    <path d="M12.978 0C12.978 0 1.81272 3.48012 0 13.6307" transform="translate(21.714844 25.825684)" id="Stroke-3" fill="none" stroke="#2A2C2C" stroke-width="0.84" />
+    <path d="M9.71544 6.30798C9.71544 6.30798 7.97538 0.07266 0 0C0 0 1.3776 12.0238 9.71544 9.9939" transform="translate(12 25.82544)" id="Stroke-5" fill="none" stroke="#2A2C2C" stroke-width="0.84" />
+    <path d="M3.6796 9.1434C3.6796 9.1434 8.26012 5.84346 1.73122 0C1.73122 0 -2.83376 7.27062 2.86186 9.39918" transform="translate(20.585938 15)" id="Stroke-7" fill="none" stroke="#2A2C2C" stroke-width="0.84" />
+    <path d="M0 0C0 0 5.6343 2.9883 6.29706 7.3668" transform="translate(15.9140625 30.103271)" id="Stroke-9" fill="none" stroke="#2A2C2C" stroke-width="0.84" />
+    <path d="M0 0C0 0 0.05376 3.30078 2.20794 6.60156" transform="translate(23.152344 19.504883)" id="Stroke-11" fill="none" stroke="#2A2C2C" stroke-width="0.84" />
+  </g>
+</svg>

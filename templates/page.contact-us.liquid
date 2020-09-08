@@ -1,0 +1,95 @@
+<div class="container-fliud block-mb">
+   <div class="container">
+      <div class="row">
+         <div class="col-lg-16">
+            <h1>Контактна інформація</h1>
+         </div>
+      </div>
+      <div class="row block-mb">
+         <div class="col-lg-8">
+            <div class="contacts__item">
+               <div class="contacts">
+                  <p class="contacts__caption">Контакти відділу підтримки</p>
+                  <p class="contacts__text contacts__text-phone"><span style="margin-right: 10px;">Телефон:</span> <a href="tel:0800509080" aria-describedby="a11y-external-message">0-800-50-90-80</a> або <a href="tel:8008" aria-describedby="a11y-external-message">8008</a>*</p>
+                  <p class="contacts__text"><span style="margin-right: 33px;">Email:</span> <a href="mailto:info@myglo.com.ua" aria-describedby="a11y-external-message">info@myglo.com.ua</a></p>
+                  <p class="contacts__text contacts__text-phone"><span style="margin-right: 10px;">Графік роботи:</span> Пн-Нд: з 9:00 до 22:00</p>
+                  <p class="contacts__text"><span style="font-size: 12px; color: #7f7f7f;">*Дзвінки безкоштовні. Тільки для повнолітніх</span></p>
+                  <br>
+                  <p class="contacts__caption">Маєш питання?</p>
+                  <p>Спочатку спробуй знайти відповідь у розділі</p>
+                  <a class="contacts__link" href="/pages/faq">FAQ <img src="//cdn.shopify.com/s/files/1/0072/8111/5254/t/5/assets/arrow-right.svg?v=43403637570053001"></a>
+               </div>
+            </div>
+         </div>
+         <div class="col-lg-8">
+            <div class="contact-form form-vertical">
+               {%- assign formId = 'ContactForm' -%}
+               {% form 'contact', id: formId %}
+               {% render 'form-status', form: form, form_id: formId %}
+               <div class="grid grid--half-gutters">
+                  <div class="grid__item medium-up--one-half">
+                     <label for="{{ formId }}-name">{{ 'contact.form.name' | t }}</label>
+                     <input type="text" id="{{ formId }}-name" name="contact[name]" value="{% if form[name] %}{{ form[name] }}{% elsif customer %}{{ customer.name }}{% endif %}">
+                  </div>
+                  <div class="grid__item medium-up--one-half">
+                     <label for="{{ formId }}-email">{{ 'contact.form.email' | t }} <span aria-hidden="true">*</span></label>
+                     <input
+                     type="email"
+                     id="{{ formId }}-email"
+                     name="contact[email]"
+                     autocorrect="off"
+                     autocapitalize="off"
+                     value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+                     aria-required="true"
+                     {%- if form.errors contains 'email' -%}
+                     class="input--error"
+                     aria-invalid="true"
+                     aria-describedby="{{ formId }}-email-error"
+                     {%- endif -%}
+                     >
+                     {%- if form.errors contains 'email' -%}
+                     <span id="{{ formId}}-email-error" class="input-error-message">
+                     <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
+                     {% render 'icon-error' %}
+                     <span>{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}.</span>
+                     </span>
+                     {%- endif -%}
+                  </div>
+               </div>
+               <label for="{{ formId }}-phone">{{ 'contact.form.phone' | t }}</label>
+               <input type="tel" id="{{ formId }}-phone" name="contact[phone]" pattern="[0-9\-]*" value="{% if form[phone] %}{{ form[phone] }}{% elsif customer %}{{ customer.phone }}{% endif %}">
+               <label for="{{ formId }}-message">{{ 'contact.form.message' | t }}</label>
+               <textarea rows="5" id="{{ formId }}-message" name="contact[body]">{% if form.body %}{{ form.body }}{% endif %}</textarea>
+               <div class="c-fieldset c-fieldset--offset c-fieldset--single-offset"  style="margin-top: 20px;">
+                  <div class="c-fieldset__item c-fieldset__item--check u-1/1">
+                     <input type="checkbox"
+                        requred
+                        name="customer_agreement_contact"
+                        id="customer_agreement_contact">
+                     <label for="customer_agreement_contact" class="c-fieldset__check-label"></label>
+                     <span style="font-size: 12px;position: absolute;">Я погоджуюсь з умовами обробки моїх персональних даних, викладених в <a href="/pages/ugoda-z-korystuvachem#conf" target="_blank">Положенні про конфіденційність</a></span>
+                  </div>
+               </div>
+               <div class="text-center">
+                  <input type="submit" class="btn" style="max-width: 300px;" value="{{ 'contact.form.submit' | t }}">
+               </div>
+               {% endform %}
+            </div>
+         </div>
+      </div>
+      <div class="map_homepage map_homepage__contact" id="go-buy">
+         2222{% include 'map' %}
+      </div>
+
+   </div>
+</div>
+<div class="container block-mb-lg">
+  <div class="container">
+    <div class="row">
+    	<div class="col-lg-16 text-center">
+        <h3 style="font-size: 21px;font-weight: 600;padding-bottom: 10px;">Офіційний бот бренду glo<span class="TM">TM</span> вже в Telegram!<br>Дізнавайся новини бренду та знаходь точки продажу поруч з тобою!</h3>
+        <a href="https://t.me/myglo_ua_bot" class="btn btn-primary" target="_blank">Перейти</a>
+      </div>
+	</div>
+   </div>
+</div>

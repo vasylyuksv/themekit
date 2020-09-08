@@ -1,0 +1,88 @@
+<section class="nativ-main">
+  <div class="nativ-main__bg">
+  	<img src={{ "nativ-main_label.svg" | asset_url }}/>
+  </div>
+  <div class="container nativ-main__descr--container">
+    <div class="nativ-main__descr">
+
+      <div class="nativ-main__descr-title">
+        {{ 'nativ-main_title-1' | t }} <img src={{ "amp_fff.svg" | asset_url }}/><br/>
+        {{ 'nativ-main_title-2' | t }} <img src={{ "amp_fff.svg" | asset_url }}/><br/>
+        {{ 'nativ-main_title-3' | t }} <br/>
+        <img src={{ "amp_fff.svg" | asset_url }}/> <span>{{ 'nativ-main_title-4' | t }}</span>
+      </div>
+
+      <div class="nativ-main__descr--wrapper">
+        <div class="nativ-main__descr-summ">
+          <div class="summ-text">{{ 'nativ-main_descr-title' | t }}</div>
+          <div class="summ-value">
+            <div>599</div>
+            <span>грн</span>
+          </div>
+        </div>
+
+        <a href="" class="btn btn--secondary-light btn--nativ">{{ 'nativ-main_btn-1' | t }}</a>
+
+        <div class="nativ-main__descr-text">
+          {%if shop.locale == 'uk' %}
+          	Або купуй у<span class="nativ-main__descr-text--desk"> фірмовому магазині</span> glo™ studio
+          {% else %}
+          	Або купуй у<span class="nativ-main__descr-text--desk"> фірмовому магазині</span> glo™ studio
+          {% endif %}          
+        </div>
+
+        <a href="" class="btn btn--secondary-light btn--nativ">{{ 'nativ-main_btn-2' | t }}</a>
+      </div>     
+
+    </div>
+    
+    <div class="nativ-main__disclaimer">
+      <p>{{ 'nativ-main_disclaimer-1' | t }}</p>
+      <p>{{ 'nativ-main_disclaimer-2' | t }}</p>
+    </div>
+  </div>
+</section>
+
+
+{% schema %}
+  {
+	"locales": {
+      "uk": {
+        "nativ-main_title-1": "Легендарні міста",
+        "nativ-main_title-2": "Сучасні культури",
+        "nativ-main_title-3": "Відчуття свободи",
+        "nativ-main_title-4": "більше",
+        "nativ-main_descr-title": "Ексклюзивна пропозиція",
+        "nativ-main_btn-1": "Замовляй онлайн",
+        "nativ-main_btn-2": "Знайти найближчий магазин",
+        "nativ-main_disclaimer-1": "* Нова лімітована лінійка glo HYPER Нейтів glo™ призначений для повнолітніх споживачів тютюну або нікотину.",
+        "nativ-main_disclaimer-2": "Пропозиція доступна тільки в магазинах glo™ studio та на myglo.com.ua"
+      		},
+      "ru": {
+        "nativ-main_title-1": "Легендарні міста",
+        "nativ-main_title-2": "Сучасні культури",
+        "nativ-main_title-3": "Відчуття свободи",
+        "nativ-main_title-4": "більше",
+        "nativ-main_descr-title": "Ексклюзивна пропозиція",
+        "nativ-main_btn-1": "Замовляй онлайн",
+        "nativ-main_btn-2": "Знайти найближчий магазин",
+        "nativ-main_disclaimer-1": "* Нова лімітована лінійка glo HYPER Нейтів glo™ призначений для повнолітніх споживачів тютюну або нікотину.",
+        "nativ-main_disclaimer-2": "Пропозиція доступна тільки в магазинах glo™ studio та на myglo.com.ua"
+      		},
+      "en": {		
+        "nativ-main_title-1": "Легендарні міста",
+        "nativ-main_title-2": "Сучасні культури",
+        "nativ-main_title-3": "Відчуття свободи",
+        "nativ-main_title-4": "більше",
+        "nativ-main_descr-title": "Ексклюзивна пропозиція",
+        "nativ-main_btn-1": "Замовляй онлайн",
+        "nativ-main_btn-2": "Знайти найближчий магазин",
+        "nativ-main_disclaimer-1": "* Нова лімітована лінійка glo HYPER Нейтів glo™ призначений для повнолітніх споживачів тютюну або нікотину.",
+        "nativ-main_disclaimer-2": "Пропозиція доступна тільки в магазинах glo™ studio та на myglo.com.ua"
+      		}
+  	},
+
+    "name": "Section name",
+    "settings": []
+  }
+{% endschema %}

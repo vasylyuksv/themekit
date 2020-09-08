@@ -1,0 +1,359 @@
+.page-glo-hyper__bgheader #PageContainer {
+	padding-top: 0;
+}
+.page-glo-hyper__bg {
+	background: url('../assets/glo-hyper-header.png') center bottom;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 768px) {
+	.page-glo-hyper__bg {
+		background: url('../assets/glo-hyper-header_xs.png?v1') left top;
+		background-size: cover;
+	}
+	.page-glo-hyper__bg .page__title {
+		padding-top: 900px;
+		;
+	}
+}
+
+@media screen and (max-width: 640px) {
+	.page-glo-hyper__bg .page__title {
+		padding-top: 740px;
+	}
+}
+
+@media screen and (max-width: 560px) {
+	.page-glo-hyper__bg .page__title {
+		padding-top: 660px;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.page-glo-hyper__bg .page__title {
+		padding-top: 580px;
+      	font-size: 28px;
+	}
+}
+
+@media screen and (max-width: 420px) {
+	.page-glo-hyper__bg .page__title {
+		padding-top: 500px;
+	}
+}
+
+@media screen and (max-width: 375px) {
+	.page-glo-hyper__bg .page__title {
+		padding-top: 460px;
+	}
+}
+
+@media screen and (max-width: 360px) {
+	.page-glo-hyper__bg .page__title {
+		padding-top: 440px;
+	}
+}
+
+@media screen and (max-width: 320px) {
+	.page-glo-hyper__bg .page__title {
+		padding-top: 420px;
+	}
+	.info-product .info-product__item p {
+		font-size: 18px;
+	}
+}
+
+.title__bold {
+	font-size: 28px;
+	font-weight: bolder;
+	margin: 0 0 19.44444px;
+}
+
+.fff-md {
+	color: #fff;
+}
+
+.iframe-container {
+	overflow: hidden;
+	padding-top: 40%;
+	position: relative;
+}
+
+@media screen and (max-width: 1024px) {
+	.iframe-container {
+		padding-top: 55%;
+		margin-bottom: 20px;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.iframe-container {
+		padding-top: 54%;
+	}
+}
+
+@media screen and (max-width: 667px) {
+	.iframe-container {
+		padding-top: 53%;
+	}
+}
+
+.iframe-container iframe {
+	border: 0;
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+.terr_bg,
+.pinapple_bg,
+.redberry_bg,
+.brill_bg {
+	padding: 0;
+	margin: 0;
+	height: 515px;
+}
+
+.terr_bg {
+	background: url('../assets/terr_bg-min.png') no-repeat 100% 100%;
+	background-size: cover;
+}
+
+.pinapple_bg {
+	background: url('../assets/pinapple_bg-min.png') no-repeat 100% 100%;
+	background-size: cover;
+}
+
+.redberry_bg {
+	background: url('../assets/redberry_bg-min.png') no-repeat 100% 100%;
+	background-size: cover;
+}
+
+.brill_bg {
+	background: url('../assets/brill_bg-min.png') no-repeat 100% 100%;
+	background-size: cover;
+}
+
+.terr_bg_xs {
+	background: url('../assets/terr_bg_xs.png') no-repeat;
+	background-size: cover;
+	margin-bottom: 20px;
+}
+
+.pinapple_bg_xs {
+	background: url('../assets/pinapp_bg_xs.png') no-repeat;
+	background-size: cover;
+	margin-bottom: 20px;
+}
+
+.redberry_bg_xs {
+	background: url('../assets/redberry_bg_xs.png') no-repeat;
+	background-size: cover;
+	margin-bottom: 20px;
+}
+
+.brill_bg_xs {
+	background: url('../assets/berry_bg_xs.png') no-repeat;
+	background-size: cover;
+	margin-bottom: 20px;
+}
+
+.block__about-demi-pack {
+	background: #fff;
+	margin: 15px 20px;
+	padding: 20px;
+	height: 160px;
+}
+
+.block__img-demi-pack {
+	height: 290px;
+  padding-top: 40px;
+}
+
+
+
+.strong {
+	font-weight: 600;
+}
+
+.block__about-demi-pack p {
+	font-weight: 800;
+	margin-bottom: 10px;
+	font-size: 18px;
+}
+
+.block__about-demi-pack ul li {
+	list-style: disc;
+	margin-left: 18px;
+	font-size: 14px;
+}
+
+.hyper-test-drive__block {
+	margin: 15px auto;
+}
+
+.title__stick {
+	font-weight: bolder;
+	font-size: 24px;
+	text-align: center;
+	color: #fff;
+	padding-bottom: 20px;
+}
+
+.M0 {
+	margin: 0;
+}
+
+.p0 {
+	padding: 0;
+}
+
+.block_stick {
+	background: #3b4247;
+	padding: 40px 0 20px 0;
+}
+
+.img__bg {
+	background: linear-gradient(360deg, #ddd 80%, transparent 0%);
+	padding-bottom: 20px;
+}
+
+.lower-case {
+	text-transform: initial !important;
+}
+@media screen and (max-width: 768px) {
+	.block__img-demi-pack {
+		height: auto;
+	}
+	.block__about-demi-pack {
+		margin-top: 40px;
+	}
+}
+
+@media screen and (max-width: 667px) {
+	.block__img-demi-pack {
+		padding-top: 20px;
+      	padding-bottom: 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+	.block__about-demi-pack {
+        margin: 30px 0 10px 0;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 375px) {
+	.block__about-demi-pack p {
+		font-size: 16px;
+	}
+	.block__about-demi-pack {
+		padding: 10px;
+		height: auto;
+		margin: 25px 10px 15px 20px;
+	}
+}
+
+@media screen and (max-width: 320px) {
+  	.block__about-demi-pack p {
+		font-size: 14px;
+	}
+	.block__about-demi-pack {
+		padding: 10px;
+      	margin-top: 35px;
+	}
+	.block__img-demi-pack img {
+		max-width: 125%;
+    	padding-top: 20px;
+	}
+    .block__about-demi-pack ul li {
+		font-size: 13.8px;
+    }
+}
+
+
+/***** First Block *****/
+.glo-hyper__first-block .btn.btn-primary{
+  width: 290px;
+  margin: 0 auto 60px;
+  display: block;
+}	
+@media screen and (max-width: 767px){
+  .glo-hyper__first-block .btn.btn-primary{
+    width: 290px;
+    margin: 0 auto 60px;
+	display: block;
+  }	
+}
+.glo-hyper__first-block .fs-24{
+	font-size: 24px !important;
+  	line-height: 1;
+  	display: block;
+  	font-weight: 500;
+}
+.page__title--first{
+	margin-bottom: 20px;
+}
+.glo-hyper__first-block .page__title{
+	margin-bottom: 28px;
+}
+
+@media screen and (max-width: 767px){
+  .glo-hyper__first-block .page__title{
+  	text-shadow: 1px 1px 2px black, 0 0 1em black;
+  }
+  .page__title--first {
+  	position: absolute;
+    top: 40px;
+    left: 53%;
+  }
+}
+
+/***** First Block *****/
+
+
+/***** Block with Colors-series *****/
+@media screen and (min-width: 768px){
+  .glo-hyper__series-color{
+  	margin-top: 30px;
+  }
+  .glo-hyper__series-color .img__bg{
+    width: 100%;
+    padding-bottom: 44px;
+  }
+}
+
+/***** Block with Colors-series *****/
+
+
+/***** Block with Taste-series *****/
+.block_stick .block__about-demi-pack > p{
+	text-align: center;
+}
+@media screen and (min-width: 1200px){
+  .block_stick .block__about-demi-pack{
+  	margin: 15px 50px;
+    height: 190px;
+  }
+  .terr_bg, .pinapple_bg, .redberry_bg, .brill_bg{
+  	height: auto;
+    height: 545px;
+  }
+}
+@media screen and (max-width: 991px){
+  .block_stick > .row.m0:not(.pinapple_bg_xs){
+  	margin-bottom: 20px !important;
+  }
+  .block_stick > .row:first-child,
+  .block_stick > .row:last-child{
+  	margin: 0px;
+  }
+}
+
+/***** Block with Taste-series *****/
+
+
